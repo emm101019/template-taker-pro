@@ -198,7 +198,7 @@ function Index() {
                 </p>
                 <p className="mt-2 font-serif-alt text-5xl leading-[0.95] text-cream-foreground">
                   you need
-n                </p>
+                </p>
                 <p className="font-serif-alt text-5xl leading-[0.95] text-cream-foreground">
                   this month
                 </p>
