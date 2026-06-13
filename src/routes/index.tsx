@@ -2,12 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import social2026Asset from "@/assets/social-2026.png.asset.json";
 import bootsAsset from "@/assets/boots.png.asset.json";
-import facelessBizAsset from "@/assets/faceless-biz.png.asset.json";
-import latteOfferAsset from "@/assets/latte-offer.png.asset.json";
-import clarityAsset from "@/assets/clarity.png.asset.json";
-import brandingTipsAsset from "@/assets/branding-tips.png.asset.json";
-import contentStrategyAsset from "@/assets/content-strategy.png.asset.json";
-import brandStandsOutAsset from "@/assets/brand-stands-out.png.asset.json";
+import coquette1Asset from "@/assets/coquette-1.png.asset.json";
+import coquette2Asset from "@/assets/coquette-2.png.asset.json";
+import coquette5Asset from "@/assets/coquette-5.png.asset.json";
+import coquette6Asset from "@/assets/coquette-6.png.asset.json";
+import coquette7Asset from "@/assets/coquette-7.png.asset.json";
+import iced1Asset from "@/assets/iced-1.png.asset.json";
+import iced2Asset from "@/assets/iced-2.png.asset.json";
+import iced6Asset from "@/assets/iced-6.png.asset.json";
+import iced8Asset from "@/assets/iced-8.png.asset.json";
 
 const products = [
   {
@@ -15,28 +18,28 @@ const products = [
     phase: "73% sold",
     note: "Step-by-step templates and launch lessons.",
     cta: "See progress",
-    image: facelessBizAsset.url,
+    image: coquette5Asset.url,
   },
   {
     title: "Etsy Success Guide",
-    phase: "50% complete",
-    note: "Positioning, listings, and offer tweaks that convert.",
+    phase: "50% core",
+    note: "Positioning notes and listing tweaks that actually convert.",
     cta: "See progress",
-    image: brandStandsOutAsset.url,
+    image: iced6Asset.url,
   },
   {
     title: "Digital Product Bundle",
-    phase: "Scalable pack",
-    note: "My best-selling prompts, pages, and launch assets.",
+    phase: "Creator soon",
+    note: "A bundle of prompts, assets, and warm launch pages.",
     cta: "See progress",
-    image: latteOfferAsset.url,
+    image: coquette1Asset.url,
   },
   {
     title: "Pinterest Growth Kit",
-    phase: "Early access",
-    note: "Weekly visibility system for creators building quietly.",
+    phase: "Early stage",
+    note: "A proven content engine to grow traffic and get more sales.",
     cta: "See progress",
-    image: contentStrategyAsset.url,
+    image: iced8Asset.url,
   },
 ];
 
@@ -64,19 +67,14 @@ const resources = [
 ];
 
 const diaryEntries = [
-  { title: "How I priced my first digital product", date: "May 12" },
-  { title: "What actually moved my Etsy sales", date: "May 9" },
-  { title: "Designing a Canva pack people finish", date: "May 6" },
-  { title: "The five systems I wish I built sooner", date: "May 3" },
-  { title: "Planning content like a full-time creator", date: "Apr 29" },
+  { title: "How I Came Up With My First Digital Product Idea", date: "May 12" },
+  { title: "From 0 To My First Etsy Sale", date: "May 9" },
+  { title: "Designing My Canva Course Sneak Peek", date: "May 6" },
+  { title: "5 Things I Wish I Knew Before Starting", date: "May 3" },
+  { title: "How I Plan Content as a Full-Time Creator", date: "Apr 29" },
 ];
 
-const stripImages = [
-  brandingTipsAsset.url,
-  social2026Asset.url,
-  latteOfferAsset.url,
-  clarityAsset.url,
-];
+const stripImages = [coquette2Asset.url, social2026Asset.url, bootsAsset.url, iced6Asset.url];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -85,13 +83,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A creator diary homepage for digital products, content strategy, and warm editorial resources.",
+          "Blushbuild is a creator diary website for digital products, content strategy, freebies, and behind-the-scenes updates.",
       },
       { property: "og:title", content: "Blushbuild | Creator Diary" },
       {
         property: "og:description",
         content:
-          "A creator diary homepage for digital products, content strategy, and warm editorial resources.",
+          "Blushbuild is a creator diary website for digital products, content strategy, freebies, and behind-the-scenes updates.",
       },
     ],
   }),
@@ -103,7 +101,7 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground">
       <section className="border-b border-border bg-highlight">
         <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 text-center text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">
-          New here? Get the free creator starter kit ✨
+          New here? Get the free Etsy starter kit ✨
         </div>
       </section>
 
@@ -112,7 +110,7 @@ function Index() {
           <div>
             <p className="font-display text-3xl leading-none text-foreground">Blushbuild</p>
             <p className="mt-1 text-[0.7rem] uppercase tracking-[0.28em] text-muted-foreground">
-              Creator Diary
+              Studio
             </p>
           </div>
 
@@ -131,7 +129,7 @@ function Index() {
                 <a href="#resources">Freebies</a>
               </li>
               <li>
-                <a href="#journey">Shop</a>
+                <a href="#journey">Shop (soon)</a>
               </li>
               <li>
                 <a href="#join">About</a>
@@ -153,16 +151,15 @@ function Index() {
         </div>
       </section>
 
-      <section id="home" className="mx-auto max-w-7xl px-4 py-8 lg:px-6 lg:py-10">
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.55fr] lg:items-start">
-          <aside className="paper-panel flex h-full flex-col justify-center px-6 py-8 sm:px-8 lg:min-h-[36rem] lg:px-10">
+      <section id="home" className="home-shell mx-auto max-w-7xl px-4 py-8 lg:px-6 lg:py-10">
+        <div className="hero-layout">
+          <aside className="hero-intro">
             <p className="eyebrow">Welcome to my</p>
             <h1 className="mt-4 max-w-[10ch] font-display text-balance text-6xl leading-[0.88] text-foreground sm:text-7xl">
-              Creator Diary ♡
+              Creator Diary♡
             </h1>
             <p className="mt-5 max-w-sm text-base leading-7 text-muted-foreground">
-              Real journey. Real numbers. Building a digital product business from my laptop, one
-              offer, post, and launch at a time.
+              Real journey. Real numbers. Building a digital product empire from my laptop.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href="#journey" className="button-solid">
@@ -183,12 +180,12 @@ function Index() {
             </div>
           </aside>
 
-          <div className="grid gap-4 lg:grid-cols-[1.5fr_0.9fr_0.95fr]">
-            <article className="hero-card lg:row-span-2">
+          <div className="hero-board">
+            <article className="hero-main-card">
               <img
                 src={social2026Asset.url}
-                alt="Editorial creator image with a social media growth tip overlay"
-                className="hero-image"
+                alt="Editorial creator social media growth collage"
+                className="hero-main-image"
                 loading="eager"
               />
               <div className="hero-dots" aria-hidden="true">
@@ -198,53 +195,53 @@ function Index() {
               </div>
             </article>
 
-            <article className="stack-card">
+            <article className="hero-top-card">
               <img
-                src={bootsAsset.url}
-                alt="Cream boots editorial content prompt graphic"
+                src={coquette2Asset.url}
+                alt="Neutral creator lifestyle image with iced coffee"
                 className="tile-image"
                 loading="lazy"
               />
             </article>
 
-            <article className="stack-card tall-copy justify-end bg-photo-ink">
-              <div className="soft-overlay" />
-              <div className="relative z-10 p-5 text-right">
+            <article className="hero-copy-card">
+              <img
+                src={bootsAsset.url}
+                alt="Fashion editorial boots image"
+                className="hero-copy-image"
+                loading="lazy"
+              />
+              <div className="hero-copy-overlay" />
+              <div className="hero-copy-text">
                 <p className="font-display text-4xl leading-[0.95] text-cream-foreground">
                   Content prompts
                 </p>
-                <p className="mt-2 font-serif-alt text-5xl leading-[0.95] text-cream-foreground">
+                <p className="mt-1 font-serif-alt text-5xl leading-[0.94] text-cream-foreground">
                   you need
                 </p>
-                <p className="font-serif-alt text-5xl leading-[0.95] text-cream-foreground">
+                <p className="font-serif-alt text-5xl leading-[0.94] text-cream-foreground">
                   this month
                 </p>
               </div>
+            </article>
+
+            <article className="hero-note-card">
+              <div className="hero-note-icons" aria-hidden="true">
+                <div className="mini-folder">UGC-style content</div>
+                <div className="mini-folder">Interactive stories</div>
+              </div>
               <img
-                src={bootsAsset.url}
-                alt="Fashion boots editorial background"
-                className="absolute inset-0 h-full w-full object-cover"
+                src={coquette6Asset.url}
+                alt="Instagram strategy graphic with phone"
+                className="hero-note-image"
                 loading="lazy"
               />
             </article>
 
-            <article className="mini-note lg:col-start-2">
-              <span className="note-chip">Workbook</span>
-              <h2 className="mt-4 max-w-[14ch] font-serif-alt text-3xl leading-tight text-foreground">
-                This is what’s actually working on Instagram right now
-              </h2>
-              <div className="mt-6 grid grid-cols-2 gap-3 text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
-                <div className="mini-file">Vocab vault</div>
-                <div className="mini-file">Template bundle</div>
-                <div className="mini-file">Content calendar</div>
-                <div className="mini-file">Offer notes</div>
-              </div>
-            </article>
-
-            <article className="stack-card lg:col-start-3">
+            <article className="hero-pill-card">
               <img
-                src={brandingTipsAsset.url}
-                alt="Branding tips graphic on a soft neutral background"
+                src={coquette7Asset.url}
+                alt="Calendar content planning creator graphic"
                 className="tile-image"
                 loading="lazy"
               />
@@ -255,7 +252,7 @@ function Index() {
       </section>
 
       <section className="border-y border-border bg-panel">
-        <div className="mx-auto grid max-w-7xl gap-px bg-border px-px sm:grid-cols-2 lg:grid-cols-4">
+        <div className="stats-band mx-auto max-w-7xl">
           {[
             ["42+", "Products in progress"],
             ["12K+", "Followers across Pinterest & IG"],
@@ -271,36 +268,31 @@ function Index() {
       </section>
 
       <section id="journey" className="mx-auto max-w-7xl px-4 py-12 lg:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="section-kicker">What I’m building right now ✧</p>
-            <h2 className="section-title">
-              Behind the scenes of my digital product empire in the making.
-            </h2>
-          </div>
+        <div>
+          <p className="section-kicker">What I’m building right now ✧</p>
+          <h2 className="section-title">
+            Behind the scenes of my digital product empire in the making.
+          </h2>
         </div>
 
-        <div className="mt-7 grid gap-4 xl:grid-cols-[1.4fr_1.4fr_1.4fr_1.4fr_1.8fr]">
-          {products.map((product) => (
-            <article key={product.title} className="product-card">
-              <div className="relative overflow-hidden rounded-[1.4rem] border border-border bg-card">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="h-44 w-full object-cover"
-                  loading="lazy"
-                />
-                <span className="product-tag">{product.phase}</span>
-              </div>
-              <h3 className="mt-4 font-serif-alt text-2xl leading-tight text-foreground">
-                {product.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
-              <a href="#shop" className="product-link">
-                {product.cta} →
-              </a>
-            </article>
-          ))}
+        <div className="journey-grid mt-7">
+          <div className="journey-products">
+            {products.map((product) => (
+              <article key={product.title} className="product-card">
+                <div className="product-visual">
+                  <img src={product.image} alt={product.title} className="product-image" loading="lazy" />
+                  <span className="product-tag">{product.phase}</span>
+                </div>
+                <h3 className="mt-4 font-serif-alt text-2xl leading-tight text-foreground">
+                  {product.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
+                <a href="#journey" className="product-link">
+                  {product.cta} →
+                </a>
+              </article>
+            ))}
+          </div>
 
           <aside className="journal-card">
             <div className="journal-binding" aria-hidden="true" />
@@ -313,7 +305,7 @@ function Index() {
                   </h3>
                 </div>
                 <a
-                  href="#about"
+                  href="#join"
                   className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground"
                 >
                   View all
@@ -353,8 +345,8 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-7 grid gap-4 lg:grid-cols-[1.5fr_1fr]">
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="resource-layout mt-7">
+            <div className="resource-grid">
               {resources.map((resource) => (
                 <article key={resource.title} className="resource-card">
                   <div className="resource-cover">
@@ -364,42 +356,30 @@ function Index() {
                     </p>
                   </div>
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
-                  <a href="#freebies" className="product-link">
+                  <a href="#resources" className="product-link">
                     Get it free →
                   </a>
                 </article>
               ))}
             </div>
 
-            <aside className="feature-collage">
+            <aside className="spotlight-card">
               <img
-                src={facelessBizAsset.url}
-                alt="Notebook style content planning graphic"
-                className="feature-collage-main"
-                loading="lazy"
-              />
-              <img
-                src={brandStandsOutAsset.url}
-                alt="Brand building editorial graphic"
-                className="feature-collage-float feature-collage-left"
-                loading="lazy"
-              />
-              <img
-                src={clarityAsset.url}
-                alt="Brand clarity editorial graphic"
-                className="feature-collage-float feature-collage-right"
+                src={coquette1Asset.url}
+                alt="Creator collage with laptop, coffee, and fashion accessories"
+                className="spotlight-image"
                 loading="lazy"
               />
             </aside>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="strip-grid mt-8">
             {stripImages.map((image, index) => (
               <figure key={image} className="strip-frame">
                 <img
                   src={image}
                   alt={`Creator lifestyle detail ${index + 1}`}
-                  className="h-40 w-full object-cover"
+                  className="strip-image"
                   loading="lazy"
                 />
               </figure>
@@ -409,30 +389,18 @@ function Index() {
       </section>
 
       <section id="join" className="mx-auto max-w-7xl px-4 py-12 lg:px-6">
-        <div className="join-band">
-          <div className="join-polaroids" aria-hidden="true">
-            <img
-              src={contentStrategyAsset.url}
-              alt=""
-              className="join-polaroid rotate-[-8deg]"
-              loading="lazy"
-            />
-            <img
-              src={clarityAsset.url}
-              alt=""
-              className="join-polaroid rotate-[6deg]"
-              loading="lazy"
-            />
+        <div className="join-editorial">
+          <div className="join-strip">
+            <img src={iced2Asset.url} alt="Creator portrait card" className="join-mini-card rotate-[-7deg]" loading="lazy" />
+            <img src={coquette5Asset.url} alt="Floral creator inspiration photo" className="join-mini-card rotate-[4deg]" loading="lazy" />
           </div>
 
-          <div className="join-copy">
+          <div className="join-copy-panel">
             <p className="section-kicker">Join the studio ♡</p>
-            <h2 className="font-serif-alt text-5xl leading-none text-foreground">
-              Weekly creator notes
-            </h2>
+            <h2 className="font-serif-alt text-5xl leading-none text-foreground">Join The Studio</h2>
             <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
-              Get weekly creator updates, behind-the-scenes, free resources, and first access to new
-              products.
+              Get weekly creator updates, behind-the-scenes, free resources, and first access to
+              new products.
             </p>
             <form className="mt-6 flex flex-col gap-3 sm:flex-row">
               <input
@@ -453,11 +421,11 @@ function Index() {
             </div>
           </div>
 
-          <div className="join-side">
+          <div className="join-side-stack">
             <img
-              src={latteOfferAsset.url}
-              alt="Iced latte editorial graphic"
-              className="join-side-image"
+              src={iced1Asset.url}
+              alt="Content creation strategy inspiration graphic"
+              className="join-side-photo"
               loading="lazy"
             />
             <div className="quote-card">One idea + one laptop can change your whole life.</div>
