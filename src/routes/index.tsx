@@ -81,13 +81,13 @@ const stripImages = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cielo Rosa Studio | Creator Diary" },
+      { title: "Blushbuild | Creator Diary" },
       {
         name: "description",
         content:
           "A creator diary homepage for digital products, content strategy, and warm editorial resources.",
       },
-      { property: "og:title", content: "Cielo Rosa Studio | Creator Diary" },
+      { property: "og:title", content: "Blushbuild | Creator Diary" },
       {
         property: "og:description",
         content:
@@ -110,7 +110,7 @@ function Index() {
       <section className="border-b border-border bg-background/95 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-4 py-5 lg:px-6">
           <div>
-            <p className="font-display text-3xl leading-none text-foreground">Cielo Rosa</p>
+            <p className="font-display text-3xl leading-none text-foreground">Blushbuild</p>
             <p className="mt-1 text-[0.7rem] uppercase tracking-[0.28em] text-muted-foreground">
               Studio
             </p>
@@ -466,7 +466,7 @@ function Index() {
       </section>
 
       <footer className="border-t border-border bg-footer py-5 text-center text-xs tracking-[0.16em] text-footer-foreground uppercase">
-        © 2026 Cielo Rosa Studio — all rights reserved
+        © 2026 Blushbuild — all rights reserved
       </footer>
     </main>
   );
