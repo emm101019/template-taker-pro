@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cielo Rosa Studio" },
+      { title: "Blushbuild" },
       {
         name: "description",
         content:
           "Editorial creator diary website for digital products, content strategy, and freebies.",
       },
-      { name: "author", content: "Cielo Rosa Studio" },
-      { property: "og:title", content: "Cielo Rosa Studio" },
+      { name: "author", content: "Blushbuild" },
+      { property: "og:title", content: "Blushbuild" },
       {
         property: "og:description",
         content:
