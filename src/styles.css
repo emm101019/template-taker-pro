@@ -227,7 +227,9 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--color-primary-foreground);
-    transition: transform 180ms ease, opacity 180ms ease;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
   }
 
   .button-solid:hover {
@@ -452,7 +454,11 @@
   }
 
   .journal-binding {
-    background-image: radial-gradient(circle at center, var(--color-border) 0.18rem, transparent 0.2rem);
+    background-image: radial-gradient(
+      circle at center,
+      var(--color-border) 0.18rem,
+      transparent 0.2rem
+    );
     background-size: 100% 1.55rem;
     background-repeat: repeat-y;
     border-right: 1px solid var(--color-border);
@@ -476,8 +482,16 @@
     border-radius: 1rem;
     border: 1px solid var(--color-border);
     background:
-      linear-gradient(180deg, color-mix(in oklab, var(--color-card) 82%, white 18%), color-mix(in oklab, var(--color-highlight) 75%, var(--color-card) 25%)),
-      repeating-linear-gradient(90deg, transparent 0 2.5rem, color-mix(in oklab, var(--color-border) 55%, transparent) 2.5rem 2.56rem);
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--color-card) 82%, white 18%),
+        color-mix(in oklab, var(--color-highlight) 75%, var(--color-card) 25%)
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 2.5rem,
+        color-mix(in oklab, var(--color-border) 55%, transparent) 2.5rem 2.56rem
+      );
     padding: 1.25rem;
   }
 

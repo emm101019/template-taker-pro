@@ -71,7 +71,12 @@ const diaryEntries = [
   { title: "Planning content like a full-time creator", date: "Apr 29" },
 ];
 
-const stripImages = [brandingTipsAsset.url, social2026Asset.url, latteOfferAsset.url, clarityAsset.url];
+const stripImages = [
+  brandingTipsAsset.url,
+  social2026Asset.url,
+  latteOfferAsset.url,
+  clarityAsset.url,
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -113,12 +118,24 @@ function Index() {
 
           <nav aria-label="Primary" className="order-3 w-full lg:order-2 lg:w-auto">
             <ul className="flex flex-wrap items-center justify-center gap-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-foreground/80">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#journey">Journey</a></li>
-              <li><a href="#resources">Resources</a></li>
-              <li><a href="#resources">Freebies</a></li>
-              <li><a href="#journey">Shop</a></li>
-              <li><a href="#join">About</a></li>
+              <li>
+                <a href="#home">Home</a>
+              </li>
+              <li>
+                <a href="#journey">Journey</a>
+              </li>
+              <li>
+                <a href="#resources">Resources</a>
+              </li>
+              <li>
+                <a href="#resources">Freebies</a>
+              </li>
+              <li>
+                <a href="#journey">Shop</a>
+              </li>
+              <li>
+                <a href="#join">About</a>
+              </li>
             </ul>
           </nav>
 
@@ -144,8 +161,8 @@ function Index() {
               Creator Diary ♡
             </h1>
             <p className="mt-5 max-w-sm text-base leading-7 text-muted-foreground">
-              Real journey. Real numbers. Building a digital product business from my laptop,
-              one offer, post, and launch at a time.
+              Real journey. Real numbers. Building a digital product business from my laptop, one
+              offer, post, and launch at a time.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href="#journey" className="button-solid">
@@ -154,7 +171,7 @@ function Index() {
             </div>
             <div className="mt-8 flex items-center gap-4">
               <div className="flex -space-x-3">
-                {['A', 'C', 'R'].map((item) => (
+                {["A", "C", "R"].map((item) => (
                   <span key={item} className="avatar-chip">
                     {item}
                   </span>
@@ -257,7 +274,9 @@ function Index() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="section-kicker">What I’m building right now ✧</p>
-            <h2 className="section-title">Behind the scenes of my digital product empire in the making.</h2>
+            <h2 className="section-title">
+              Behind the scenes of my digital product empire in the making.
+            </h2>
           </div>
         </div>
 
@@ -273,7 +292,9 @@ function Index() {
                 />
                 <span className="product-tag">{product.phase}</span>
               </div>
-              <h3 className="mt-4 font-serif-alt text-2xl leading-tight text-foreground">{product.title}</h3>
+              <h3 className="mt-4 font-serif-alt text-2xl leading-tight text-foreground">
+                {product.title}
+              </h3>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
               <a href="#shop" className="product-link">
                 {product.cta} →
@@ -291,15 +312,23 @@ function Index() {
                     Notes from the week
                   </h3>
                 </div>
-                <a href="#about" className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                <a
+                  href="#about"
+                  className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground"
+                >
                   View all
                 </a>
               </div>
 
               <ul className="mt-6 space-y-4">
                 {diaryEntries.map((entry) => (
-                  <li key={entry.title} className="flex items-start justify-between gap-4 border-b border-border/70 pb-4 last:border-b-0 last:pb-0">
-                    <span className="max-w-[17rem] text-sm leading-6 text-foreground/85">{entry.title}</span>
+                  <li
+                    key={entry.title}
+                    className="flex items-start justify-between gap-4 border-b border-border/70 pb-4 last:border-b-0 last:pb-0"
+                  >
+                    <span className="max-w-[17rem] text-sm leading-6 text-foreground/85">
+                      {entry.title}
+                    </span>
                     <span className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
                       {entry.date}
                     </span>
@@ -330,7 +359,9 @@ function Index() {
                 <article key={resource.title} className="resource-card">
                   <div className="resource-cover">
                     <span className="resource-type">{resource.type}</span>
-                    <p className="font-serif-alt text-3xl leading-tight text-foreground">{resource.title}</p>
+                    <p className="font-serif-alt text-3xl leading-tight text-foreground">
+                      {resource.title}
+                    </p>
                   </div>
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
                   <a href="#freebies" className="product-link">
@@ -380,16 +411,28 @@ function Index() {
       <section id="join" className="mx-auto max-w-7xl px-4 py-12 lg:px-6">
         <div className="join-band">
           <div className="join-polaroids" aria-hidden="true">
-            <img src={contentStrategyAsset.url} alt="" className="join-polaroid rotate-[-8deg]" loading="lazy" />
-            <img src={clarityAsset.url} alt="" className="join-polaroid rotate-[6deg]" loading="lazy" />
+            <img
+              src={contentStrategyAsset.url}
+              alt=""
+              className="join-polaroid rotate-[-8deg]"
+              loading="lazy"
+            />
+            <img
+              src={clarityAsset.url}
+              alt=""
+              className="join-polaroid rotate-[6deg]"
+              loading="lazy"
+            />
           </div>
 
           <div className="join-copy">
             <p className="section-kicker">Join the studio ♡</p>
-            <h2 className="font-serif-alt text-5xl leading-none text-foreground">Weekly creator notes</h2>
+            <h2 className="font-serif-alt text-5xl leading-none text-foreground">
+              Weekly creator notes
+            </h2>
             <p className="mt-4 max-w-xl text-base leading-7 text-muted-foreground">
-              Get weekly creator updates, behind-the-scenes, free resources, and first access to
-              new products.
+              Get weekly creator updates, behind-the-scenes, free resources, and first access to new
+              products.
             </p>
             <form className="mt-6 flex flex-col gap-3 sm:flex-row">
               <input
@@ -417,9 +460,7 @@ function Index() {
               className="join-side-image"
               loading="lazy"
             />
-            <div className="quote-card">
-              One idea + one laptop can change your whole life.
-            </div>
+            <div className="quote-card">One idea + one laptop can change your whole life.</div>
           </div>
         </div>
       </section>

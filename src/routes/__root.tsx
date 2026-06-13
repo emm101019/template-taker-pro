@@ -80,13 +80,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Cielo Rosa Studio" },
       {
         name: "description",
-        content: "Editorial creator diary website for digital products, content strategy, and freebies.",
+        content:
+          "Editorial creator diary website for digital products, content strategy, and freebies.",
       },
       { name: "author", content: "Cielo Rosa Studio" },
       { property: "og:title", content: "Cielo Rosa Studio" },
       {
         property: "og:description",
-        content: "Editorial creator diary website for digital products, content strategy, and freebies.",
+        content:
+          "Editorial creator diary website for digital products, content strategy, and freebies.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
