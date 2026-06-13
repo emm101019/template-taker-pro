@@ -1,4 +1,3 @@
-
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -162,6 +161,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     letter-spacing: 0;
+    background-image: radial-gradient(circle at top, color-mix(in oklab, var(--color-highlight) 35%, transparent), transparent 34%);
   }
 
   a {
@@ -196,20 +196,16 @@
     background-color: var(--color-highlight);
   }
 
-  .bg-photo-ink {
-    background-color: var(--color-photo-ink);
-  }
-
-  .text-cream-foreground {
-    color: var(--color-cream-foreground);
-  }
-
   .bg-footer {
     background-color: var(--color-footer);
   }
 
   .text-footer-foreground {
     color: var(--color-footer-foreground);
+  }
+
+  .text-cream-foreground {
+    color: var(--color-cream-foreground);
   }
 }
 
@@ -219,7 +215,7 @@
     min-height: 2.9rem;
     align-items: center;
     justify-content: center;
-    border-radius: 0.2rem;
+    border-radius: 0.18rem;
     background-color: var(--color-primary);
     padding-inline: 1.2rem;
     font-size: 0.72rem;
@@ -244,29 +240,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
-    border: 1px solid var(--color-border);
-    background-color: var(--color-card);
+    border: 1px solid color-mix(in oklab, var(--color-border) 75%, transparent);
+    background-color: transparent;
     color: var(--color-foreground);
-  }
-
-  .paper-panel,
-  .hero-card,
-  .stack-card,
-  .mini-note,
-  .stat-card,
-  .product-card,
-  .resource-card,
-  .feature-collage,
-  .join-band,
-  .strip-frame,
-  .journal-card,
-  .quote-card {
-    box-shadow: 0 20px 50px -34px var(--color-paper-shadow);
-  }
-
-  .paper-panel {
-    border: 1px solid var(--color-border);
-    background-color: color-mix(in oklab, var(--color-card) 92%, white 8%);
   }
 
   .eyebrow,
@@ -288,36 +264,82 @@
 
   .avatar-chip {
     display: inline-flex;
-    height: 2.4rem;
-    width: 2.4rem;
+    height: 2.2rem;
+    width: 2.2rem;
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
     border: 2px solid var(--color-background);
     background-color: var(--color-accent);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 800;
     color: var(--color-accent-foreground);
   }
 
-  .hero-card,
-  .stack-card,
-  .mini-note,
-  .feature-collage,
-  .join-band,
-  .strip-frame {
+  .home-shell {
+    position: relative;
+  }
+
+  .hero-layout {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .hero-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .hero-board {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-main-card,
+  .hero-top-card,
+  .hero-copy-card,
+  .hero-note-card,
+  .hero-pill-card,
+  .product-card,
+  .resource-card,
+  .strip-frame,
+  .spotlight-card,
+  .journal-card,
+  .quote-card,
+  .join-mini-card,
+  .join-side-photo,
+  .hero-intro {
+    box-shadow: 0 20px 50px -34px var(--color-paper-shadow);
+  }
+
+  .hero-main-card,
+  .hero-top-card,
+  .hero-copy-card,
+  .hero-note-card,
+  .hero-pill-card,
+  .spotlight-card,
+  .strip-frame,
+  .join-side-photo {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--color-border);
     background-color: var(--color-card);
   }
 
-  .hero-card {
-    min-height: 36rem;
+  .hero-main-card {
+    min-height: 24rem;
   }
 
-  .hero-image,
-  .tile-image {
+  .hero-main-image,
+  .tile-image,
+  .hero-copy-image,
+  .spotlight-image,
+  .strip-image,
+  .hero-note-image,
+  .product-image {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -325,13 +347,13 @@
 
   .hero-dots {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0.9rem;
     left: 50%;
     display: inline-flex;
     transform: translateX(-50%);
     gap: 0.35rem;
     border-radius: 9999px;
-    background-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
+    background-color: color-mix(in oklab, var(--color-primary) 34%, transparent);
     padding: 0.45rem 0.55rem;
   }
 
@@ -346,89 +368,126 @@
     background-color: var(--color-cream-foreground);
   }
 
-  .stack-card {
-    min-height: 17.4rem;
+  .hero-top-card,
+  .hero-copy-card,
+  .hero-note-card,
+  .hero-pill-card {
+    min-height: 15rem;
   }
 
-  .stack-card.tall-copy {
-    min-height: 17.4rem;
+  .hero-copy-card {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: oklch(0.25 0.013 30.6);
   }
 
-  .soft-overlay {
+  .hero-copy-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--color-photo-ink) 20%, transparent),
-      color-mix(in oklab, var(--color-photo-ink) 58%, transparent)
-    );
+    background: linear-gradient(180deg, transparent, color-mix(in oklab, var(--color-photo-ink) 70%, transparent));
   }
 
-  .mini-note {
-    min-height: 17.4rem;
-    padding: 1.5rem;
-    background-color: color-mix(in oklab, var(--color-card) 84%, var(--color-highlight) 16%);
+  .hero-copy-text {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1;
+    max-width: 15rem;
+    text-align: right;
   }
 
-  .note-chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 9999px;
-    background-color: var(--color-accent);
-    padding: 0.35rem 0.75rem;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-accent-foreground);
+  .hero-note-card {
+    padding: 1rem;
+    background:
+      linear-gradient(180deg, color-mix(in oklab, var(--color-card) 90%, white 10%), color-mix(in oklab, var(--color-highlight) 88%, var(--color-card) 12%)),
+      repeating-linear-gradient(90deg, transparent 0 3.25rem, color-mix(in oklab, var(--color-border) 55%, transparent) 3.25rem 3.32rem),
+      repeating-linear-gradient(0deg, transparent 0 3.25rem, color-mix(in oklab, var(--color-border) 50%, transparent) 3.25rem 3.32rem);
   }
 
-  .mini-file {
+  .hero-note-icons {
     display: flex;
-    min-height: 4.5rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.8rem;
-    border: 1px solid var(--color-border);
-    background-color: color-mix(in oklab, var(--color-background) 85%, white 15%);
-    padding: 0.75rem;
-    text-align: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .mini-folder {
+    max-width: 7rem;
+    font-size: 0.74rem;
+    line-height: 1.25;
+    font-weight: 800;
+    color: var(--color-foreground);
+    text-transform: none;
+  }
+
+  .hero-note-image {
+    border-radius: 0.2rem;
   }
 
   .floating-pill {
     position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    max-width: 12rem;
-    border-radius: 1.4rem;
+    right: 0.9rem;
+    bottom: 0.9rem;
+    max-width: 11rem;
+    border-radius: 1.25rem;
     border: 1px solid var(--color-border);
-    background-color: color-mix(in oklab, var(--color-card) 90%, white 10%);
-    padding: 1rem 1.15rem;
+    background-color: color-mix(in oklab, var(--color-card) 92%, white 8%);
+    padding: 0.9rem 1rem;
     font-family: var(--font-serif-alt);
-    font-size: 1.75rem;
+    font-size: 1.55rem;
     line-height: 1.05;
     color: var(--color-foreground);
   }
 
+  .stats-band {
+    display: grid;
+    gap: 1px;
+    background-color: var(--color-border);
+    padding: 1px;
+  }
+
   .stat-card {
-    background-color: var(--color-card);
-    padding: 2rem 1.5rem;
+    background-color: color-mix(in oklab, var(--color-card) 94%, white 6%);
+    padding: 1.6rem 1.4rem;
+  }
+
+  .journey-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .journey-products {
+    display: grid;
+    gap: 1rem;
   }
 
   .product-card {
     border: 1px solid var(--color-border);
-    background-color: color-mix(in oklab, var(--color-card) 88%, white 12%);
+    background-color: color-mix(in oklab, var(--color-card) 94%, white 6%);
     padding: 1rem;
+  }
+
+  .product-visual {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.3rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-card);
+  }
+
+  .product-image {
+    height: 11rem;
   }
 
   .product-tag {
     position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    border-radius: 9999px;
-    background-color: color-mix(in oklab, var(--color-primary) 84%, transparent);
-    padding: 0.4rem 0.65rem;
-    font-size: 0.62rem;
+    top: 0.55rem;
+    right: 0.55rem;
+    border-radius: 0.45rem;
+    background-color: color-mix(in oklab, var(--color-primary) 85%, transparent);
+    padding: 0.35rem 0.55rem;
+    font-size: 0.58rem;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -454,11 +513,7 @@
   }
 
   .journal-binding {
-    background-image: radial-gradient(
-      circle at center,
-      var(--color-border) 0.18rem,
-      transparent 0.2rem
-    );
+    background-image: radial-gradient(circle at center, var(--color-border) 0.18rem, transparent 0.2rem);
     background-size: 100% 1.55rem;
     background-repeat: repeat-y;
     border-right: 1px solid var(--color-border);
@@ -468,30 +523,32 @@
     padding: 1.6rem;
   }
 
+  .resource-layout {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .resource-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
   .resource-card {
     border: 1px solid var(--color-border);
-    background-color: color-mix(in oklab, var(--color-card) 92%, white 8%);
+    background-color: color-mix(in oklab, var(--color-card) 94%, white 6%);
     padding: 1rem;
   }
 
   .resource-cover {
     position: relative;
     display: grid;
-    min-height: 14rem;
+    min-height: 13rem;
     align-items: center;
-    border-radius: 1rem;
+    border-radius: 0.25rem;
     border: 1px solid var(--color-border);
     background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--color-card) 82%, white 18%),
-        color-mix(in oklab, var(--color-highlight) 75%, var(--color-card) 25%)
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 2.5rem,
-        color-mix(in oklab, var(--color-border) 55%, transparent) 2.5rem 2.56rem
-      );
+      linear-gradient(180deg, color-mix(in oklab, var(--color-card) 82%, white 18%), color-mix(in oklab, var(--color-highlight) 78%, var(--color-card) 22%)),
+      repeating-linear-gradient(90deg, transparent 0 2.5rem, color-mix(in oklab, var(--color-border) 55%, transparent) 2.5rem 2.56rem);
     padding: 1.25rem;
   }
 
@@ -509,35 +566,14 @@
     color: var(--color-primary-foreground);
   }
 
-  .feature-collage {
-    min-height: 33rem;
+  .spotlight-card {
+    min-height: 22rem;
     background-color: color-mix(in oklab, var(--color-card) 85%, var(--color-highlight) 15%);
   }
 
-  .feature-collage-main {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .feature-collage-float {
-    position: absolute;
-    width: 38%;
-    border: 0.35rem solid color-mix(in oklab, var(--color-card) 94%, white 6%);
-    background-color: var(--color-card);
-    box-shadow: 0 18px 40px -30px var(--color-paper-shadow);
-  }
-
-  .feature-collage-left {
-    left: 1rem;
-    bottom: 1rem;
-    transform: rotate(-7deg);
-  }
-
-  .feature-collage-right {
-    right: 1rem;
-    top: 1rem;
-    transform: rotate(6deg);
+  .strip-grid {
+    display: grid;
+    gap: 1rem;
   }
 
   .strip-frame {
@@ -545,28 +581,42 @@
     background-color: color-mix(in oklab, var(--color-card) 96%, white 4%);
   }
 
-  .join-band {
-    display: grid;
-    gap: 2rem;
-    padding: 1.5rem;
-    background-color: color-mix(in oklab, var(--color-card) 92%, var(--color-highlight) 8%);
+  .strip-image {
+    height: 10rem;
   }
 
-  .join-polaroids {
+  .join-editorial {
+    display: grid;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .join-strip {
     display: flex;
     gap: 0.75rem;
     align-items: flex-end;
+    flex-wrap: wrap;
   }
 
-  .join-polaroid {
-    width: 7rem;
+  .join-mini-card {
+    width: 6.5rem;
     border: 0.35rem solid color-mix(in oklab, var(--color-card) 95%, white 5%);
     background-color: var(--color-card);
-    box-shadow: 0 18px 40px -30px var(--color-paper-shadow);
   }
 
-  .join-copy {
+  .join-copy-panel {
     min-width: 0;
+  }
+
+  .join-side-stack {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  .join-side-photo {
+    width: 100%;
+    object-fit: cover;
   }
 
   .input-shell {
@@ -582,18 +632,6 @@
     color: var(--color-muted-foreground);
   }
 
-  .join-side {
-    display: grid;
-    gap: 1rem;
-    align-content: start;
-  }
-
-  .join-side-image {
-    width: 100%;
-    border: 1px solid var(--color-border);
-    object-fit: cover;
-  }
-
   .quote-card {
     max-width: 22rem;
     justify-self: end;
@@ -607,47 +645,96 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   @layer components {
-    .join-band {
-      grid-template-columns: auto minmax(0, 1.3fr) minmax(18rem, 0.8fr);
-      align-items: center;
-      padding: 2rem;
+    .stats-band,
+    .strip-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resource-grid,
+    .journey-products {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 900px) {
   @layer components {
-    .hero-card {
-      min-height: 28rem;
+    .hero-board {
+      grid-template-columns: 1.6fr 0.78fr 0.9fr;
+      grid-template-rows: 1fr 1fr;
     }
 
-    .feature-collage {
-      min-height: 28rem;
+    .hero-main-card {
+      grid-row: 1 / span 2;
+      min-height: 33rem;
+    }
+
+    .hero-layout {
+      grid-template-columns: 0.92fr 1.6fr;
+      align-items: start;
+    }
+
+    .stats-band {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .journey-grid {
+      grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 0.95fr);
+      align-items: start;
+    }
+
+    .journey-products {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .resource-layout {
+      grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.95fr);
+      align-items: start;
+    }
+
+    .resource-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .strip-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .join-editorial {
+      grid-template-columns: auto minmax(0, 1.15fr) minmax(17rem, 0.9fr);
+    }
+  }
+}
+
+@media (max-width: 899px) {
+  @layer components {
+    .hero-intro {
+      padding-bottom: 0.5rem;
+    }
+
+    .hero-main-card {
+      min-height: 26rem;
     }
   }
 }
 
 @media (max-width: 639px) {
   @layer components {
-    .paper-panel {
-      padding-inline: 1.5rem;
-    }
-
     .floating-pill {
-      max-width: 10rem;
-      font-size: 1.35rem;
+      max-width: 9.5rem;
+      font-size: 1.25rem;
     }
 
     .quote-card {
       justify-self: stretch;
       max-width: none;
-      font-size: 1.5rem;
+      font-size: 1.45rem;
     }
 
-    .join-polaroids {
-      order: 2;
+    .join-mini-card {
+      width: 5.7rem;
     }
   }
 }
