@@ -112,7 +112,7 @@ function Index() {
           <div>
             <p className="font-display text-3xl leading-none text-foreground">Blushbuild</p>
             <p className="mt-1 text-[0.7rem] uppercase tracking-[0.28em] text-muted-foreground">
-              Studio
+              Creator Diary
             </p>
           </div>
 
