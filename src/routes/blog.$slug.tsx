@@ -72,7 +72,7 @@ function BlogPostPage() {
         </figure>
 
         <div className="prose-note mt-10">
-          {post.body.map((paragraph, i) => (
+          {post.body.map((paragraph: string, i: number) => (
             <p key={i}>{paragraph}</p>
           ))}
         </div>

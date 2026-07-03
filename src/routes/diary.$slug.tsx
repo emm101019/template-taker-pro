@@ -76,7 +76,7 @@ function DiaryEntryPage() {
         </figure>
 
         <div className="prose-note mt-10">
-          {entry.body.map((paragraph, i) => {
+          {entry.body.map((paragraph: string, i: number) => {
             if (entry.pullQuote && i === Math.floor(entry.body.length / 2)) {
               return (
                 <div key={i}>

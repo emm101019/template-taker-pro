@@ -75,7 +75,7 @@ function ResourceDetailPage() {
               What's inside
             </h2>
             <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
-              {resource.whatsInside.map((item) => (
+              {resource.whatsInside.map((item: string) => (
                 <li key={item}>♡ {item}</li>
               ))}
             </ul>
@@ -84,7 +84,7 @@ function ResourceDetailPage() {
               A quick peek
             </h2>
             <ol className="mt-4 space-y-2 text-base leading-7 text-muted-foreground">
-              {resource.preview.map((line) => (
+              {resource.preview.map((line: string) => (
                 <li key={line}>{line}</li>
               ))}
             </ol>

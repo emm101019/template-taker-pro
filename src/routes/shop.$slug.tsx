@@ -84,7 +84,7 @@ function ProductPage() {
           <div>
             <h2 className="font-serif-alt text-3xl leading-none text-foreground">What you get</h2>
             <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
-              {product.whatYouGet.map((item) => (
+              {product.whatYouGet.map((item: string) => (
                 <li key={item}>♡ {item}</li>
               ))}
             </ul>
@@ -92,7 +92,7 @@ function ProductPage() {
           <div>
             <h2 className="font-serif-alt text-3xl leading-none text-foreground">Who it's for</h2>
             <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
-              {product.whoItsFor.map((item) => (
+              {product.whoItsFor.map((item: string) => (
                 <li key={item}>— {item}</li>
               ))}
             </ul>
@@ -102,7 +102,7 @@ function ProductPage() {
         <div className="mt-12">
           <h2 className="font-serif-alt text-3xl leading-none text-foreground">FAQ</h2>
           <div className="mt-4 divide-y divide-border border-y border-border">
-            {product.faq.map((item) => (
+            {product.faq.map((item: { q: string; a: string }) => (
               <details key={item.q} className="group py-4">
                 <summary className="cursor-pointer list-none text-base font-semibold text-foreground">
                   {item.q}
