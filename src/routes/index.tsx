@@ -117,22 +117,22 @@ function Index() {
           <nav aria-label="Primary" className="order-3 w-full lg:order-2 lg:w-auto">
             <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/80 sm:gap-5 sm:text-[0.72rem] sm:tracking-[0.18em]">
               <li>
-                <a href="#home">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="#journey">Journey</a>
+                <a href="/progress">Journey</a>
               </li>
               <li>
-                <a href="#resources">Resources</a>
+                <a href="/resources">Resources</a>
               </li>
               <li>
-                <a href="#resources">Freebies</a>
+                <a href="/resources">Freebies</a>
               </li>
               <li>
-                <a href="#journey">Shop (soon)</a>
+                <a href="/progress">Shop (soon)</a>
               </li>
               <li>
-                <a href="#join">About</a>
+                <a href="/about">About</a>
               </li>
             </ul>
           </nav>
@@ -144,7 +144,7 @@ function Index() {
             <button type="button" className="icon-shell" aria-label="Bag">
               ♡
             </button>
-            <a href="#join" className="button-solid">
+            <a href="/about" className="button-solid">
               Join the list
             </a>
           </div>
@@ -162,7 +162,7 @@ function Index() {
               Real journey. Real numbers. Building a digital product empire from my laptop.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="#journey" className="button-solid">
+              <a href="/progress" className="button-solid">
                 Follow the journey →
               </a>
             </div>
@@ -287,7 +287,7 @@ function Index() {
                   {product.title}
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
-                <a href="#journey" className="product-link">
+                <a href="/progress" className="product-link">
                   {product.cta} →
                 </a>
               </article>
@@ -305,7 +305,7 @@ function Index() {
                   </h3>
                 </div>
                 <a
-                  href="#join"
+                  href="/about"
                   className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground"
                 >
                   View all
@@ -328,7 +328,7 @@ function Index() {
                 ))}
               </ul>
 
-              <a href="#join" className="button-solid mt-8 inline-flex">
+              <a href="/about" className="button-solid mt-8 inline-flex">
                 Read the diary →
               </a>
             </div>
@@ -356,7 +356,7 @@ function Index() {
                     </p>
                   </div>
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
-                  <a href="#resources" className="product-link">
+                  <a href="/resources" className="product-link">
                     Get it free →
                   </a>
                 </article>
@@ -415,9 +415,9 @@ function Index() {
             </form>
 
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-foreground/80">
-              <a href="#privacy">Privacy Policy</a>
-              <a href="#terms">Terms &amp; Conditions</a>
-              <a href="#contact">Contact</a>
+              <a href="/about">Privacy Policy</a>
+              <a href="/about">Terms &amp; Conditions</a>
+              <a href="/about">Contact</a>
             </div>
           </div>
 
