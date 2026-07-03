@@ -155,7 +155,7 @@ function Index() {
         <div className="hero-layout">
           <aside className="hero-intro">
             <p className="eyebrow">Welcome to my</p>
-            <h1 className="mt-4 max-w-[10ch] font-display text-balance text-6xl leading-[0.88] text-foreground sm:text-7xl">
+            <h1 className="mt-4 max-w-[10ch] font-display text-balance text-5xl leading-[0.9] text-foreground sm:text-6xl lg:text-7xl">
               Creator Diary♡
             </h1>
             <p className="mt-5 max-w-sm text-base leading-7 text-muted-foreground">
