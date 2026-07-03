@@ -115,7 +115,7 @@ function Index() {
           </div>
 
           <nav aria-label="Primary" className="order-3 w-full lg:order-2 lg:w-auto">
-            <ul className="flex flex-wrap items-center justify-center gap-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-foreground/80">
+            <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/80 sm:gap-5 sm:text-[0.72rem] sm:tracking-[0.18em]">
               <li>
                 <a href="#home">Home</a>
               </li>
