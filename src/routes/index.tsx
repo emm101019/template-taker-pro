@@ -115,7 +115,7 @@ function Index() {
           </div>
 
           <nav aria-label="Primary" className="order-3 w-full lg:order-2 lg:w-auto">
-            <ul className="flex flex-wrap items-center justify-center gap-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-foreground/80">
+            <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/80 sm:gap-5 sm:text-[0.72rem] sm:tracking-[0.18em]">
               <li>
                 <a href="#home">Home</a>
               </li>
@@ -155,7 +155,7 @@ function Index() {
         <div className="hero-layout">
           <aside className="hero-intro">
             <p className="eyebrow">Welcome to my</p>
-            <h1 className="mt-4 max-w-[10ch] font-display text-balance text-6xl leading-[0.88] text-foreground sm:text-7xl">
+            <h1 className="mt-4 max-w-[10ch] font-display text-balance text-5xl leading-[0.9] text-foreground sm:text-6xl lg:text-7xl">
               Creator Diary♡
             </h1>
             <p className="mt-5 max-w-sm text-base leading-7 text-muted-foreground">
