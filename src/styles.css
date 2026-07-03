@@ -812,3 +812,139 @@
     }
   }
 }
+
+@layer components {
+  .page-shell {
+    padding-inline: 1rem;
+    padding-block: 2.25rem;
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1024px) {
+    .page-shell {
+      padding-inline: 1.5rem;
+      padding-block: 3rem;
+    }
+  }
+
+  .page-hero-title {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    line-height: 0.95;
+    color: var(--color-foreground);
+    max-width: 22ch;
+  }
+
+  @media (min-width: 768px) {
+    .page-hero-title { font-size: 4.6rem; }
+  }
+
+  .prose-note {
+    max-width: 42rem;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: color-mix(in oklab, var(--color-foreground) 84%, var(--color-muted-foreground) 16%);
+  }
+
+  .prose-note > p + p { margin-top: 1.15rem; }
+
+  .pull-quote {
+    margin-block: 2rem;
+    padding: 1.4rem 1.5rem;
+    border-left: 3px solid var(--color-primary);
+    background-color: color-mix(in oklab, var(--color-card) 90%, var(--color-highlight) 10%);
+    font-family: var(--font-serif-alt);
+    font-size: 1.7rem;
+    line-height: 1.15;
+    color: var(--color-foreground);
+  }
+
+  .kanban-board {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    .kanban-board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1100px) {
+    .kanban-board { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+
+  .kanban-column {
+    border: 1px solid var(--color-border);
+    background-color: color-mix(in oklab, var(--color-card) 92%, var(--color-highlight) 8%);
+    padding: 1rem;
+  }
+
+  .kanban-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .progress-bar {
+    height: 6px;
+    border-radius: 999px;
+    background-color: color-mix(in oklab, var(--color-border) 70%, transparent);
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    display: block;
+    height: 100%;
+    background-color: var(--color-primary);
+  }
+
+  .status-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background-color: color-mix(in oklab, var(--color-primary) 12%, transparent);
+    padding: 0.25rem 0.6rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .buy-bar {
+    position: sticky;
+    bottom: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    background-color: color-mix(in oklab, var(--color-card) 95%, white 5%);
+    padding: 0.85rem 1rem;
+    box-shadow: 0 20px 50px -30px var(--color-paper-shadow);
+    backdrop-filter: blur(6px);
+  }
+
+  .category-chip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    background-color: color-mix(in oklab, var(--color-card) 95%, white 5%);
+  }
+
+  .category-chip.is-active {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-color: var(--color-primary);
+  }
+}
