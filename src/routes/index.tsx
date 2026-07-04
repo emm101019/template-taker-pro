@@ -305,7 +305,7 @@ function Index() {
           <div className="resource-layout mt-7">
             <div className="resource-grid">
               {resources.map((resource) => (
-                <article key={resource.title} className="resource-card">
+                <article key={resource.slug} className="resource-card">
                   <div className="resource-cover">
                     <span className="resource-type">{resource.type}</span>
                     <p className="font-serif-alt text-3xl leading-tight text-foreground">
@@ -313,9 +313,9 @@ function Index() {
                     </p>
                   </div>
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
-                  <a href="/resources" className="product-link">
+                  <Link to="/resources/$slug" params={{ slug: resource.slug }} className="product-link">
                     Get it free →
-                  </a>
+                  </Link>
                 </article>
               ))}
             </div>
