@@ -238,9 +238,9 @@ function Index() {
                   {product.title}
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
-                <a href="/progress" className="product-link">
+                <Link to="/shop/$slug" params={{ slug: product.slug }} className="product-link">
                   {product.cta} →
-                </a>
+                </Link>
               </article>
             ))}
           </div>
