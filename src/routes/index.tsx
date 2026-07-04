@@ -372,9 +372,9 @@ function Index() {
             </form>
 
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-foreground/80">
-              <a href="/about">Privacy Policy</a>
-              <a href="/about">Terms &amp; Conditions</a>
-              <a href="/about">Contact</a>
+              <Link to="/about">Privacy Policy</Link>
+              <Link to="/about">Terms &amp; Conditions</Link>
+              <Link to="/about">Contact</Link>
             </div>
           </div>
 
