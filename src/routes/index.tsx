@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { diaryEntries as allDiaryEntries, resources as allResources, products as allProducts } from "@/content/site";
 
 import social2026Asset from "@/assets/social-2026.png.asset.json";
 import bootsAsset from "@/assets/boots.png.asset.json";
