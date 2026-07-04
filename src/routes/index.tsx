@@ -35,13 +35,6 @@ const diaryEntries = allDiaryEntries.slice(0, 5).map((e) => ({
   date: e.date,
 }));
 
-const diaryEntries = [
-  { title: "How I Came Up With My First Digital Product Idea", date: "May 12" },
-  { title: "From 0 To My First Etsy Sale", date: "May 9" },
-  { title: "Designing My Canva Course Sneak Peek", date: "May 6" },
-  { title: "5 Things I Wish I Knew Before Starting", date: "May 3" },
-  { title: "How I Plan Content as a Full-Time Creator", date: "Apr 29" },
-];
 
 const stripImages = [coquette2Asset.url, social2026Asset.url, bootsAsset.url, iced6Asset.url];
 
