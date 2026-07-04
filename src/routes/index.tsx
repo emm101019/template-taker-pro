@@ -266,22 +266,28 @@ function Index() {
               <ul className="mt-6 space-y-4">
                 {diaryEntries.map((entry) => (
                   <li
-                    key={entry.title}
-                    className="flex items-start justify-between gap-4 border-b border-border/70 pb-4 last:border-b-0 last:pb-0"
+                    key={entry.slug}
+                    className="border-b border-border/70 pb-4 last:border-b-0 last:pb-0"
                   >
-                    <span className="max-w-[17rem] text-sm leading-6 text-foreground/85">
-                      {entry.title}
-                    </span>
-                    <span className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
-                      {entry.date}
-                    </span>
+                    <Link
+                      to="/diary/$slug"
+                      params={{ slug: entry.slug }}
+                      className="flex items-start justify-between gap-4 transition hover:opacity-70"
+                    >
+                      <span className="max-w-[17rem] text-sm leading-6 text-foreground/85">
+                        {entry.title}
+                      </span>
+                      <span className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
+                        {entry.date}
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
 
-              <a href="/about" className="button-solid mt-8 inline-flex">
+              <Link to="/diary" className="button-solid mt-8 inline-flex">
                 Read the diary →
-              </a>
+              </Link>
             </div>
           </aside>
         </div>
