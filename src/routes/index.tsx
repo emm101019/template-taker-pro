@@ -255,12 +255,12 @@ function Index() {
                     Notes from the week
                   </h3>
                 </div>
-                <a
-                  href="/about"
+                <Link
+                  to="/diary"
                   className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground"
                 >
                   View all
-                </a>
+                </Link>
               </div>
 
               <ul className="mt-6 space-y-4">
