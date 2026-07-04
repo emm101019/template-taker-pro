@@ -113,9 +113,9 @@ function Index() {
               Real journey. Real numbers. Building a digital product empire from my laptop.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="/progress" className="button-solid">
+              <Link to="/diary" className="button-solid">
                 Follow the journey →
-              </a>
+              </Link>
             </div>
             <div className="mt-8 flex items-center gap-4">
               <div className="flex -space-x-3">
