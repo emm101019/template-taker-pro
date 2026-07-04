@@ -95,9 +95,9 @@ function Index() {
             <button type="button" className="icon-shell" aria-label="Bag">
               ♡
             </button>
-            <a href="/about" className="button-solid">
+            <Link to="/about" className="button-solid">
               Join the list
-            </a>
+            </Link>
           </div>
         </div>
       </section>
