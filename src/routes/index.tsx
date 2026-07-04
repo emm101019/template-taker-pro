@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { diaryEntries as allDiaryEntries, resources as allResources, products as allProducts } from "@/content/site";
 
 import social2026Asset from "@/assets/social-2026.png.asset.json";
 import bootsAsset from "@/assets/boots.png.asset.json";
@@ -12,67 +13,28 @@ import iced2Asset from "@/assets/iced-2.png.asset.json";
 import iced6Asset from "@/assets/iced-6.png.asset.json";
 import iced8Asset from "@/assets/iced-8.png.asset.json";
 
-const products = [
-  {
-    title: "Canva Crash Course",
-    phase: "73% sold",
-    note: "Step-by-step templates and launch lessons.",
-    cta: "See progress",
-    image: coquette5Asset.url,
-  },
-  {
-    title: "Etsy Success Guide",
-    phase: "50% core",
-    note: "Positioning notes and listing tweaks that actually convert.",
-    cta: "See progress",
-    image: iced6Asset.url,
-  },
-  {
-    title: "Digital Product Bundle",
-    phase: "Creator soon",
-    note: "A bundle of prompts, assets, and warm launch pages.",
-    cta: "See progress",
-    image: coquette1Asset.url,
-  },
-  {
-    title: "Pinterest Growth Kit",
-    phase: "Early stage",
-    note: "A proven content engine to grow traffic and get more sales.",
-    cta: "See progress",
-    image: iced8Asset.url,
-  },
-];
+const products = allProducts.slice(0, 4).map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  phase: p.phase,
+  note: p.note,
+  cta: "See progress",
+  image: p.image,
+}));
 
-const resources = [
-  {
-    title: "Etsy Starter Kit",
-    type: "PDF",
-    text: "Everything you need to open your shop with confidence.",
-  },
-  {
-    title: "Canva Prompt Ideas",
-    type: "FREE",
-    text: "50 content ideas laid out for reels, pins, and posts.",
-  },
-  {
-    title: "Product Launch Checklist",
-    type: "DOC",
-    text: "A simple launch flow to batch, post, and sell faster.",
-  },
-  {
-    title: "Pinterest Script Notes",
-    type: "GUIDE",
-    text: "Hooks and mini scripts that turn saves into clicks.",
-  },
-];
+const resources = allResources.slice(0, 4).map((r) => ({
+  slug: r.slug,
+  title: r.title,
+  type: r.type,
+  text: r.text,
+}));
 
-const diaryEntries = [
-  { title: "How I Came Up With My First Digital Product Idea", date: "May 12" },
-  { title: "From 0 To My First Etsy Sale", date: "May 9" },
-  { title: "Designing My Canva Course Sneak Peek", date: "May 6" },
-  { title: "5 Things I Wish I Knew Before Starting", date: "May 3" },
-  { title: "How I Plan Content as a Full-Time Creator", date: "Apr 29" },
-];
+const diaryEntries = allDiaryEntries.slice(0, 5).map((e) => ({
+  slug: e.slug,
+  title: e.title,
+  date: e.date,
+}));
+
 
 const stripImages = [coquette2Asset.url, social2026Asset.url, bootsAsset.url, iced6Asset.url];
 
@@ -116,24 +78,13 @@ function Index() {
 
           <nav aria-label="Primary" className="order-3 w-full lg:order-2 lg:w-auto">
             <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/80 sm:gap-5 sm:text-[0.72rem] sm:tracking-[0.18em]">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/progress">Journey</a>
-              </li>
-              <li>
-                <a href="/resources">Resources</a>
-              </li>
-              <li>
-                <a href="/resources">Freebies</a>
-              </li>
-              <li>
-                <a href="/progress">Shop (soon)</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/diary">Diary</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/progress">Journey</Link></li>
+              <li><Link to="/resources">Freebies</Link></li>
+              <li><Link to="/shop">Shop</Link></li>
+              <li><Link to="/about">About</Link></li>
             </ul>
           </nav>
 
@@ -144,9 +95,9 @@ function Index() {
             <button type="button" className="icon-shell" aria-label="Bag">
               ♡
             </button>
-            <a href="/about" className="button-solid">
+            <Link to="/about" className="button-solid">
               Join the list
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -162,9 +113,9 @@ function Index() {
               Real journey. Real numbers. Building a digital product empire from my laptop.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="/progress" className="button-solid">
+              <Link to="/diary" className="button-solid">
                 Follow the journey →
-              </a>
+              </Link>
             </div>
             <div className="mt-8 flex items-center gap-4">
               <div className="flex -space-x-3">
@@ -287,9 +238,9 @@ function Index() {
                   {product.title}
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
-                <a href="/progress" className="product-link">
+                <Link to="/shop/$slug" params={{ slug: product.slug }} className="product-link">
                   {product.cta} →
-                </a>
+                </Link>
               </article>
             ))}
           </div>
@@ -304,33 +255,39 @@ function Index() {
                     Notes from the week
                   </h3>
                 </div>
-                <a
-                  href="/about"
+                <Link
+                  to="/diary"
                   className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground"
                 >
                   View all
-                </a>
+                </Link>
               </div>
 
               <ul className="mt-6 space-y-4">
                 {diaryEntries.map((entry) => (
                   <li
-                    key={entry.title}
-                    className="flex items-start justify-between gap-4 border-b border-border/70 pb-4 last:border-b-0 last:pb-0"
+                    key={entry.slug}
+                    className="border-b border-border/70 pb-4 last:border-b-0 last:pb-0"
                   >
-                    <span className="max-w-[17rem] text-sm leading-6 text-foreground/85">
-                      {entry.title}
-                    </span>
-                    <span className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
-                      {entry.date}
-                    </span>
+                    <Link
+                      to="/diary/$slug"
+                      params={{ slug: entry.slug }}
+                      className="flex items-start justify-between gap-4 transition hover:opacity-70"
+                    >
+                      <span className="max-w-[17rem] text-sm leading-6 text-foreground/85">
+                        {entry.title}
+                      </span>
+                      <span className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
+                        {entry.date}
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
 
-              <a href="/about" className="button-solid mt-8 inline-flex">
+              <Link to="/diary" className="button-solid mt-8 inline-flex">
                 Read the diary →
-              </a>
+              </Link>
             </div>
           </aside>
         </div>
@@ -348,7 +305,7 @@ function Index() {
           <div className="resource-layout mt-7">
             <div className="resource-grid">
               {resources.map((resource) => (
-                <article key={resource.title} className="resource-card">
+                <article key={resource.slug} className="resource-card">
                   <div className="resource-cover">
                     <span className="resource-type">{resource.type}</span>
                     <p className="font-serif-alt text-3xl leading-tight text-foreground">
@@ -356,9 +313,9 @@ function Index() {
                     </p>
                   </div>
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
-                  <a href="/resources" className="product-link">
+                  <Link to="/resources/$slug" params={{ slug: resource.slug }} className="product-link">
                     Get it free →
-                  </a>
+                  </Link>
                 </article>
               ))}
             </div>
@@ -415,9 +372,9 @@ function Index() {
             </form>
 
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-foreground/80">
-              <a href="/about">Privacy Policy</a>
-              <a href="/about">Terms &amp; Conditions</a>
-              <a href="/about">Contact</a>
+              <Link to="/about">Privacy Policy</Link>
+              <Link to="/about">Terms &amp; Conditions</Link>
+              <Link to="/about">Contact</Link>
             </div>
           </div>
 
