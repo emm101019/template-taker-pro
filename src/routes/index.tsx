@@ -78,24 +78,13 @@ function Index() {
 
           <nav aria-label="Primary" className="order-3 w-full lg:order-2 lg:w-auto">
             <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/80 sm:gap-5 sm:text-[0.72rem] sm:tracking-[0.18em]">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/progress">Journey</a>
-              </li>
-              <li>
-                <a href="/resources">Resources</a>
-              </li>
-              <li>
-                <a href="/resources">Freebies</a>
-              </li>
-              <li>
-                <a href="/progress">Shop (soon)</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/diary">Diary</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/progress">Journey</Link></li>
+              <li><Link to="/resources">Freebies</Link></li>
+              <li><Link to="/shop">Shop</Link></li>
+              <li><Link to="/about">About</Link></li>
             </ul>
           </nav>
 
