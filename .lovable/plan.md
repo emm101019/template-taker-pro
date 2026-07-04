@@ -1,69 +1,28 @@
-## What I'll build
+## Why entries don't open
 
-Turn the site into a real multi-page Blushbuild creator diary. Everything currently lives on `/` with `#anchor` links — I'll create dedicated routes, wire the nav to them, and fill each page with real content in the existing paper/cream editorial style. Mobile-optimized like the home page.
+The detail pages (`/diary/$slug`, `/blog/$slug`, `/resources/$slug`, `/shop/$slug`) exist and render fine — SSR returns 200 with the full post. The bug is on the **home page**: the diary/resource/nav links there aren't wired to the detail routes.
 
-The **diary** and **journal** are the same thing (your existing "Recent diary entries" section). I'll use `/diary` as the URL to match your language.
+Specifically in `src/routes/index.tsx`:
 
-## New routes
+- The "Recent diary entries" list renders each entry as a plain `<span>` — not a link at all. Clicking a title does nothing.
+- "View all" and "Read the diary →" both point to `/about` instead of `/diary`.
+- Resource cards' "Get it free →" points to `/resources` (index) instead of `/resources/$slug`.
+- The diary list uses a local hardcoded array (line 69) instead of the shared `diaryEntries` from `src/content/site.ts`, so slugs aren't available.
+- Header nav and footer use plain `<a href>` for internal routes. This forces a full page reload every navigation and is why the user sometimes sees "Load failed" when Vite is mid-reconnect.
 
-```text
-src/routes/
-  index.tsx            (existing home — nav + CTAs repointed to real routes)
-  resources.tsx        Freebies library index
-  resources.$slug.tsx  Individual freebie detail + email-gate download
-  shop.tsx             Products / sales index
-  shop.$slug.tsx       Individual product sales page
-  progress.tsx         Live product progress board (Idea → Building → Beta → Live)
-  diary.tsx            Diary index — all entries with covers + dates
-  diary.$slug.tsx      Individual diary entry (long-form, pull quotes, images)
-  blog.tsx             Blog index (strategy, launches, mindset)
-  blog.$slug.tsx       Individual blog article
-  about.tsx            Founder story / behind Blushbuild
-```
+## Fix (single file: `src/routes/index.tsx`)
 
-## Shared pieces
+1. Replace the local `diaryEntries` array with an import of `diaryEntries` from `@/content/site` and take the first 5. Same for resources — use the shared `resources` list so each card has a `slug`.
+2. Wrap each diary list item in `<Link to="/diary/$slug" params={{ slug: entry.slug }}>` so titles are clickable.
+3. Point "View all" and "Read the diary →" to `/diary` (not `/about`).
+4. Change each resource card's "Get it free →" to `<Link to="/resources/$slug" params={{ slug: resource.slug }}>`.
+5. Convert header nav and footer internal links from `<a href="...">` to TanStack `<Link to="...">`:
+   - Home → `/`, Journey → `/progress`, Resources/Freebies → `/resources`, Shop → `/shop`, About → `/about`, plus Diary and Blog entries in the nav.
+6. Any remaining CTAs (`/progress` hero button, etc.) become `<Link>` too.
 
-- **`src/components/site-header.tsx` + `site-footer.tsx`** — extracted from `index.tsx` so every page shares the same nav. Nav becomes real `<Link to="/diary">` etc.
-- **`src/content/`** — typed TS modules (`resources.ts`, `products.ts`, `diary.ts`, `blog.ts`) storing slug/title/cover/excerpt/body/date. Detail pages look up by `params.slug`, throw `notFound()` on miss. No backend needed.
-- Every route defines its own `head()` (title, description, og:title, og:description, and og:image on detail pages from the cover asset).
-- `notFoundComponent` on every route and root.
+No changes to detail routes, content, or styles — they already work. This is purely re-wiring the home page.
 
-## Page contents
+## Out of scope
 
-- **Resources** — hero blurb, 8 freebie cards (existing 4 expanded), category chips (PDF / Guide / Template / Freebie), bottom email CTA.
-- **Resource detail** — cover, what's inside, preview strip, email form, related freebies.
-- **Shop** — 4+ products with status tag (In progress / Selling / Coming soon), price, waitlist CTA.
-- **Product sales page** — hero, pitch, what you get, who it's for, FAQ, sticky Buy/Join-waitlist bar.
-- **Progress** — kanban columns (Idea → Building → Beta → Live) with % bars + this-week update.
-- **Diary index** — chronological entries with cover thumbs and dates, monthly grouping.
-- **Diary entry** — long-form: intro, sections, pull quote, inline image, sign-off, prev/next entry links.
-- **Blog index** — featured post + 6+ posts, category chips.
-- **Blog detail** — reading time, cover, article body, next-post link.
-- **About** — founder story, timeline, values, join-the-list CTA.
-
-## Home page updates
-
-- Swap header/footer for shared components.
-- Nav + all section CTAs go to real routes:
-  - "Follow the journey" → `/diary`
-  - "See progress" → `/progress`
-  - Product cards → `/shop/$slug`
-  - Resource cards → `/resources/$slug`
-  - Diary "View all" / "Read the diary" → `/diary`
-  - Shop (soon) → `/shop`, About → `/about`, Freebies → `/resources`
-
-## Technical notes
-
-- Content in TS modules under `src/content/` — no Cloud/backend. Email forms stay presentational unless you want them wired up (would need Lovable Cloud + a provider).
-- Reuse existing CSS component classes (`.product-card`, `.resource-card`, `.journal-card`, `.button-solid`, etc.). Add small additions to `src/styles.css` for article prose, kanban columns, and the sticky buy bar.
-- Each detail route uses `createFileRoute("/section/$slug")` + `Route.useParams()`; `notFound()` when slug missing.
-- Same mobile-first spacing pattern as the last pass.
-
-## Out of scope (say the word to add)
-
-- Real email capture / newsletter provider.
-- Real payments / checkout (Lovable Cloud + Stripe).
-- CMS / admin UI for editing entries (content is code for now).
-- Blog / diary search.
-
-Approve and I'll build it all in one pass.
+- Rewriting `SiteHeader` / `SiteFooter` (the home page currently doesn't use them; a later pass can consolidate).
+- Adding new content.
