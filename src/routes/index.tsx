@@ -13,59 +13,27 @@ import iced2Asset from "@/assets/iced-2.png.asset.json";
 import iced6Asset from "@/assets/iced-6.png.asset.json";
 import iced8Asset from "@/assets/iced-8.png.asset.json";
 
-const products = [
-  {
-    title: "Canva Crash Course",
-    phase: "73% sold",
-    note: "Step-by-step templates and launch lessons.",
-    cta: "See progress",
-    image: coquette5Asset.url,
-  },
-  {
-    title: "Etsy Success Guide",
-    phase: "50% core",
-    note: "Positioning notes and listing tweaks that actually convert.",
-    cta: "See progress",
-    image: iced6Asset.url,
-  },
-  {
-    title: "Digital Product Bundle",
-    phase: "Creator soon",
-    note: "A bundle of prompts, assets, and warm launch pages.",
-    cta: "See progress",
-    image: coquette1Asset.url,
-  },
-  {
-    title: "Pinterest Growth Kit",
-    phase: "Early stage",
-    note: "A proven content engine to grow traffic and get more sales.",
-    cta: "See progress",
-    image: iced8Asset.url,
-  },
-];
+const products = allProducts.slice(0, 4).map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  phase: p.phase,
+  note: p.note,
+  cta: "See progress",
+  image: p.image,
+}));
 
-const resources = [
-  {
-    title: "Etsy Starter Kit",
-    type: "PDF",
-    text: "Everything you need to open your shop with confidence.",
-  },
-  {
-    title: "Canva Prompt Ideas",
-    type: "FREE",
-    text: "50 content ideas laid out for reels, pins, and posts.",
-  },
-  {
-    title: "Product Launch Checklist",
-    type: "DOC",
-    text: "A simple launch flow to batch, post, and sell faster.",
-  },
-  {
-    title: "Pinterest Script Notes",
-    type: "GUIDE",
-    text: "Hooks and mini scripts that turn saves into clicks.",
-  },
-];
+const resources = allResources.slice(0, 4).map((r) => ({
+  slug: r.slug,
+  title: r.title,
+  type: r.type,
+  text: r.text,
+}));
+
+const diaryEntries = allDiaryEntries.slice(0, 5).map((e) => ({
+  slug: e.slug,
+  title: e.title,
+  date: e.date,
+}));
 
 const diaryEntries = [
   { title: "How I Came Up With My First Digital Product Idea", date: "May 12" },
