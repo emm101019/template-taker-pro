@@ -150,6 +150,25 @@ function ProductPage() {
           </div>
         ) : null}
 
+        {extras?.howItWorks ? (
+          <div className="mt-12">
+            <h2 className="font-serif-alt text-3xl leading-none text-foreground">How it works</h2>
+            <div className="mt-4 grid gap-4 lg:grid-cols-4">
+              {extras.howItWorks.map((step: { step: string; detail: string }, i: number) => (
+                <div key={step.step} className="border border-border bg-background/60 p-5">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Step {i + 1}
+                  </p>
+                  <p className="mt-3 font-serif-alt text-xl leading-tight text-foreground">
+                    {step.step}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{step.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <div className="mt-12">
           <h2 className="font-serif-alt text-3xl leading-none text-foreground">FAQ</h2>
           <div className="mt-4 divide-y divide-border border-y border-border">
