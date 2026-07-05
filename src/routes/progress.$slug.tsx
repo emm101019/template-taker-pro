@@ -94,7 +94,7 @@ function ProgressDetailPage() {
         <section className="mt-12">
           <h2 className="font-serif-alt text-3xl leading-none text-foreground">The story so far</h2>
           <div className="prose-note mt-4">
-            {detail.story.map((p, i) => <p key={i}>{p}</p>)}
+            {detail.story.map((p: string, i: number) => <p key={i}>{p}</p>)}
           </div>
         </section>
 
@@ -102,13 +102,13 @@ function ProgressDetailPage() {
           <div>
             <h2 className="font-serif-alt text-3xl leading-none text-foreground">What's shipped</h2>
             <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
-              {detail.shipped.map((s) => <li key={s}>✓ {s}</li>)}
+              {detail.shipped.map((s: string) => <li key={s}>✓ {s}</li>)}
             </ul>
           </div>
           <div>
             <h2 className="font-serif-alt text-3xl leading-none text-foreground">What's next</h2>
             <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
-              {detail.next.map((s) => <li key={s}>→ {s}</li>)}
+              {detail.next.map((s: string) => <li key={s}>→ {s}</li>)}
             </ul>
           </div>
         </div>
@@ -116,7 +116,7 @@ function ProgressDetailPage() {
         <section className="mt-12">
           <h2 className="font-serif-alt text-3xl leading-none text-foreground">Weekly updates</h2>
           <ol className="mt-4 divide-y divide-border border-y border-border">
-            {detail.updates.map((u, i) => (
+            {detail.updates.map((u: { date: string; note: string }, i: number) => (
               <li key={i} className="py-4">
                 <p className="text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
                   {u.date}
