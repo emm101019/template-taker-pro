@@ -717,6 +717,7 @@ export const progressBoard: {
 export type ProductExtras = {
   description: string[];
   features: { title: string; detail: string }[];
+  howItWorks: { step: string; detail: string }[];
   gallery: string[];
 };
 
@@ -734,6 +735,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "Launch checklist", detail: "The exact 14-day plan I use for every Blushbuild release." },
       { title: "Lifetime updates", detail: "Every new template drop lands in your account automatically." },
     ],
+    howItWorks: [
+      { step: "Download the welcome guide", detail: "Start with the 10-minute roadmap so you know exactly which lesson and template to open first." },
+      { step: "Choose one product format", detail: "Pick the workbook, checklist, planner, e-book, course workbook, or freebie template based on what you want to sell." },
+      { step: "Customize with your brand", detail: "Use the palette, font, and layout walkthroughs to make the template feel custom without redesigning it from scratch." },
+      { step: "Export and launch", detail: "Follow the included launch checklist to price, publish, and announce your finished product." },
+    ],
     gallery: [images.coquette5, images.coquette2, images.brandingTips, images.clarity],
   },
   "etsy-success-guide": {
@@ -748,6 +755,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "10 photo templates", detail: "Editable listing photos in Canva — swap your product, ship in 20 minutes." },
       { title: "Pricing calculator", detail: "The exact worksheet I use to price digital products without underselling." },
       { title: "Review scripts", detail: "The 3 messages that reliably turn buyers into 5-star reviewers." },
+    ],
+    howItWorks: [
+      { step: "Audit your current shop", detail: "Use the first worksheet to spot missing keywords, weak photos, confusing sections, and pricing gaps." },
+      { step: "Rewrite your positioning", detail: "Clarify who the product is for, why it matters, and what makes your listing easier to buy." },
+      { step: "Refresh listing visuals", detail: "Duplicate the Canva photo templates and create a complete listing image stack in one sitting." },
+      { step: "Track and improve", detail: "Use the pricing calculator and review scripts to improve conversion over the next 30 days." },
     ],
     gallery: [images.iced6, images.iced2, images.iced1, images.contentStrategy],
   },
@@ -764,6 +777,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "Reels script pack", detail: "Sound-on hooks and outlines for the top 20 creator formats." },
       { title: "Brand mood starters", detail: "Palettes, fonts, and moodboards to lock a look in one afternoon." },
     ],
+    howItWorks: [
+      { step: "Pick your launch goal", detail: "Choose whether you are validating an idea, warming a waitlist, or opening cart this week." },
+      { step: "Build your offer page", detail: "Use the Notion or Canva sales page template to draft the promise, sections, FAQs, and CTA." },
+      { step: "Batch content from prompts", detail: "Pull prompts by funnel stage so your posts lead naturally into the offer instead of feeling random." },
+      { step: "Send the launch sequence", detail: "Customize the five emails and publish the matching Reels scripts during launch week." },
+    ],
     gallery: [images.coquette1, images.latteOffer, images.social2026, images.coquette7],
   },
   "pinterest-growth-kit": {
@@ -778,6 +797,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "Keyword bank", detail: "500+ keywords for creators, sellers, and coaches — copy/paste ready." },
       { title: "Board SEO checklist", detail: "The 12 checks that turn a board into a traffic engine." },
       { title: "Analytics dashboard", detail: "Notion template to track what's actually driving clicks." },
+    ],
+    howItWorks: [
+      { step: "Choose your traffic goal", detail: "Decide whether you want clicks to a product, freebie, blog post, or waitlist before you design anything." },
+      { step: "Match keywords to boards", detail: "Use the keyword bank to name boards, write descriptions, and choose the searches you want to own." },
+      { step: "Batch weekly pins", detail: "Duplicate the templates, swap hooks and images, then schedule a full week in one focused session." },
+      { step: "Review what compounds", detail: "Track outbound clicks monthly and rebuild the top-performing pins instead of guessing." },
     ],
     gallery: [images.iced8, images.iced6, images.contentStrategy, images.coquette6],
   },
