@@ -19,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
+import { Route as ProgressSlugRouteImport } from './routes/progress.$slug'
 import { Route as DiarySlugRouteImport } from './routes/diary.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -72,6 +73,11 @@ const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ProgressSlugRoute = ProgressSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProgressRoute,
+} as any)
 const DiarySlugRoute = DiarySlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -88,12 +94,13 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/diary': typeof DiaryRouteWithChildren
-  '/progress': typeof ProgressRoute
+  '/progress': typeof ProgressRouteWithChildren
   '/resources': typeof ResourcesRouteWithChildren
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
+  '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
@@ -102,12 +109,13 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/diary': typeof DiaryRouteWithChildren
-  '/progress': typeof ProgressRoute
+  '/progress': typeof ProgressRouteWithChildren
   '/resources': typeof ResourcesRouteWithChildren
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
+  '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
@@ -117,12 +125,13 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/diary': typeof DiaryRouteWithChildren
-  '/progress': typeof ProgressRoute
+  '/progress': typeof ProgressRouteWithChildren
   '/resources': typeof ResourcesRouteWithChildren
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
+  '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
 }
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
+    | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
+    | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
+    | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
   fileRoutesById: FileRoutesById
@@ -176,7 +188,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
   DiaryRoute: typeof DiaryRouteWithChildren
-  ProgressRoute: typeof ProgressRoute
+  ProgressRoute: typeof ProgressRouteWithChildren
   ResourcesRoute: typeof ResourcesRouteWithChildren
   ShopRoute: typeof ShopRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -254,6 +266,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesSlugRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/progress/$slug': {
+      id: '/progress/$slug'
+      path: '/$slug'
+      fullPath: '/progress/$slug'
+      preLoaderRoute: typeof ProgressSlugRouteImport
+      parentRoute: typeof ProgressRoute
+    }
     '/diary/$slug': {
       id: '/diary/$slug'
       path: '/$slug'
@@ -291,6 +310,18 @@ const DiaryRouteChildren: DiaryRouteChildren = {
 
 const DiaryRouteWithChildren = DiaryRoute._addFileChildren(DiaryRouteChildren)
 
+interface ProgressRouteChildren {
+  ProgressSlugRoute: typeof ProgressSlugRoute
+}
+
+const ProgressRouteChildren: ProgressRouteChildren = {
+  ProgressSlugRoute: ProgressSlugRoute,
+}
+
+const ProgressRouteWithChildren = ProgressRoute._addFileChildren(
+  ProgressRouteChildren,
+)
+
 interface ResourcesRouteChildren {
   ResourcesSlugRoute: typeof ResourcesSlugRoute
 }
@@ -318,7 +349,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
   DiaryRoute: DiaryRouteWithChildren,
-  ProgressRoute: ProgressRoute,
+  ProgressRoute: ProgressRouteWithChildren,
   ResourcesRoute: ResourcesRouteWithChildren,
   ShopRoute: ShopRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

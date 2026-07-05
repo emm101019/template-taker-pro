@@ -18,7 +18,7 @@ const products = allProducts.slice(0, 4).map((p) => ({
   title: p.title,
   phase: p.phase,
   note: p.note,
-  cta: "See progress",
+  cta: "See the product",
   image: p.image,
 }));
 
@@ -240,6 +240,13 @@ function Index() {
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
                 <Link to="/shop/$slug" params={{ slug: product.slug }} className="product-link">
                   {product.cta} →
+                </Link>
+                <Link
+                  to="/progress/$slug"
+                  params={{ slug: product.slug }}
+                  className="mt-1 block text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground hover:text-foreground"
+                >
+                  See progress →
                 </Link>
               </article>
             ))}
