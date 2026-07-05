@@ -55,6 +55,16 @@ function ProductPage() {
   const { product, extras, related } = Route.useLoaderData();
   const gallery = extras?.gallery ?? [product.image];
   const [active, setActive] = useState(gallery[0]);
+  const [notice, setNotice] = useState("");
+  const isLive = product.status === "Selling";
+
+  function handleProductCta() {
+    setNotice(
+      isLive
+        ? `${product.title} has been added to your studio cart. Checkout is mocked for this demo.`
+        : `You're on the ${product.title} early-access list. Watch the progress page for the next update.`,
+    );
+  }
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -102,9 +112,14 @@ function ProductPage() {
               </span>
             </div>
 
-            <button type="button" className="button-solid mt-6">
+            <button type="button" className="button-solid mt-6" onClick={handleProductCta}>
               {product.cta} →
             </button>
+            {notice ? (
+              <p className="mt-3 text-sm leading-6 text-muted-foreground" aria-live="polite">
+                {notice}
+              </p>
+            ) : null}
           </div>
         </div>
 
@@ -144,6 +159,25 @@ function ProductPage() {
                 <div key={f.title} className="border border-border bg-panel p-5">
                   <p className="font-serif-alt text-xl leading-tight text-foreground">{f.title}</p>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{f.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {extras?.howItWorks ? (
+          <div className="mt-12">
+            <h2 className="font-serif-alt text-3xl leading-none text-foreground">How it works</h2>
+            <div className="mt-4 grid gap-4 lg:grid-cols-4">
+              {extras.howItWorks.map((step: { step: string; detail: string }, i: number) => (
+                <div key={step.step} className="border border-border bg-background/60 p-5">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    Step {i + 1}
+                  </p>
+                  <p className="mt-3 font-serif-alt text-xl leading-tight text-foreground">
+                    {step.step}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{step.detail}</p>
                 </div>
               ))}
             </div>
@@ -203,7 +237,7 @@ function ProductPage() {
               {product.title} — {product.price}
             </p>
           </div>
-          <button type="button" className="button-solid">
+          <button type="button" className="button-solid" onClick={handleProductCta}>
             {product.cta} →
           </button>
         </div>

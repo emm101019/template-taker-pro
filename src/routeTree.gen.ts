@@ -17,6 +17,11 @@ import { Route as DiaryRouteImport } from './routes/diary'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShopIndexRouteImport } from './routes/shop.index'
+import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
+import { Route as ProgressIndexRouteImport } from './routes/progress.index'
+import { Route as DiaryIndexRouteImport } from './routes/diary.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as ProgressSlugRouteImport } from './routes/progress.$slug'
@@ -63,6 +68,31 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResourcesRoute,
+} as any)
+const ProgressIndexRoute = ProgressIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProgressRoute,
+} as any)
+const DiaryIndexRoute = DiaryIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DiaryRoute,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogRoute,
+} as any)
 const ShopSlugRoute = ShopSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -103,21 +133,26 @@ export interface FileRoutesByFullPath {
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/diary/': typeof DiaryIndexRoute
+  '/progress/': typeof ProgressIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
-  '/diary': typeof DiaryRouteWithChildren
-  '/progress': typeof ProgressRouteWithChildren
-  '/resources': typeof ResourcesRouteWithChildren
-  '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/diary': typeof DiaryIndexRoute
+  '/progress': typeof ProgressIndexRoute
+  '/resources': typeof ResourcesIndexRoute
+  '/shop': typeof ShopIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -134,6 +169,11 @@ export interface FileRoutesById {
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/diary/': typeof DiaryIndexRoute
+  '/progress/': typeof ProgressIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,21 +191,26 @@ export interface FileRouteTypes {
     | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
+    | '/blog/'
+    | '/diary/'
+    | '/progress/'
+    | '/resources/'
+    | '/shop/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/blog'
-    | '/diary'
-    | '/progress'
-    | '/resources'
-    | '/shop'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
+    | '/blog'
+    | '/diary'
+    | '/progress'
+    | '/resources'
+    | '/shop'
   id:
     | '__root__'
     | '/'
@@ -181,6 +226,11 @@ export interface FileRouteTypes {
     | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
+    | '/blog/'
+    | '/diary/'
+    | '/progress/'
+    | '/resources/'
+    | '/shop/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -252,6 +302,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop/': {
+      id: '/shop/'
+      path: '/'
+      fullPath: '/shop/'
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/resources/': {
+      id: '/resources/'
+      path: '/'
+      fullPath: '/resources/'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/progress/': {
+      id: '/progress/'
+      path: '/'
+      fullPath: '/progress/'
+      preLoaderRoute: typeof ProgressIndexRouteImport
+      parentRoute: typeof ProgressRoute
+    }
+    '/diary/': {
+      id: '/diary/'
+      path: '/'
+      fullPath: '/diary/'
+      preLoaderRoute: typeof DiaryIndexRouteImport
+      parentRoute: typeof DiaryRoute
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/shop/$slug': {
       id: '/shop/$slug'
       path: '/$slug'
@@ -292,30 +377,36 @@ declare module '@tanstack/react-router' {
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface DiaryRouteChildren {
   DiarySlugRoute: typeof DiarySlugRoute
+  DiaryIndexRoute: typeof DiaryIndexRoute
 }
 
 const DiaryRouteChildren: DiaryRouteChildren = {
   DiarySlugRoute: DiarySlugRoute,
+  DiaryIndexRoute: DiaryIndexRoute,
 }
 
 const DiaryRouteWithChildren = DiaryRoute._addFileChildren(DiaryRouteChildren)
 
 interface ProgressRouteChildren {
   ProgressSlugRoute: typeof ProgressSlugRoute
+  ProgressIndexRoute: typeof ProgressIndexRoute
 }
 
 const ProgressRouteChildren: ProgressRouteChildren = {
   ProgressSlugRoute: ProgressSlugRoute,
+  ProgressIndexRoute: ProgressIndexRoute,
 }
 
 const ProgressRouteWithChildren = ProgressRoute._addFileChildren(
@@ -324,10 +415,12 @@ const ProgressRouteWithChildren = ProgressRoute._addFileChildren(
 
 interface ResourcesRouteChildren {
   ResourcesSlugRoute: typeof ResourcesSlugRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesSlugRoute: ResourcesSlugRoute,
+  ResourcesIndexRoute: ResourcesIndexRoute,
 }
 
 const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
@@ -336,10 +429,12 @@ const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
 
 interface ShopRouteChildren {
   ShopSlugRoute: typeof ShopSlugRoute
+  ShopIndexRoute: typeof ShopIndexRoute
 }
 
 const ShopRouteChildren: ShopRouteChildren = {
   ShopSlugRoute: ShopSlugRoute,
+  ShopIndexRoute: ShopIndexRoute,
 }
 
 const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
@@ -357,3 +452,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

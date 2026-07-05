@@ -229,17 +229,17 @@ function Index() {
         <div className="journey-grid mt-7">
           <div className="journey-products">
             {products.map((product) => (
-              <article key={product.title} className="product-card">
-                <div className="product-visual">
-                  <img src={product.image} alt={product.title} className="product-image" loading="lazy" />
-                  <span className="product-tag">{product.phase}</span>
-                </div>
-                <h3 className="mt-4 font-serif-alt text-2xl leading-tight text-foreground">
-                  {product.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
-                <Link to="/shop/$slug" params={{ slug: product.slug }} className="product-link">
-                  {product.cta} →
+              <article key={product.slug} className="product-card">
+                <Link to="/shop/$slug" params={{ slug: product.slug }} className="block">
+                  <div className="product-visual">
+                    <img src={product.image} alt={product.title} className="product-image" loading="lazy" />
+                    <span className="product-tag">{product.phase}</span>
+                  </div>
+                  <h3 className="mt-4 font-serif-alt text-2xl leading-tight text-foreground">
+                    {product.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.note}</p>
+                  <span className="product-link">{product.cta} →</span>
                 </Link>
                 <Link
                   to="/progress/$slug"

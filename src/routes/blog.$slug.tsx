@@ -1,13 +1,17 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { blogPosts } from "@/content/site";
+import { blogPostExtras, blogPosts } from "@/content/site";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
     const index = blogPosts.findIndex((p) => p.slug === params.slug);
     if (index === -1) throw notFound();
-    return { post: blogPosts[index], next: blogPosts[index + 1] ?? blogPosts[0] };
+    return {
+      post: blogPosts[index],
+      extra: blogPostExtras[params.slug],
+      next: blogPosts[index + 1] ?? blogPosts[0],
+    };
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Post not found — Blushbuild" }] };
@@ -50,7 +54,7 @@ function BlogNotFound() {
 }
 
 function BlogPostPage() {
-  const { post, next } = Route.useLoaderData();
+  const { post, extra, next } = Route.useLoaderData();
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -76,6 +80,27 @@ function BlogPostPage() {
             <p key={i}>{paragraph}</p>
           ))}
         </div>
+
+        {extra ? (
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <section>
+              <h2 className="font-serif-alt text-3xl leading-none text-foreground">Key takeaways</h2>
+              <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
+                {extra.takeaways.map((item: string) => (
+                  <li key={item}>♡ {item}</li>
+                ))}
+              </ul>
+            </section>
+            <section>
+              <h2 className="font-serif-alt text-3xl leading-none text-foreground">Action plan</h2>
+              <ol className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
+                {extra.actionPlan.map((item: string, i: number) => (
+                  <li key={item}>{i + 1}. {item}</li>
+                ))}
+              </ol>
+            </section>
+          </div>
+        ) : null}
 
         <div className="mt-14 border-t border-border pt-8">
           <p className="eyebrow">Next up</p>

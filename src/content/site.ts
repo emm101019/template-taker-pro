@@ -484,6 +484,81 @@ export const diaryEntries: DiaryEntry[] = [
   },
 ];
 
+export const diaryEntryExtras: Record<string, { lessons: string[]; nextSteps: string[] }> = {
+  "first-digital-product-idea": {
+    lessons: [
+      "The strongest product ideas usually come from repeated questions, not from trend reports.",
+      "A tiny proof-of-concept is more useful than a polished offer nobody has reacted to yet.",
+      "Selling the first version creates better feedback than endlessly planning the perfect version.",
+    ],
+    nextSteps: [
+      "Turn the original Notes-app list into a reusable idea bank.",
+      "Review the first 41 buyers' questions and add the clearest answers to the sales page.",
+      "Build a repeatable one-week validation process for every future product idea.",
+    ],
+  },
+  "first-etsy-sale": {
+    lessons: [
+      "A new shop needs external signals before Etsy search has enough data to help you.",
+      "Pinterest can validate a listing faster than waiting for marketplace traffic alone.",
+      "The first sale is less about scale and more about proving the product promise is clear.",
+    ],
+    nextSteps: [
+      "Create three fresh pin angles for every active listing.",
+      "Replace the weakest listing photo with a benefit-first mockup.",
+      "Track which traffic source brings the next ten sales instead of guessing.",
+    ],
+  },
+  "designing-canva-course-sneak-peek": {
+    lessons: [
+      "A cover is a positioning decision, not just a design task.",
+      "Visual rules make lesson creation faster because every slide has a clear direction.",
+      "A smaller, more opinionated aesthetic feels more premium than a huge generic template pack.",
+    ],
+    nextSteps: [
+      "Finish the intro module edits and export captions.",
+      "Create the first three buyer worksheets from the same visual system.",
+      "Collect screenshots from beta students for the product page gallery.",
+    ],
+  },
+  "five-things-i-wish-i-knew": {
+    lessons: [
+      "Quiet consistency compounds even when the dashboard looks flat for weeks.",
+      "Search-led content gives a small brand more staying power than chasing daily virality.",
+      "Pricing is part of positioning; underpricing teaches buyers to value the product less.",
+    ],
+    nextSteps: [
+      "Raise the price on the next guide after the Q2 update ships.",
+      "Move the strongest Pinterest posts into a reusable weekly workflow.",
+      "Write a monthly review entry with numbers, mistakes, and fixes.",
+    ],
+  },
+  "planning-content-full-time": {
+    lessons: [
+      "Planning works best when it removes decisions from the week, not when it creates a complicated system.",
+      "Batching is a boundaries tool as much as a productivity tool.",
+      "A realistic rhythm beats an impressive calendar that only lasts two weeks.",
+    ],
+    nextSteps: [
+      "Turn the Sunday reset page into the Content Strategy Planner beta.",
+      "Add a Friday review prompt so winning posts get reused instead of forgotten.",
+      "Create a lighter version for launch weeks when the normal content rhythm is too much.",
+    ],
+  },
+  "first-100-email-subscribers": {
+    lessons: [
+      "A simple freebie can work if it solves an urgent, specific problem.",
+      "The email list becomes useful when it becomes a conversation, not a broadcast channel.",
+      "Replies are product research. They show the language buyers already use for their problem.",
+    ],
+    nextSteps: [
+      "Rewrite the Etsy Starter Kit opt-in page with the exact phrases subscribers used.",
+      "Add one question to the welcome email and tag replies by product idea.",
+      "Create a monthly freebie audit so old lead magnets keep improving.",
+    ],
+  },
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -613,6 +688,93 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
+export const blogPostExtras: Record<string, { takeaways: string[]; actionPlan: string[] }> = {
+  "digital-products-that-actually-sell": {
+    takeaways: [
+      "Small, specific products are outperforming oversized courses because buyers want a faster win.",
+      "Templates, scripts, mini guides, and swipe files sell best when they solve one clear job.",
+      "The first version should be narrow enough to finish, ship, and improve from real buyer feedback.",
+    ],
+    actionPlan: [
+      "List five problems your audience asks about repeatedly.",
+      "Choose the one that can be solved with a template, checklist, guide, or script pack in under a week.",
+      "Create the smallest paid version, sell it to your warmest audience, then bundle later only after one piece converts.",
+    ],
+  },
+  "pinterest-flywheel-for-creators": {
+    takeaways: [
+      "Pinterest rewards searchable assets, not constant social presence.",
+      "One product or post should have multiple pin angles because different hooks attract different buyers.",
+      "Monthly analytics reviews keep the system from becoming a pretty content graveyard.",
+    ],
+    actionPlan: [
+      "Pick five buyer-intent keywords and rename your most relevant boards around them.",
+      "Create three pin variations for your strongest freebie or product page.",
+      "Review outbound clicks after 30 days and rebuild the two pins sending the most traffic.",
+    ],
+  },
+  "warm-launch-playbook": {
+    takeaways: [
+      "A small list can convert when the launch sequence warms the problem before it pitches the product.",
+      "The best launch emails feel specific, plain, and human instead of over-designed.",
+      "FAQs and behind-the-scenes content lower hesitation without adding pressure.",
+    ],
+    actionPlan: [
+      "Write one pre-launch email about the problem your product solves.",
+      "Send one visual sneak peek before the cart opens so the offer feels familiar.",
+      "Close with an FAQ email that answers objections you have already heard in DMs or replies.",
+    ],
+  },
+  "quiet-marketing-for-introverts": {
+    takeaways: [
+      "Quiet marketing works when your channels are chosen for longevity, not performance theatre.",
+      "Search-first content and email can replace the need to be constantly visible on social media.",
+      "Thoughtful writing is a conversion advantage because it builds trust without hype.",
+    ],
+    actionPlan: [
+      "Choose one searchable channel and one owned channel for the next 90 days.",
+      "Turn one strong essay into three Pinterest pins, one email, and one product-page improvement.",
+      "Remove one content obligation that drains you but does not lead to clicks, replies, or sales.",
+    ],
+  },
+  "pricing-your-first-digital-product": {
+    takeaways: [
+      "Pricing should reflect the outcome and usefulness of the product, not the creator's confidence level.",
+      "A slightly uncomfortable price is often closer to the right one than a safe beginner price.",
+      "Regular price reviews keep a product aligned with buyer results and stronger testimonials.",
+    ],
+    actionPlan: [
+      "Place your product into one category: mini product, course, bundle, or template pack.",
+      "Choose a launch price, then write what must be included for that price to feel obvious.",
+      "Set a calendar reminder to review conversion, refunds, and testimonials after 90 days.",
+    ],
+  },
+  "week-in-my-full-time-creator-life": {
+    takeaways: [
+      "A creator week works better when every day has a job instead of every day holding every task.",
+      "Separating support, creation, admin, and review protects deep work from constant context switching.",
+      "Time off is possible when traffic and email systems are designed to keep working quietly.",
+    ],
+    actionPlan: [
+      "Assign each weekday one primary type of work.",
+      "Batch one recurring task before checking messages or analytics.",
+      "End the week by choosing one metric to improve and one workflow to simplify.",
+    ],
+  },
+  "faceless-brands-are-having-a-moment": {
+    takeaways: [
+      "Faceless brands are succeeding because buyers connect with a clear world, not only a visible founder.",
+      "An editorial mood, consistent language, and useful products can carry trust on their own.",
+      "The model is especially strong for creators who want sustainability, privacy, or a sellable brand asset.",
+    ],
+    actionPlan: [
+      "Define the three feelings your brand should create before choosing colors or templates.",
+      "Write a voice bank with phrases your brand uses and phrases it avoids.",
+      "Build one product ladder that can stand on its own without needing a personal daily presence.",
+    ],
+  },
+};
+
 export const homeStats: [string, string][] = [
   ["42+", "Products in progress"],
   ["12K+", "Followers across Pinterest & IG"],
@@ -717,6 +879,7 @@ export const progressBoard: {
 export type ProductExtras = {
   description: string[];
   features: { title: string; detail: string }[];
+  howItWorks: { step: string; detail: string }[];
   gallery: string[];
 };
 
@@ -734,6 +897,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "Launch checklist", detail: "The exact 14-day plan I use for every Blushbuild release." },
       { title: "Lifetime updates", detail: "Every new template drop lands in your account automatically." },
     ],
+    howItWorks: [
+      { step: "Download the welcome guide", detail: "Start with the 10-minute roadmap so you know exactly which lesson and template to open first." },
+      { step: "Choose one product format", detail: "Pick the workbook, checklist, planner, e-book, course workbook, or freebie template based on what you want to sell." },
+      { step: "Customize with your brand", detail: "Use the palette, font, and layout walkthroughs to make the template feel custom without redesigning it from scratch." },
+      { step: "Export and launch", detail: "Follow the included launch checklist to price, publish, and announce your finished product." },
+    ],
     gallery: [images.coquette5, images.coquette2, images.brandingTips, images.clarity],
   },
   "etsy-success-guide": {
@@ -748,6 +917,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "10 photo templates", detail: "Editable listing photos in Canva — swap your product, ship in 20 minutes." },
       { title: "Pricing calculator", detail: "The exact worksheet I use to price digital products without underselling." },
       { title: "Review scripts", detail: "The 3 messages that reliably turn buyers into 5-star reviewers." },
+    ],
+    howItWorks: [
+      { step: "Audit your current shop", detail: "Use the first worksheet to spot missing keywords, weak photos, confusing sections, and pricing gaps." },
+      { step: "Rewrite your positioning", detail: "Clarify who the product is for, why it matters, and what makes your listing easier to buy." },
+      { step: "Refresh listing visuals", detail: "Duplicate the Canva photo templates and create a complete listing image stack in one sitting." },
+      { step: "Track and improve", detail: "Use the pricing calculator and review scripts to improve conversion over the next 30 days." },
     ],
     gallery: [images.iced6, images.iced2, images.iced1, images.contentStrategy],
   },
@@ -764,6 +939,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "Reels script pack", detail: "Sound-on hooks and outlines for the top 20 creator formats." },
       { title: "Brand mood starters", detail: "Palettes, fonts, and moodboards to lock a look in one afternoon." },
     ],
+    howItWorks: [
+      { step: "Pick your launch goal", detail: "Choose whether you are validating an idea, warming a waitlist, or opening cart this week." },
+      { step: "Build your offer page", detail: "Use the Notion or Canva sales page template to draft the promise, sections, FAQs, and CTA." },
+      { step: "Batch content from prompts", detail: "Pull prompts by funnel stage so your posts lead naturally into the offer instead of feeling random." },
+      { step: "Send the launch sequence", detail: "Customize the five emails and publish the matching Reels scripts during launch week." },
+    ],
     gallery: [images.coquette1, images.latteOffer, images.social2026, images.coquette7],
   },
   "pinterest-growth-kit": {
@@ -778,6 +959,12 @@ export const productExtras: Record<string, ProductExtras> = {
       { title: "Keyword bank", detail: "500+ keywords for creators, sellers, and coaches — copy/paste ready." },
       { title: "Board SEO checklist", detail: "The 12 checks that turn a board into a traffic engine." },
       { title: "Analytics dashboard", detail: "Notion template to track what's actually driving clicks." },
+    ],
+    howItWorks: [
+      { step: "Choose your traffic goal", detail: "Decide whether you want clicks to a product, freebie, blog post, or waitlist before you design anything." },
+      { step: "Match keywords to boards", detail: "Use the keyword bank to name boards, write descriptions, and choose the searches you want to own." },
+      { step: "Batch weekly pins", detail: "Duplicate the templates, swap hooks and images, then schedule a full week in one focused session." },
+      { step: "Review what compounds", detail: "Track outbound clicks monthly and rebuild the top-performing pins instead of guessing." },
     ],
     gallery: [images.iced8, images.iced6, images.contentStrategy, images.coquette6],
   },
