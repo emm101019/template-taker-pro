@@ -55,6 +55,16 @@ function ProductPage() {
   const { product, extras, related } = Route.useLoaderData();
   const gallery = extras?.gallery ?? [product.image];
   const [active, setActive] = useState(gallery[0]);
+  const [notice, setNotice] = useState("");
+  const isLive = product.status === "Selling";
+
+  function handleProductCta() {
+    setNotice(
+      isLive
+        ? `${product.title} has been added to your studio cart. Checkout is mocked for this demo.`
+        : `You're on the ${product.title} early-access list. Watch the progress page for the next update.`,
+    );
+  }
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -102,9 +112,14 @@ function ProductPage() {
               </span>
             </div>
 
-            <Link to="/resources" className="button-solid mt-6">
+            <button type="button" className="button-solid mt-6" onClick={handleProductCta}>
               {product.cta} →
-            </Link>
+            </button>
+            {notice ? (
+              <p className="mt-3 text-sm leading-6 text-muted-foreground" aria-live="polite">
+                {notice}
+              </p>
+            ) : null}
           </div>
         </div>
 
@@ -222,9 +237,9 @@ function ProductPage() {
               {product.title} — {product.price}
             </p>
           </div>
-          <Link to="/resources" className="button-solid">
+          <button type="button" className="button-solid" onClick={handleProductCta}>
             {product.cta} →
-          </Link>
+          </button>
         </div>
       </section>
 
