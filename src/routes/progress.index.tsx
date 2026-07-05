@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { progressBoard, progressStages } from "@/content/site";
 
-export const Route = createFileRoute("/progress")({
+export const Route = createFileRoute("/progress/")({
   head: () => ({
     meta: [
       { title: "Progress — Blushbuild" },

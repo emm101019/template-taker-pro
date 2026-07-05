@@ -10,13 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ShopRouteImport } from './routes/shop'
-import { Route as ResourcesRouteImport } from './routes/resources'
-import { Route as ProgressRouteImport } from './routes/progress'
-import { Route as DiaryRouteImport } from './routes/diary'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShopIndexRouteImport } from './routes/shop.index'
+import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
+import { Route as ProgressIndexRouteImport } from './routes/progress.index'
+import { Route as DiaryIndexRouteImport } from './routes/diary.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as ProgressSlugRouteImport } from './routes/progress.$slug'
@@ -26,31 +26,6 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ShopRoute = ShopRouteImport.update({
-  id: '/shop',
-  path: '/shop',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResourcesRoute = ResourcesRouteImport.update({
-  id: '/resources',
-  path: '/resources',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgressRoute = ProgressRouteImport.update({
-  id: '/progress',
-  path: '/progress',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DiaryRoute = DiaryRouteImport.update({
-  id: '/diary',
-  path: '/diary',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -63,135 +38,165 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
+  id: '/shop/',
+  path: '/shop/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesIndexRoute = ResourcesIndexRouteImport.update({
+  id: '/resources/',
+  path: '/resources/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressIndexRoute = ProgressIndexRouteImport.update({
+  id: '/progress/',
+  path: '/progress/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiaryIndexRoute = DiaryIndexRouteImport.update({
+  id: '/diary/',
+  path: '/diary/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ShopSlugRoute = ShopSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ShopRoute,
+  id: '/shop/$slug',
+  path: '/shop/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesSlugRoute = ResourcesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ResourcesRoute,
+  id: '/resources/$slug',
+  path: '/resources/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ProgressSlugRoute = ProgressSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ProgressRoute,
+  id: '/progress/$slug',
+  path: '/progress/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DiarySlugRoute = DiarySlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => DiaryRoute,
+  id: '/diary/$slug',
+  path: '/diary/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
-  '/diary': typeof DiaryRouteWithChildren
-  '/progress': typeof ProgressRouteWithChildren
-  '/resources': typeof ResourcesRouteWithChildren
-  '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/diary/': typeof DiaryIndexRoute
+  '/progress/': typeof ProgressIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
-  '/diary': typeof DiaryRouteWithChildren
-  '/progress': typeof ProgressRouteWithChildren
-  '/resources': typeof ResourcesRouteWithChildren
-  '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/diary': typeof DiaryIndexRoute
+  '/progress': typeof ProgressIndexRoute
+  '/resources': typeof ResourcesIndexRoute
+  '/shop': typeof ShopIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
-  '/diary': typeof DiaryRouteWithChildren
-  '/progress': typeof ProgressRouteWithChildren
-  '/resources': typeof ResourcesRouteWithChildren
-  '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
   '/shop/$slug': typeof ShopSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/diary/': typeof DiaryIndexRoute
+  '/progress/': typeof ProgressIndexRoute
+  '/resources/': typeof ResourcesIndexRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
-    | '/diary'
-    | '/progress'
-    | '/resources'
-    | '/shop'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
+    | '/blog/'
+    | '/diary/'
+    | '/progress/'
+    | '/resources/'
+    | '/shop/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/blog'
-    | '/diary'
-    | '/progress'
-    | '/resources'
-    | '/shop'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
+    | '/blog'
+    | '/diary'
+    | '/progress'
+    | '/resources'
+    | '/shop'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
-    | '/diary'
-    | '/progress'
-    | '/resources'
-    | '/shop'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/progress/$slug'
     | '/resources/$slug'
     | '/shop/$slug'
+    | '/blog/'
+    | '/diary/'
+    | '/progress/'
+    | '/resources/'
+    | '/shop/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRouteWithChildren
-  DiaryRoute: typeof DiaryRouteWithChildren
-  ProgressRoute: typeof ProgressRouteWithChildren
-  ResourcesRoute: typeof ResourcesRouteWithChildren
-  ShopRoute: typeof ShopRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  DiarySlugRoute: typeof DiarySlugRoute
+  ProgressSlugRoute: typeof ProgressSlugRoute
+  ResourcesSlugRoute: typeof ResourcesSlugRoute
+  ShopSlugRoute: typeof ShopSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  DiaryIndexRoute: typeof DiaryIndexRoute
+  ProgressIndexRoute: typeof ProgressIndexRoute
+  ResourcesIndexRoute: typeof ResourcesIndexRoute
+  ShopIndexRoute: typeof ShopIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -201,41 +206,6 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shop': {
-      id: '/shop'
-      path: '/shop'
-      fullPath: '/shop'
-      preLoaderRoute: typeof ShopRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/resources': {
-      id: '/resources'
-      path: '/resources'
-      fullPath: '/resources'
-      preLoaderRoute: typeof ResourcesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/progress': {
-      id: '/progress'
-      path: '/progress'
-      fullPath: '/progress'
-      preLoaderRoute: typeof ProgressRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/diary': {
-      id: '/diary'
-      path: '/diary'
-      fullPath: '/diary'
-      preLoaderRoute: typeof DiaryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -252,107 +222,93 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop/': {
+      id: '/shop/'
+      path: '/shop'
+      fullPath: '/shop/'
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources/': {
+      id: '/resources/'
+      path: '/resources'
+      fullPath: '/resources/'
+      preLoaderRoute: typeof ResourcesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress/': {
+      id: '/progress/'
+      path: '/progress'
+      fullPath: '/progress/'
+      preLoaderRoute: typeof ProgressIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diary/': {
+      id: '/diary/'
+      path: '/diary'
+      fullPath: '/diary/'
+      preLoaderRoute: typeof DiaryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/shop/$slug': {
       id: '/shop/$slug'
-      path: '/$slug'
+      path: '/shop/$slug'
       fullPath: '/shop/$slug'
       preLoaderRoute: typeof ShopSlugRouteImport
-      parentRoute: typeof ShopRoute
+      parentRoute: typeof rootRouteImport
     }
     '/resources/$slug': {
       id: '/resources/$slug'
-      path: '/$slug'
+      path: '/resources/$slug'
       fullPath: '/resources/$slug'
       preLoaderRoute: typeof ResourcesSlugRouteImport
-      parentRoute: typeof ResourcesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/progress/$slug': {
       id: '/progress/$slug'
-      path: '/$slug'
+      path: '/progress/$slug'
       fullPath: '/progress/$slug'
       preLoaderRoute: typeof ProgressSlugRouteImport
-      parentRoute: typeof ProgressRoute
+      parentRoute: typeof rootRouteImport
     }
     '/diary/$slug': {
       id: '/diary/$slug'
-      path: '/$slug'
+      path: '/diary/$slug'
       fullPath: '/diary/$slug'
       preLoaderRoute: typeof DiarySlugRouteImport
-      parentRoute: typeof DiaryRoute
+      parentRoute: typeof rootRouteImport
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
-interface DiaryRouteChildren {
-  DiarySlugRoute: typeof DiarySlugRoute
-}
-
-const DiaryRouteChildren: DiaryRouteChildren = {
-  DiarySlugRoute: DiarySlugRoute,
-}
-
-const DiaryRouteWithChildren = DiaryRoute._addFileChildren(DiaryRouteChildren)
-
-interface ProgressRouteChildren {
-  ProgressSlugRoute: typeof ProgressSlugRoute
-}
-
-const ProgressRouteChildren: ProgressRouteChildren = {
-  ProgressSlugRoute: ProgressSlugRoute,
-}
-
-const ProgressRouteWithChildren = ProgressRoute._addFileChildren(
-  ProgressRouteChildren,
-)
-
-interface ResourcesRouteChildren {
-  ResourcesSlugRoute: typeof ResourcesSlugRoute
-}
-
-const ResourcesRouteChildren: ResourcesRouteChildren = {
-  ResourcesSlugRoute: ResourcesSlugRoute,
-}
-
-const ResourcesRouteWithChildren = ResourcesRoute._addFileChildren(
-  ResourcesRouteChildren,
-)
-
-interface ShopRouteChildren {
-  ShopSlugRoute: typeof ShopSlugRoute
-}
-
-const ShopRouteChildren: ShopRouteChildren = {
-  ShopSlugRoute: ShopSlugRoute,
-}
-
-const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRouteWithChildren,
-  DiaryRoute: DiaryRouteWithChildren,
-  ProgressRoute: ProgressRouteWithChildren,
-  ResourcesRoute: ResourcesRouteWithChildren,
-  ShopRoute: ShopRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  DiarySlugRoute: DiarySlugRoute,
+  ProgressSlugRoute: ProgressSlugRoute,
+  ResourcesSlugRoute: ResourcesSlugRoute,
+  ShopSlugRoute: ShopSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  DiaryIndexRoute: DiaryIndexRoute,
+  ProgressIndexRoute: ProgressIndexRoute,
+  ResourcesIndexRoute: ResourcesIndexRoute,
+  ShopIndexRoute: ShopIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
