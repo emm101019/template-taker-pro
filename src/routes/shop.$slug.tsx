@@ -140,7 +140,7 @@ function ProductPage() {
           <div className="mt-12">
             <h2 className="font-serif-alt text-3xl leading-none text-foreground">Features &amp; benefits</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {extras.features.map((f) => (
+              {extras.features.map((f: { title: string; detail: string }) => (
                 <div key={f.title} className="border border-border bg-panel p-5">
                   <p className="font-serif-alt text-xl leading-tight text-foreground">{f.title}</p>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{f.detail}</p>
@@ -169,7 +169,7 @@ function ProductPage() {
           <div className="mt-14">
             <p className="eyebrow">You might also like</p>
             <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((r) => (
+              {related.map((r: typeof products[number]) => (
                 <Link
                   key={r.slug}
                   to="/shop/$slug"
