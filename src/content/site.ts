@@ -713,3 +713,249 @@ export const progressBoard: {
     image: images.clarity,
   },
 ];
+
+export type ProductExtras = {
+  description: string[];
+  features: { title: string; detail: string }[];
+  gallery: string[];
+};
+
+export const productExtras: Record<string, ProductExtras> = {
+  "canva-crash-course": {
+    description: [
+      "The Canva Crash Course is a weekend-length design workshop built for creators who freeze at a blank page. Twelve short lessons, six editable templates, and a launch checklist — everything you need to design and ship your first digital product without hiring a designer.",
+      "Every lesson is under 8 minutes. Every template is production-ready. You'll leave with a workbook, a checklist, a planner, an e-book, a mini-course workbook, and a freebie — all in your brand, ready to sell.",
+      "This is the exact system I use inside Blushbuild for every product I release, distilled into the shortest version I could make without cutting anything important.",
+    ],
+    features: [
+      { title: "12 short video lessons", detail: "Bite-sized under 8 minutes so you can watch on a lunch break." },
+      { title: "6 launch-ready templates", detail: "Workbook, checklist, planner, e-book, mini course, freebie — all editable in free Canva." },
+      { title: "Brand starter files", detail: "Fonts, palettes, and mood boards you can drop into any product." },
+      { title: "Launch checklist", detail: "The exact 14-day plan I use for every Blushbuild release." },
+      { title: "Lifetime updates", detail: "Every new template drop lands in your account automatically." },
+    ],
+    gallery: [images.coquette5, images.coquette2, images.brandingTips, images.clarity],
+  },
+  "etsy-success-guide": {
+    description: [
+      "The Etsy Success Guide is the 48-page playbook I wish I'd had before opening my shop. Positioning, keyword research, listing photos, and the exact pricing math that works for digital sellers in 2026.",
+      "It's not a course full of theory. It's the small tactical decisions that separate a shop stuck at 3 sales a month from one doing 300 — written the way I'd walk a friend through it over coffee.",
+      "Includes real listing teardowns, a keyword research spreadsheet, and the follow-up messages I send buyers to reliably get 5-star reviews.",
+    ],
+    features: [
+      { title: "48-page PDF guide", detail: "Positioning, keywords, photos, pricing — with real examples throughout." },
+      { title: "Keyword spreadsheet", detail: "Sortable research template pre-filled with 200+ starter keywords." },
+      { title: "10 photo templates", detail: "Editable listing photos in Canva — swap your product, ship in 20 minutes." },
+      { title: "Pricing calculator", detail: "The exact worksheet I use to price digital products without underselling." },
+      { title: "Review scripts", detail: "The 3 messages that reliably turn buyers into 5-star reviewers." },
+    ],
+    gallery: [images.iced6, images.iced2, images.iced1, images.contentStrategy],
+  },
+  "digital-product-bundle": {
+    description: [
+      "One bundle that replaces five subscriptions. Prompts, sales page templates, email sequences, and the warm launch playbook — priced like a beginner course, valued like a mentor.",
+      "Built for creators who are done paying $19/month for four different tools that all do 60% of what they need. Everything here is production-tested inside Blushbuild's own launches.",
+      "Ships early July. Join the waitlist for a launch-day discount and quarterly updates included.",
+    ],
+    features: [
+      { title: "200 content prompts", detail: "Organized by funnel stage — awareness, warm, launch, retention." },
+      { title: "3 sales page templates", detail: "Notion + Canva. Duplicate, swap copy, publish." },
+      { title: "5-email warm launch", detail: "The exact sequence that turned an 82-person list into a $2k launch." },
+      { title: "Reels script pack", detail: "Sound-on hooks and outlines for the top 20 creator formats." },
+      { title: "Brand mood starters", detail: "Palettes, fonts, and moodboards to lock a look in one afternoon." },
+    ],
+    gallery: [images.coquette1, images.latteOffer, images.social2026, images.coquette7],
+  },
+  "pinterest-growth-kit": {
+    description: [
+      "The Pinterest Growth Kit is the exact system I use to send steady, free traffic to my digital products every week — without spending an hour on each pin.",
+      "60 editable templates across three aesthetics, a weekly content calendar, a keyword bank, and the SEO checklist that turned my dead board into a top traffic source in 90 days.",
+      "Built specifically for digital product sellers, bloggers, and faceless brands who want traffic that compounds instead of disappearing after 48 hours.",
+    ],
+    features: [
+      { title: "60 pin templates", detail: "Three aesthetics × twenty formats. Editable in free Canva." },
+      { title: "Weekly calendar", detail: "The batching flow I use every Sunday in under 90 minutes." },
+      { title: "Keyword bank", detail: "500+ keywords for creators, sellers, and coaches — copy/paste ready." },
+      { title: "Board SEO checklist", detail: "The 12 checks that turn a board into a traffic engine." },
+      { title: "Analytics dashboard", detail: "Notion template to track what's actually driving clicks." },
+    ],
+    gallery: [images.iced8, images.iced6, images.contentStrategy, images.coquette6],
+  },
+};
+
+export type ProgressDetail = {
+  story: string[];
+  shipped: string[];
+  next: string[];
+  updates: { date: string; note: string }[];
+};
+
+export const progressDetails: Record<string, ProgressDetail> = {
+  "canva-crash-course": {
+    story: [
+      "The Canva Crash Course started as a single Notion doc titled 'stuff people keep asking me in DMs.' Twelve bullet points about how I design my products. I turned it into a paid mini-course in a weekend.",
+      "V1 launched in February with 8 lessons. V2 dropped this month with 4 new lessons, a brand starter kit, and rebuilt templates. The pre-sale cohort is 73% through the material.",
+      "Long-term the goal is to keep this evergreen and update it once a quarter as Canva rolls out new features.",
+    ],
+    shipped: [
+      "V1 launched Feb 2026 (8 lessons)",
+      "V2 dropped May 2026 (12 lessons + new templates)",
+      "Brand starter kit added June 2026",
+      "First 200 buyers onboarded",
+    ],
+    next: [
+      "Recording the AI section for Q3",
+      "Add a 'design a freebie in 30 minutes' bonus module",
+      "Rebuild the sales page with buyer quotes",
+    ],
+    updates: [
+      { date: "This week", note: "V2 templates dropped. 73% through the pre-sale cohort." },
+      { date: "2 weeks ago", note: "Recorded the last two lessons of V2. Editing in progress." },
+      { date: "4 weeks ago", note: "Announced V2 to the list. 68 upgrades in 48 hours." },
+    ],
+  },
+  "etsy-success-guide": {
+    story: [
+      "The Etsy Success Guide was the second product I ever released. It started as a 12-page PDF and has grown into a proper 48-page playbook with a keyword spreadsheet, photo templates, and a pricing calculator.",
+      "I update it every quarter as Etsy's algorithm changes. This quarter's update added the new pricing calculator and 3 fresh listing teardowns.",
+    ],
+    shipped: [
+      "48-page PDF live",
+      "Keyword research spreadsheet",
+      "10 Canva photo templates",
+      "Pricing calculator added",
+    ],
+    next: [
+      "Add a video walkthrough of a full listing setup",
+      "Interview 3 shop owners for case studies",
+      "Translate the guide to Spanish (Q4)",
+    ],
+    updates: [
+      { date: "This week", note: "Added the pricing calculator + 3 new listing examples." },
+      { date: "3 weeks ago", note: "Started outlining the video walkthrough companion." },
+      { date: "6 weeks ago", note: "Q2 update dropped. Buyers get it automatically." },
+    ],
+  },
+  "digital-product-bundle": {
+    story: [
+      "The bundle came out of the same feedback loop over and over: buyers wanted the prompts, the templates, the launch sequences, and the mood boards all in one place. So I built it.",
+      "Currently in beta with 5 buyers testing everything end-to-end. Their feedback is rewriting two sections this week before the public launch in July.",
+    ],
+    shipped: [
+      "200 prompts finalized",
+      "3 sales page templates live in Notion",
+      "5-email warm launch sequence tested",
+      "Beta cohort onboarded (5 buyers)",
+    ],
+    next: [
+      "Rewrite the mood board section based on beta notes",
+      "Design the launch-day landing page",
+      "Send the waitlist a launch discount code",
+    ],
+    updates: [
+      { date: "3 days ago", note: "5 beta buyers gave feedback. Rewriting two sections this week." },
+      { date: "2 weeks ago", note: "Beta cohort opened. Feedback surveys sent." },
+      { date: "5 weeks ago", note: "Finished the 200 prompts. Started sales page templates." },
+    ],
+  },
+  "pinterest-growth-kit": {
+    story: [
+      "The Pinterest Growth Kit was the most-requested product on the last audience survey — by a lot. I've been building the templates since March and just crossed 60 designs across three aesthetics.",
+      "Aim to launch in late summer. Progress lives here in public so waitlist buyers know exactly what they're getting.",
+    ],
+    shipped: [
+      "60 pin templates designed",
+      "Three aesthetics locked in (cream editorial, iced neutral, warm serif)",
+      "Weekly content calendar drafted",
+    ],
+    next: [
+      "Write the SEO checklist for boards + descriptions",
+      "Build the keyword bank (500+ terms)",
+      "Design the analytics dashboard in Notion",
+    ],
+    updates: [
+      { date: "5 days ago", note: "60 pin templates designed. Working on the SEO checklist next." },
+      { date: "3 weeks ago", note: "Locked the three aesthetics. Cream editorial tested best." },
+      { date: "6 weeks ago", note: "Started the first 20 templates. Kept 12, killed 8." },
+    ],
+  },
+  "content-strategy-planner": {
+    story: [
+      "The planner is the Notion + Canva companion to the Sunday reset I write about on the diary. Started as a page I use myself every week.",
+      "Batching flow is drafted. Metrics dashboard is next. Planning a small beta with 10 creators before public launch.",
+    ],
+    shipped: [
+      "Weekly + monthly planning pages drafted",
+      "Content pillar tracker built",
+      "Batching flow written",
+    ],
+    next: [
+      "Build the metrics dashboard",
+      "Open a 10-person beta",
+      "Design the cover + sales page",
+    ],
+    updates: [
+      { date: "1 week ago", note: "Batching flow drafted. Metrics dashboard is next." },
+      { date: "3 weeks ago", note: "Locked the four core pages. Cut two 'nice to have' sections." },
+    ],
+  },
+  "faceless-brand-course": {
+    story: [
+      "This might launch as a mini-guide first. Still scoping whether it wants to be a course or a 40-page PDF like a magazine.",
+      "Waitlist is open on the sidebar of the faceless business essay on the blog.",
+    ],
+    shipped: [
+      "Initial outline written",
+      "Audience survey collected (127 responses)",
+    ],
+    next: [
+      "Decide: mini-guide vs. course",
+      "Write the first three lessons or chapters",
+      "Design the cover",
+    ],
+    updates: [
+      { date: "2 weeks ago", note: "Scoping the outline. Might launch as a mini-guide first." },
+      { date: "5 weeks ago", note: "Sent the audience survey. 127 responses in a week." },
+    ],
+  },
+  "creator-swipe-vault": {
+    story: [
+      "The Swipe Vault is a collection of 200 real captions, emails, and hooks pulled from launches that actually worked — mine and a handful from creator friends who agreed to share.",
+      "Currently collecting and tagging. Aiming for a Q3 release.",
+    ],
+    shipped: [
+      "78 captions logged",
+      "34 emails logged",
+      "Tag system designed in Notion",
+    ],
+    next: [
+      "Hit 200 total swipes",
+      "Get sign-off from contributing creators",
+      "Build the search + filter UI",
+    ],
+    updates: [
+      { date: "This week", note: "Collecting 200 real-world captions, emails, and hooks." },
+      { date: "3 weeks ago", note: "First 3 creator friends signed off on sharing their launch emails." },
+    ],
+  },
+  "brand-clarity-workbook": {
+    story: [
+      "The paid workbook is a longer, deeper version of the free clarity workbook already on the resources page. Adds audio prompts, real examples, and a 30-day rebrand plan.",
+      "In beta with 15 buyers right now. Feedback so far: the audio companion is the favorite feature.",
+    ],
+    shipped: [
+      "Workbook PDF drafted",
+      "12 audio prompts recorded",
+      "Beta cohort onboarded (15 buyers)",
+    ],
+    next: [
+      "Edit audio companion based on beta feedback",
+      "Add 3 case-study examples",
+      "Public launch in July",
+    ],
+    updates: [
+      { date: "4 days ago", note: "First 15 beta buyers on board. Adding a workbook audio companion." },
+      { date: "3 weeks ago", note: "Finished recording the 12 audio prompts." },
+    ],
+  },
+};
