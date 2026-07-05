@@ -112,7 +112,7 @@ function ProductPage() {
           <div className="mt-14">
             <h2 className="font-serif-alt text-3xl leading-none text-foreground">Description</h2>
             <div className="prose-note mt-4">
-              {extras.description.map((p, i) => <p key={i}>{p}</p>)}
+              {extras.description.map((p: string, i: number) => <p key={i}>{p}</p>)}
             </div>
           </div>
         ) : null}
