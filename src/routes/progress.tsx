@@ -53,9 +53,11 @@ function ProgressPage() {
 
                 <div className="mt-4 space-y-3">
                   {items.map((item) => (
-                    <article
+                    <Link
                       key={item.slug}
-                      className="border border-border bg-background/60 p-3"
+                      to="/progress/$slug"
+                      params={{ slug: item.slug }}
+                      className="block border border-border bg-background/60 p-3 transition hover:-translate-y-0.5"
                     >
                       <div className="flex gap-3">
                         <img
@@ -82,10 +84,10 @@ function ProgressPage() {
                           />
                         </div>
                         <p className="mt-1 text-[0.62rem] uppercase tracking-[0.14em] text-muted-foreground">
-                          {item.percent}% complete
+                          {item.percent}% complete · see details →
                         </p>
                       </div>
-                    </article>
+                    </Link>
                   ))}
                   {items.length === 0 ? (
                     <p className="text-xs italic text-muted-foreground">Nothing here right now.</p>
