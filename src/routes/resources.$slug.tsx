@@ -124,16 +124,14 @@ function ResourceDetailPage() {
           <p className="eyebrow">Also free</p>
           <div className="resource-grid mt-4">
             {related.map((r) => (
-              <article key={r.slug} className="resource-card">
+              <Link key={r.slug} to="/resources/$slug" params={{ slug: r.slug }} className="resource-card block">
                 <div className="resource-cover">
                   <span className="resource-type">{r.type}</span>
                   <p className="font-serif-alt text-3xl leading-tight text-foreground">{r.title}</p>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-muted-foreground">{r.text}</p>
-                <Link to="/resources/$slug" params={{ slug: r.slug }} className="product-link">
-                  Get it free →
-                </Link>
-              </article>
+                <span className="product-link">Get it free →</span>
+              </Link>
             ))}
           </div>
         </div>

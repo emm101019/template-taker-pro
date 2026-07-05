@@ -38,7 +38,12 @@ function ShopPage() {
 
         <div className="journey-products mt-10">
           {products.map((product) => (
-            <article key={product.slug} className="product-card">
+            <Link
+              key={product.slug}
+              to="/shop/$slug"
+              params={{ slug: product.slug }}
+              className="product-card block"
+            >
               <div className="product-visual">
                 <img src={product.image} alt={product.title} className="product-image" loading="lazy" />
                 <span className="product-tag">{product.status}</span>
@@ -53,10 +58,8 @@ function ShopPage() {
                   {product.phase}
                 </span>
               </div>
-              <Link to="/shop/$slug" params={{ slug: product.slug }} className="product-link">
-                See the page →
-              </Link>
-            </article>
+              <span className="product-link">See the page →</span>
+            </Link>
           ))}
         </div>
       </section>

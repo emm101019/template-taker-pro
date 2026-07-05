@@ -70,7 +70,7 @@ function BlogIndex() {
             <p className="mt-4 text-[0.72rem] uppercase tracking-[0.18em] text-muted-foreground">
               {featured.date} · {featured.readingTime}
             </p>
-            <span className="product-link mt-6">Read the post →</span>
+            <span className="product-link mt-6">Read Blog →</span>
           </div>
         </Link>
 
@@ -93,7 +93,7 @@ function BlogIndex() {
               <p className="mt-2 text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground">
                 {post.date} · {post.readingTime}
               </p>
-              <span className="product-link">Read →</span>
+              <span className="product-link">Read More →</span>
             </Link>
           ))}
         </div>

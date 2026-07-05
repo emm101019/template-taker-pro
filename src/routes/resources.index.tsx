@@ -52,7 +52,12 @@ function ResourcesPage() {
 
         <div className="resource-grid mt-8">
           {resources.map((resource) => (
-            <article key={resource.slug} className="resource-card">
+            <Link
+              key={resource.slug}
+              to="/resources/$slug"
+              params={{ slug: resource.slug }}
+              className="resource-card block"
+            >
               <div className="resource-cover">
                 <span className="resource-type">{resource.type}</span>
                 <p className="font-serif-alt text-3xl leading-tight text-foreground">
@@ -60,14 +65,8 @@ function ResourcesPage() {
                 </p>
               </div>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
-              <Link
-                to="/resources/$slug"
-                params={{ slug: resource.slug }}
-                className="product-link"
-              >
-                Get it free →
-              </Link>
-            </article>
+              <span className="product-link">Get it free →</span>
+            </Link>
           ))}
         </div>
 
