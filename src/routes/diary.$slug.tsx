@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { diaryEntries } from "@/content/site";
+import { diaryEntries, diaryEntryExtras } from "@/content/site";
 
 export const Route = createFileRoute("/diary/$slug")({
   loader: ({ params }) => {
@@ -9,6 +9,7 @@ export const Route = createFileRoute("/diary/$slug")({
     if (index === -1) throw notFound();
     return {
       entry: diaryEntries[index],
+      extra: diaryEntryExtras[params.slug],
       previous: diaryEntries[index + 1],
       next: diaryEntries[index - 1],
     };
@@ -54,7 +55,7 @@ function DiaryNotFound() {
 }
 
 function DiaryEntryPage() {
-  const { entry, previous, next } = Route.useLoaderData();
+  const { entry, extra, previous, next } = Route.useLoaderData();
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -88,6 +89,27 @@ function DiaryEntryPage() {
             return <p key={i}>{paragraph}</p>;
           })}
         </div>
+
+        {extra ? (
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <section>
+              <h2 className="font-serif-alt text-3xl leading-none text-foreground">What I learned</h2>
+              <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
+                {extra.lessons.map((item: string) => (
+                  <li key={item}>♡ {item}</li>
+                ))}
+              </ul>
+            </section>
+            <section>
+              <h2 className="font-serif-alt text-3xl leading-none text-foreground">Next steps</h2>
+              <ul className="mt-4 space-y-2 text-base leading-7 text-foreground/85">
+                {extra.nextSteps.map((item: string) => (
+                  <li key={item}>→ {item}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        ) : null}
 
         <div className="mt-14 grid gap-4 border-t border-border pt-8 sm:grid-cols-2">
           {previous ? (

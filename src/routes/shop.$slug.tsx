@@ -102,9 +102,9 @@ function ProductPage() {
               </span>
             </div>
 
-            <button type="button" className="button-solid mt-6">
+            <Link to="/resources" className="button-solid mt-6">
               {product.cta} →
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -222,9 +222,9 @@ function ProductPage() {
               {product.title} — {product.price}
             </p>
           </div>
-          <button type="button" className="button-solid">
+          <Link to="/resources" className="button-solid">
             {product.cta} →
-          </button>
+          </Link>
         </div>
       </section>
 
