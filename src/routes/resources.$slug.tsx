@@ -59,6 +59,16 @@ function ResourceNotFound() {
 function ResourceDetailPage() {
   const { resource } = Route.useLoaderData();
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
+  const pdf = resourcePdfs[resource.slug];
+  const [downloaded, setDownloaded] = useState(false);
+
+  const handleDownload = () => {
+    if (!pdf) return;
+    downloadResourcePdf(resource.slug, resource.title, pdf);
+    setDownloaded(true);
+  };
+
+
 
   return (
     <main className="min-h-screen bg-background text-foreground">
