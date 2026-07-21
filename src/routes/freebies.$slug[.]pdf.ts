@@ -5,7 +5,8 @@ export const Route = createFileRoute("/freebies/$slug.pdf")({
   server: {
     handlers: {
       GET: async ({ params, request }) => {
-        const assetPath = resourceDownloads[params.slug];
+        const slug = params["slug.pdf"].replace(/\.pdf$/, "");
+        const assetPath = resourceDownloads[slug];
 
         if (!assetPath) {
           return new Response("PDF not found", {

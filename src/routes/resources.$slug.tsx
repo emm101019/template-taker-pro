@@ -59,7 +59,7 @@ function ResourceNotFound() {
 function ResourceDetailPage() {
   const { resource } = Route.useLoaderData();
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
-  const pdfUrl = getResourcePdfRoute(resource.slug);
+  const pdfUrl = getResourcePdfRoute(resource.slug) ?? undefined;
   const [gateOpen, setGateOpen] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
 

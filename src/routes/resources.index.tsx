@@ -59,7 +59,7 @@ function ResourcesPage() {
 
         <div className="resource-grid mt-8">
           {resources.map((resource) => {
-            const pdfUrl = getResourcePdfRoute(resource.slug);
+            const pdfUrl = getResourcePdfRoute(resource.slug) ?? undefined;
             return (
               <div key={resource.slug} className="resource-card flex flex-col">
                 <Link
