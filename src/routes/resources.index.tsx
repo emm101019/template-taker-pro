@@ -89,13 +89,25 @@ function ResourcesPage() {
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
                 </Link>
                 <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => handleClick(resource.slug, resource.title, pdfUrl)}
+                  <a
+                    href={pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download={`${resource.slug}.pdf`}
+                    onClick={(e) => {
+                      if (!pdfUrl) {
+                        e.preventDefault();
+                        return;
+                      }
+                      if (!hasSubscribed()) {
+                        e.preventDefault();
+                        setGate({ slug: resource.slug, title: resource.title, url: pdfUrl });
+                      }
+                    }}
                     className="button-solid"
                   >
                     Download PDF ↓
-                  </button>
+                  </a>
                   <Link
                     to="/resources/$slug"
                     params={{ slug: resource.slug }}
