@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
@@ -61,6 +61,11 @@ function ResourceDetailPage() {
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
   const pdfUrl = resourceDownloads[resource.slug];
   const [gateOpen, setGateOpen] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+
+  useEffect(() => {
+    setUnlocked(hasSubscribed());
+  }, []);
 
   const startDownload = () => {
     if (!pdfUrl) return;
@@ -68,7 +73,7 @@ function ResourceDetailPage() {
   };
 
   const handleClick = () => {
-    if (hasSubscribed()) {
+    if (unlocked || hasSubscribed()) {
       startDownload();
     } else {
       setGateOpen(true);
@@ -135,6 +140,7 @@ function ResourceDetailPage() {
             </button>
             <span className="text-sm text-muted-foreground">
               {hasSubscribed()
+              {unlocked
                 ? "You're unlocked — tap to download."
                 : "One email unlocks every freebie."}
             </span>
@@ -163,10 +169,9 @@ function ResourceDetailPage() {
         open={gateOpen}
         resourceSlug={resource.slug}
         resourceTitle={resource.title}
-        onUnlock={() => {
-          setGateOpen(false);
-          startDownload();
-        }}
+        downloadUrl={pdfUrl}
+        filename={`${resource.slug}.pdf`}
+        onUnlock={() => setUnlocked(true)}
         onClose={() => setGateOpen(false)}
       />
 

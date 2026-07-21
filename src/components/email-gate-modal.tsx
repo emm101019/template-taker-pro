@@ -39,20 +39,34 @@ type Props = {
   open: boolean;
   resourceSlug: string;
   resourceTitle: string;
+  downloadUrl?: string;
+  filename?: string;
   onUnlock: () => void;
   onClose: () => void;
 };
 
-export function EmailGateModal({ open, resourceSlug, resourceTitle, onUnlock, onClose }: Props) {
+export function EmailGateModal({
+  open,
+  resourceSlug,
+  resourceTitle,
+  downloadUrl,
+  filename,
+  onUnlock,
+  onClose,
+}: Props) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [unlocked, setUnlocked] = useState(false);
+  const [downloadStatus, setDownloadStatus] = useState<DownloadResult | null>(null);
 
   useEffect(() => {
     if (!open) {
       setEmail("");
       setName("");
       setError(null);
+      setUnlocked(false);
+      setDownloadStatus(null);
     }
   }, [open]);
 
@@ -67,6 +81,12 @@ export function EmailGateModal({ open, resourceSlug, resourceTitle, onUnlock, on
 
   if (!open) return null;
 
+  const openPdf = () => {
+    if (!downloadUrl) return;
+    const result = triggerPdfDownload(downloadUrl, filename ?? `${resourceSlug}.pdf`);
+    setDownloadStatus(result);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const parsed = schema.safeParse({ email, name: name || undefined });
@@ -80,7 +100,9 @@ export function EmailGateModal({ open, resourceSlug, resourceTitle, onUnlock, on
       resourceSlug,
       resourceTitle,
     });
+    setUnlocked(true);
     onUnlock();
+    openPdf();
   };
 
   return (
@@ -104,67 +126,108 @@ export function EmailGateModal({ open, resourceSlug, resourceTitle, onUnlock, on
         >
           ×
         </button>
-        <p className="eyebrow">Almost yours ♡</p>
-        <h2
-          id="email-gate-title"
-          className="mt-2 font-serif-alt text-3xl leading-tight text-foreground"
-        >
-          Get the {resourceTitle} — free.
-        </h2>
-        <p className="prose-note mt-3 text-sm">
-          Drop your email once and we'll unlock every Blushbuild freebie on this device.
-        </p>
+        {unlocked ? (
+          <div>
+            <p className="eyebrow">You&apos;re in ♡</p>
+            <h2
+              id="email-gate-title"
+              className="mt-2 font-serif-alt text-3xl leading-tight text-foreground"
+            >
+              Your PDF is ready.
+            </h2>
+            <p className="prose-note mt-3 text-sm">
+              {downloadStatus?.blocked
+                ? "Safari blocked the automatic open. Tap the button below to open it."
+                : "If it didn&apos;t open automatically, tap the button below."}
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href={downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                download={filename}
+                className="button-solid"
+                onClick={() => setDownloadStatus({ opened: "newtab", blocked: false })}
+              >
+                Open PDF →
+              </a>
+              <button type="button" className="product-link text-left" onClick={onClose}>
+                Done
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <p className="eyebrow">Almost yours ♡</p>
+            <h2
+              id="email-gate-title"
+              className="mt-2 font-serif-alt text-3xl leading-tight text-foreground"
+            >
+              Get the {resourceTitle} — free.
+            </h2>
+            <p className="prose-note mt-3 text-sm">
+              Drop your email once and we&apos;ll unlock every Blushbuild freebie on this device.
+            </p>
 
-        <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
-          <input
-            type="text"
-            className="input-shell"
-            placeholder="First name (optional)"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            aria-label="First name"
-            maxLength={80}
-          />
-          <input
-            type="email"
-            required
-            className="input-shell"
-            placeholder="you@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            aria-label="Email address"
-            maxLength={255}
-            autoFocus
-          />
-          {error ? <p className="text-sm text-red-600">{error}</p> : null}
-          <button type="submit" className="button-solid">
-            Unlock & download →
-          </button>
-          <p className="text-xs text-muted-foreground">
-            We'll only send occasional freebies. Unsubscribe anytime.
-          </p>
-        </form>
+            <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
+              <input
+                type="text"
+                className="input-shell"
+                placeholder="First name (optional)"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                aria-label="First name"
+                maxLength={80}
+              />
+              <input
+                type="email"
+                required
+                className="input-shell"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                aria-label="Email address"
+                maxLength={255}
+                autoFocus
+              />
+              {error ? <p className="text-sm text-red-600">{error}</p> : null}
+              <button type="submit" className="button-solid">
+                Unlock & download →
+              </button>
+              <p className="text-xs text-muted-foreground">
+                We&apos;ll only send occasional freebies. Unsubscribe anytime.
+              </p>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
-export function triggerPdfDownload(url: string, filename: string) {
-  if (typeof window === "undefined") return;
+export type DownloadResult = {
+  opened: "download" | "newtab";
+  blocked: boolean;
+};
+
+export function triggerPdfDownload(url: string, filename: string): DownloadResult {
+  if (typeof window === "undefined") return { opened: "newtab", blocked: true };
+  const finalUrl = new URL(url, window.location.href).href;
   const ua = window.navigator.userAgent;
   const isIOS = /iPad|iPhone|iPod/.test(ua) && !(window as unknown as { MSStream?: unknown }).MSStream;
   if (isIOS) {
     // iOS Safari ignores `download` for cross-origin URLs; open in a new tab
     // so the user can Share → Save to Files.
-    window.open(url, "_blank", "noopener,noreferrer");
-    return;
+    const openedWindow = window.open(finalUrl, "_blank");
+    return { opened: "newtab", blocked: !openedWindow };
   }
   const a = document.createElement("a");
-  a.href = url;
+  a.href = finalUrl;
   a.download = filename;
   a.rel = "noopener noreferrer";
   a.target = "_blank";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+  return { opened: "download", blocked: false };
 }
