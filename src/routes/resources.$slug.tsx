@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { getResourcePdfRoute } from "@/content/resource-downloads";
-import { EmailGateModal, hasSubscribed, navigateToPdf } from "@/components/email-gate-modal";
+import { EmailGateModal } from "@/components/email-gate-modal";
 
 
 export const Route = createFileRoute("/resources/$slug")({
@@ -61,11 +61,7 @@ function ResourceDetailPage() {
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
   const pdfUrl = getResourcePdfRoute(resource.slug) ?? undefined;
   const [gateOpen, setGateOpen] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
 
-  useEffect(() => {
-    setUnlocked(hasSubscribed());
-  }, []);
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -119,32 +115,25 @@ function ResourceDetailPage() {
             Download the PDF.
           </h2>
           <p className="prose-note mt-3">
-            Enter your email once to unlock every freebie on this device.
+            Enter your email to unlock this download.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href={pdfUrl}
               onClick={(e) => {
                 e.preventDefault();
-                if (!pdfUrl) {
-                  return;
-                }
-                if (!unlocked && !hasSubscribed()) {
-                  setGateOpen(true);
-                  return;
-                }
-                navigateToPdf(pdfUrl);
+                if (!pdfUrl) return;
+                setGateOpen(true);
               }}
               className="button-solid"
             >
               Download the PDF →
             </a>
             <span className="text-sm text-muted-foreground">
-              {unlocked
-                ? "You're unlocked — tap to download."
-                : "One email unlocks every freebie."}
+              We ask for your email each time.
             </span>
           </div>
+
         </div>
 
 
@@ -171,7 +160,7 @@ function ResourceDetailPage() {
         resourceTitle={resource.title}
         downloadUrl={pdfUrl}
         filename={`${resource.slug}.pdf`}
-        onUnlock={() => setUnlocked(true)}
+        onUnlock={() => {}}
         onClose={() => setGateOpen(false)}
       />
 

@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { getResourcePdfRoute } from "@/content/resource-downloads";
-import { EmailGateModal, hasSubscribed, navigateToPdf } from "@/components/email-gate-modal";
+import { EmailGateModal } from "@/components/email-gate-modal";
 
 
 
@@ -80,14 +80,8 @@ function ResourcesPage() {
                     href={pdfUrl}
                     onClick={(e) => {
                       e.preventDefault();
-                      if (!pdfUrl) {
-                        return;
-                      }
-                      if (!hasSubscribed()) {
-                        setGate({ slug: resource.slug, title: resource.title, url: pdfUrl });
-                        return;
-                      }
-                      navigateToPdf(pdfUrl);
+                      if (!pdfUrl) return;
+                      setGate({ slug: resource.slug, title: resource.title, url: pdfUrl });
                     }}
                     className="button-solid"
                   >
@@ -108,14 +102,15 @@ function ResourcesPage() {
 
 
         <div className="mt-12 border-t border-border pt-8">
-          <p className="eyebrow">Join the studio</p>
+          <p className="eyebrow">A quick note</p>
           <h2 className="mt-2 font-serif-alt text-4xl leading-none text-foreground">
-            One email, all the freebies.
+            Every download asks for an email.
           </h2>
           <p className="prose-note mt-3">
-            Enter your email once to unlock every downloadable freebie on this device.
+            We ask for your email each time so we can keep track of who's grabbing what — the form pops up on every download.
           </p>
         </div>
+
       </section>
 
       <EmailGateModal

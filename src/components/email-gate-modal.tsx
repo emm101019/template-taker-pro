@@ -175,7 +175,7 @@ export function EmailGateModal({
               Get the {resourceTitle} — free.
             </h2>
             <p className="prose-note mt-3 text-sm">
-              Drop your email once and we&apos;ll unlock every Blushbuild freebie on this device.
+              Drop your email and we&apos;ll unlock this freebie for you.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
