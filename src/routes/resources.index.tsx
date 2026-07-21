@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { resourceDownloads } from "@/content/resource-downloads";
-import { EmailGateModal, hasSubscribed, triggerPdfDownload } from "@/components/email-gate-modal";
+import { EmailGateModal, hasSubscribed, navigateToPdf } from "@/components/email-gate-modal";
 
 
 
@@ -32,19 +32,6 @@ const types = ["All", "PDF", "GUIDE", "TEMPLATE", "DOC", "FREE"] as const;
 
 function ResourcesPage() {
   const [gate, setGate] = useState<{ slug: string; title: string; url: string } | null>(null);
-
-  const startDownload = (slug: string, url: string) => {
-    triggerPdfDownload(url, `${slug}.pdf`);
-  };
-
-  const handleClick = (slug: string, title: string, url: string) => {
-    if (!url) return;
-    if (hasSubscribed()) {
-      startDownload(slug, url);
-    } else {
-      setGate({ slug, title, url });
-    }
-  };
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -91,18 +78,16 @@ function ResourcesPage() {
                 <div className="mt-4 flex flex-wrap items-center gap-3">
                   <a
                     href={pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download={`${resource.slug}.pdf`}
                     onClick={(e) => {
+                      e.preventDefault();
                       if (!pdfUrl) {
-                        e.preventDefault();
                         return;
                       }
                       if (!hasSubscribed()) {
-                        e.preventDefault();
                         setGate({ slug: resource.slug, title: resource.title, url: pdfUrl });
+                        return;
                       }
+                      navigateToPdf(pdfUrl);
                     }}
                     className="button-solid"
                   >

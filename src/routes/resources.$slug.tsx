@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { resourceDownloads } from "@/content/resource-downloads";
-import { EmailGateModal, hasSubscribed, triggerPdfDownload } from "@/components/email-gate-modal";
+import { EmailGateModal, hasSubscribed, navigateToPdf } from "@/components/email-gate-modal";
 
 
 export const Route = createFileRoute("/resources/$slug")({
@@ -67,19 +67,6 @@ function ResourceDetailPage() {
     setUnlocked(hasSubscribed());
   }, []);
 
-  const startDownload = () => {
-    if (!pdfUrl) return;
-    triggerPdfDownload(pdfUrl, `${resource.slug}.pdf`);
-  };
-
-  const handleClick = () => {
-    if (unlocked || hasSubscribed()) {
-      startDownload();
-    } else {
-      setGateOpen(true);
-    }
-  };
-
   return (
     <main className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -137,18 +124,16 @@ function ResourceDetailPage() {
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              download={`${resource.slug}.pdf`}
               onClick={(e) => {
+                e.preventDefault();
                 if (!pdfUrl) {
-                  e.preventDefault();
                   return;
                 }
                 if (!unlocked && !hasSubscribed()) {
-                  e.preventDefault();
                   setGateOpen(true);
+                  return;
                 }
+                navigateToPdf(pdfUrl);
               }}
               className="button-solid"
             >
