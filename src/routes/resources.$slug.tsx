@@ -128,14 +128,20 @@ function ResourceDetailPage() {
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
             <button type="button" className="button-solid" onClick={handleDownload} disabled={!pdf}>
-              {downloaded ? "Downloaded ♡ Get it again" : "Download the PDF →"}
+              {status ? "Get it again" : "Download the PDF →"}
             </button>
-            {downloaded ? (
+            {status === "download" ? (
               <span className="text-sm text-muted-foreground">
                 Saved as <code>{resource.slug}.pdf</code>
               </span>
             ) : null}
+            {status === "newtab" ? (
+              <span className="text-sm text-muted-foreground">
+                Opened in a new tab — tap Share → Save to Files to keep it.
+              </span>
+            ) : null}
           </div>
+
           <form className="mt-4 flex flex-col gap-3 sm:flex-row sm:max-w-lg">
             <input
               type="email"
