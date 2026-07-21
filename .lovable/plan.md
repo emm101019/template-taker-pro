@@ -1,23 +1,30 @@
-Plan to fix the blank white screen after tapping Download PDF:
+## Goal
+Make the freebie downloads work reliably and gate them behind an email capture.
 
-1. **Make the PDFs real files, not browser-generated blobs**
-   - The current code builds the PDF in the browser only after the button is pressed.
-   - On iPhone Safari, that blob/new-tab flow can open a blank page after the browser says it was approved.
-   - I’ll generate actual PDF files for every free resource and place them in the app as downloadable files.
+## Changes
 
-2. **Change the Download PDF buttons into normal file links**
-   - Each resource card and resource detail page will link directly to its matching PDF file.
-   - This avoids the popup/new-tab approval issue and should work on iPhone, Android, and desktop.
-   - The button will open/download the actual PDF instead of running JavaScript to create one.
+### 1. Email capture gate (new)
+- Add a small modal component `src/components/EmailGateModal.tsx`:
+  - Fields: email (required, zod-validated), optional first name.
+  - Submit → stores `{email, resourceSlug, resourceTitle, timestamp}` in `localStorage` under `blushbuild.leads` (append to array) and sets `blushbuild.subscribed=true` so returning visitors skip the modal.
+  - On success, calls an `onUnlock()` callback passed by the parent, then closes.
+- Styling matches the cream/serif Blushbuild system (reuses existing button + input classes).
 
-3. **Keep the resource pages filled out**
-   - The existing page content stays the same.
-   - The PDF button will simply become reliable.
+### 2. Wire the gate into resource buttons
+- `src/routes/resources.index.tsx` and `src/routes/resources.$slug.tsx`:
+  - Replace direct `<a href={pdfUrl} download>` with a button that:
+    1. If `localStorage.blushbuild.subscribed` is true → immediately trigger download.
+    2. Otherwise → open `EmailGateModal`; on unlock, trigger download.
+  - Download trigger uses a programmatic `<a>` click with `download` attr for desktop/Android, and `window.open(url, '_blank')` on iOS Safari (same UA check already in the codebase) so Safari reliably shows the PDF instead of a blank page.
 
-4. **Remove the fragile PDF popup behavior**
-   - I’ll remove the iOS-specific blob/new-tab logic that is causing the blank screen.
-   - I’ll keep the UI simple: “Download PDF” opens the finished PDF.
+### 3. Fix "Download button doesn't work"
+Root cause candidates to verify in build mode before finalizing (I'll read `src/content/resource-downloads.ts` + both resource routes first):
+- Static PDF assets referenced via import may not resolve, OR the `<a download>` is being intercepted by TanStack `<Link>`, OR iOS is blocking the navigation.
+- Fix: ensure PDFs are imported as URL strings (Vite `?url` if needed) and the trigger is a plain `<button>` (not a `Link`) that performs the platform-appropriate action above.
 
-5. **Verify the PDFs visually**
-   - After generating them, I’ll convert each PDF page to images and inspect them for blank pages, cut-off text, bad spacing, or missing content.
-   - Then I’ll verify the resource page buttons point to the correct PDF files.
+### 4. Copy updates
+- Button label stays "Download PDF"; helper text under it: "Enter your email once to unlock every freebie."
+- Modal copy: "Get the {resourceTitle} — free. Drop your email and we'll unlock all Blushbuild freebies on this device."
+
+## Out of scope
+- No backend/email service integration (leads stored locally only). If you want emails sent to Lovable Cloud / a mailing list, say the word and I'll add that as a follow-up.
