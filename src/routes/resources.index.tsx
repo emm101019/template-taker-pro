@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { getResourcePdfRoute } from "@/content/resource-downloads";
-import { EmailGateModal, hasSubscribed, navigateToPdf } from "@/components/email-gate-modal";
+import { EmailGateModal } from "@/components/email-gate-modal";
 
 
 
