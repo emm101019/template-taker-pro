@@ -138,7 +138,7 @@ export function EmailGateModal({
             <p className="prose-note mt-3 text-sm">
               {downloadStatus?.blocked
                 ? "Safari blocked the automatic open. Tap the button below to open it."
-                : "If it didn&apos;t open automatically, tap the button below."}
+                : "If it didn't open automatically, tap the button below."}
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a

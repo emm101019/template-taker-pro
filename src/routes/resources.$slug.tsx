@@ -139,7 +139,6 @@ function ResourceDetailPage() {
               Download the PDF →
             </button>
             <span className="text-sm text-muted-foreground">
-              {hasSubscribed()
               {unlocked
                 ? "You're unlocked — tap to download."
                 : "One email unlocks every freebie."}
