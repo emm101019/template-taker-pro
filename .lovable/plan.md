@@ -1,60 +1,67 @@
-## What's actually missing
+## Goal
 
-Content-wise, every blog post, diary entry, resource, and product already has a full body in `src/content/site.ts` — the detail pages render them. The real gaps are navigational and structural:
+Every freebie on `/resources` and `/resources/$slug` gets:
+1. Real, finished long-form content (not just 4 preview lines)
+2. A working "Download PDF" button that produces a branded PDF instantly
 
-1. **Progress board cards are not links.** No `/progress/$slug` route exists, so "See progress" has nowhere to go.
-2. **Shop detail pages are thin.** Only pitch + what-you-get + FAQ. No image gallery, no features/benefits section, no related products.
-3. **A few surfaces don't link to detail pages** — the progress cards on the home page and the "See progress" CTA on home product cards point to `/shop/$slug` but the button label still says "See progress", which is confusing.
-4. **Progress entries have no long-form write-up** — the board only shows a one-line `update`.
+## Approach — PDFs generated in the browser with `jsPDF`
 
-## Fix
+Client-side generation (no server, no storage, no build step, no hosting cost). One button click → PDF downloads immediately. Works for all 8 resources.
 
-### 1. New route: `src/routes/progress.$slug.tsx`
-A dedicated page per progress item (`canva-crash-course`, `pinterest-growth-kit`, `faceless-brand-course`, `creator-swipe-vault`, `brand-clarity-workbook`, `content-strategy-planner`, `digital-product-bundle`, `etsy-success-guide`).
+- Install `jspdf`.
+- New helper `src/lib/pdf/build-resource-pdf.ts` — takes a `ResourcePdf` object (title, subtitle, sections of headings + paragraphs + bullet lists) and produces a styled multi-page PDF: cream background, serif "Blushbuild" wordmark header, Cormorant-style title, body text with wrapping/pagination, page numbers, footer "blushbuild.com".
+- Uses jsPDF built-in fonts (Times/Helvetica) — no font loading, avoids the Unicode-glyph pitfalls.
 
-Layout:
-- Back link → `/progress`
-- Hero: cover image, title, stage tag, % complete bar, last updated
-- **The story so far** — 3-4 paragraph write-up of where the product started and where it is now
-- **What's shipped** — bullet list of milestones done
-- **What's next** — bullet list of upcoming milestones
-- **Weekly updates** — reverse-chronological list of 3-4 short dated notes
-- Cross-link: if the slug matches a shop product, "See it in the shop →"; otherwise "Join the waitlist" email input
-- Prev / next progress item
+## Content — extend each resource with a full PDF body
 
-Add a `progressDetails` map in `src/content/site.ts` keyed by slug with `story: string[]`, `shipped: string[]`, `next: string[]`, `updates: { date, note }[]`. Populate all 8 items with realistic placeholder copy.
+Extend `Resource` type in `src/content/site.ts` with:
 
-### 2. Wire progress board → detail page
-In `src/routes/progress.tsx`, wrap each `<article>` card in `<Link to="/progress/$slug" params={{ slug: item.slug }}>` with hover lift.
+```ts
+pdf: {
+  subtitle: string;
+  intro: string;               // 1–2 paragraphs
+  sections: {
+    heading: string;
+    paragraphs?: string[];
+    bullets?: string[];
+  }[];                          // 4–7 sections per resource
+  closing: string;              // sign-off paragraph
+};
+```
 
-### 3. Expand `src/routes/shop.$slug.tsx` to a full Etsy-style listing
-Add these sections between the hero and FAQ:
-- **Image gallery** — hero image + 3 thumbnails (reuse other product images / mood assets for placeholder). Simple click-to-swap in state.
-- **Description** — a 2-3 paragraph long-form description (new `description: string[]` field on `Product`).
-- **Features & benefits** — 4-6 short "Feature — benefit" lines (new `features: { title, detail }[]` field).
-- **Related products** — 3 other products from the shop as cards linking to their slug.
+Populate `pdf` for all 8 existing resources with realistic, finished placeholder copy (≈600–1000 words each) that matches the resource's topic:
 
-Extend `Product` type in `src/content/site.ts` and populate `description` + `features` + `gallery` for all 4 products.
+1. Etsy Starter Kit — shop setup walkthrough, listing templates, pricing worksheet, first-week promo plan
+2. Canva Prompt Ideas — 50 prompts grouped by platform (reels/carousels/pins), each with hook + outline
+3. Product Launch Checklist — T-14 → T+7 day-by-day checklist, batch template, warm-launch email script
+4. Pinterest Script Notes — 30 hook formulas, SEO title starters, description templates, idea-pin scripts
+5. Brand Clarity Workbook — 12 voice prompts, palette worksheet, offer stack, one-line positioning generator
+6. Faceless Business Map — niche selector, 3 pillars, voice bank, product ladder, 30-day plan
+7. Content Strategy Planner — weekly/monthly pages, batching flow, metrics dashboard, Sunday reset ritual
+8. Creator Launch Swipes — swipe copy for emails, captions, pins, DMs, sales-page sections
 
-### 4. Home page tidy
-In `src/routes/index.tsx`:
-- Home product cards: change CTA label from "See progress" to "See the product" (already links to `/shop/$slug`).
-- Add a small "See progress →" secondary link on each home product card pointing to `/progress/$slug`.
+## Wire the download button
 
-### 5. Sanity pass on links
-Confirm every card on `/diary`, `/blog`, `/shop`, `/resources`, `/progress`, and the home page is wrapped in `<Link>` with correct `params`. Fix any stragglers found during the pass (no-op if already correct).
+Update `src/routes/resources.$slug.tsx`:
+- Replace the "Drop your email → Send it over" form section with a primary **"Download the PDF →"** button (plus keep an optional email field labelled "Also email me future freebies" — cosmetic, no backend).
+- On click: call the PDF builder with `resource.pdf`, then `doc.save(`${resource.slug}.pdf`)`.
+- Add a smaller "Download PDF" button on each `/resources` grid card too, so users can grab a freebie without clicking through.
 
-## Out of scope
-- Real checkout / real email capture (buttons stay visual placeholders).
-- Redesigns of header/footer.
-- New imagery — reuse existing assets for galleries.
+Also add on the shop product detail page for `brand-clarity-workbook` a cross-link ("Grab the free workbook") pointing to the resource — already exists in copy, just confirm the link.
 
 ## Files touched
 
 ```text
-src/content/site.ts                  (extend Product type; add progressDetails, description, features, gallery data)
-src/routes/progress.tsx              (wrap cards in Link)
-src/routes/progress.$slug.tsx        (NEW — detail page + not-found + error boundary)
-src/routes/shop.$slug.tsx            (add gallery, description, features, related products)
-src/routes/index.tsx                 (product card CTAs)
+package.json                              (add jspdf)
+src/lib/pdf/build-resource-pdf.ts         (NEW — jsPDF builder)
+src/content/site.ts                       (extend Resource type + add `pdf` for all 8)
+src/routes/resources.$slug.tsx            (Download PDF button, remove email-only form)
+src/routes/resources.index.tsx            (small Download PDF button on each card)
 ```
+
+## Out of scope
+
+- Real email capture / mailing list
+- Storing generated PDFs on a server
+- Custom fonts embedded in PDFs (uses jsPDF built-ins for reliability)
+- New resources beyond the 8 already listed (can add later if you want more)

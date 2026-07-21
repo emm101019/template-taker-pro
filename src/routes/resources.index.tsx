@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
+import { resourcePdfs } from "@/content/resource-pdfs";
+import { downloadResourcePdf } from "@/lib/pdf/build-resource-pdf";
+
 
 export const Route = createFileRoute("/resources/")({
   head: () => ({
@@ -51,24 +54,48 @@ function ResourcesPage() {
         </div>
 
         <div className="resource-grid mt-8">
-          {resources.map((resource) => (
-            <Link
-              key={resource.slug}
-              to="/resources/$slug"
-              params={{ slug: resource.slug }}
-              className="resource-card block"
-            >
-              <div className="resource-cover">
-                <span className="resource-type">{resource.type}</span>
-                <p className="font-serif-alt text-3xl leading-tight text-foreground">
-                  {resource.title}
-                </p>
+          {resources.map((resource) => {
+            const pdf = resourcePdfs[resource.slug];
+            return (
+              <div key={resource.slug} className="resource-card flex flex-col">
+                <Link
+                  to="/resources/$slug"
+                  params={{ slug: resource.slug }}
+                  className="block"
+                >
+                  <div className="resource-cover">
+                    <span className="resource-type">{resource.type}</span>
+                    <p className="font-serif-alt text-3xl leading-tight text-foreground">
+                      {resource.title}
+                    </p>
+                  </div>
+                  <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
+                </Link>
+                <div className="mt-4 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    className="button-solid"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (pdf) downloadResourcePdf(resource.slug, resource.title, pdf);
+                    }}
+                    disabled={!pdf}
+                  >
+                    Download PDF ↓
+                  </button>
+                  <Link
+                    to="/resources/$slug"
+                    params={{ slug: resource.slug }}
+                    className="product-link"
+                  >
+                    Read more →
+                  </Link>
+                </div>
               </div>
-              <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
-              <span className="product-link">Get it free →</span>
-            </Link>
-          ))}
+            );
+          })}
         </div>
+
 
         <div className="mt-12 border-t border-border pt-8">
           <p className="eyebrow">Join the studio</p>

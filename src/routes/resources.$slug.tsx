@@ -2,6 +2,10 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
+import { resourcePdfs } from "@/content/resource-pdfs";
+import { downloadResourcePdf } from "@/lib/pdf/build-resource-pdf";
+import { useState } from "react";
+
 
 export const Route = createFileRoute("/resources/$slug")({
   loader: ({ params }) => {
@@ -55,6 +59,16 @@ function ResourceNotFound() {
 function ResourceDetailPage() {
   const { resource } = Route.useLoaderData();
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
+  const pdf = resourcePdfs[resource.slug];
+  const [downloaded, setDownloaded] = useState(false);
+
+  const handleDownload = () => {
+    if (!pdf) return;
+    downloadResourcePdf(resource.slug, resource.title, pdf);
+    setDownloaded(true);
+  };
+
+
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -105,20 +119,35 @@ function ResourceDetailPage() {
         <div className="mt-10 border-t border-border pt-8">
           <p className="eyebrow">Get it free</p>
           <h2 className="mt-2 font-serif-alt text-4xl leading-none text-foreground">
-            Drop your email — I'll send it over.
+            Download the PDF — no email required.
           </h2>
-          <form className="mt-5 flex flex-col gap-3 sm:flex-row sm:max-w-lg">
+          <p className="prose-note mt-3">
+            Instant download, straight to your device. If you want future freebies too, drop your
+            email below (optional).
+          </p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="button" className="button-solid" onClick={handleDownload} disabled={!pdf}>
+              {downloaded ? "Downloaded ♡ Get it again" : "Download the PDF →"}
+            </button>
+            {downloaded ? (
+              <span className="text-sm text-muted-foreground">
+                Saved as <code>{resource.slug}.pdf</code>
+              </span>
+            ) : null}
+          </div>
+          <form className="mt-4 flex flex-col gap-3 sm:flex-row sm:max-w-lg">
             <input
               type="email"
               className="input-shell"
-              placeholder="Your email address"
+              placeholder="Also email me future freebies (optional)"
               aria-label="Email address"
             />
             <button type="submit" className="button-solid">
-              Send it →
+              Add me →
             </button>
           </form>
         </div>
+
 
         <div className="mt-12">
           <p className="eyebrow">Also free</p>
