@@ -160,7 +160,7 @@ function ResourceDetailPage() {
         resourceTitle={resource.title}
         downloadUrl={pdfUrl}
         filename={`${resource.slug}.pdf`}
-        onUnlock={() => setUnlocked(true)}
+        onUnlock={() => {}}
         onClose={() => setGateOpen(false)}
       />
 
