@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { resourceDownloads } from "@/content/resource-downloads";
+import { EmailGateModal, hasSubscribed, triggerPdfDownload } from "@/components/email-gate-modal";
 
 
 
@@ -29,6 +31,21 @@ export const Route = createFileRoute("/resources/")({
 const types = ["All", "PDF", "GUIDE", "TEMPLATE", "DOC", "FREE"] as const;
 
 function ResourcesPage() {
+  const [gate, setGate] = useState<{ slug: string; title: string; url: string } | null>(null);
+
+  const startDownload = (slug: string, url: string) => {
+    triggerPdfDownload(url, `${slug}.pdf`);
+  };
+
+  const handleClick = (slug: string, title: string, url: string) => {
+    if (!url) return;
+    if (hasSubscribed()) {
+      startDownload(slug, url);
+    } else {
+      setGate({ slug, title, url });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -72,15 +89,13 @@ function ResourcesPage() {
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
                 </Link>
                 <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <a
-                    href={pdfUrl}
-                    download={`${resource.slug}.pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={() => handleClick(resource.slug, resource.title, pdfUrl)}
                     className="button-solid"
                   >
                     Download PDF ↓
-                  </a>
+                  </button>
                   <Link
                     to="/resources/$slug"
                     params={{ slug: resource.slug }}
@@ -101,22 +116,21 @@ function ResourcesPage() {
             One email, all the freebies.
           </h2>
           <p className="prose-note mt-3">
-            Drop your email and get instant access to the full library, plus any new freebies I
-            add.
+            Enter your email once to unlock every downloadable freebie on this device.
           </p>
-          <form className="mt-5 flex flex-col gap-3 sm:flex-row sm:max-w-lg">
-            <input
-              type="email"
-              className="input-shell"
-              placeholder="Your email address"
-              aria-label="Email address"
-            />
-            <button type="submit" className="button-solid">
-              Send me the library →
-            </button>
-          </form>
         </div>
       </section>
+
+      <EmailGateModal
+        open={gate !== null}
+        resourceSlug={gate?.slug ?? ""}
+        resourceTitle={gate?.title ?? ""}
+        onUnlock={() => {
+          if (gate) startDownload(gate.slug, gate.url);
+          setGate(null);
+        }}
+        onClose={() => setGate(null)}
+      />
 
       <SiteFooter />
     </main>
