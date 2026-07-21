@@ -145,7 +145,7 @@ export function EmailGateModal({
               Your PDF is ready.
             </h2>
             <p className="prose-note mt-3 text-sm">
-              Tap the button below to open your PDF in this same tab.
+              Tap the button below to open your PDF viewer — every page loads in the app so you can scroll straight through.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
               <button
