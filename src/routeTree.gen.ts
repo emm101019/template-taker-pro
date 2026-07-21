@@ -26,6 +26,7 @@ import { Route as ShopSlugRouteImport } from './routes/shop.$slug'
 import { Route as ResourcesSlugRouteImport } from './routes/resources.$slug'
 import { Route as ProgressSlugRouteImport } from './routes/progress.$slug'
 import { Route as FreebiesSlugDotpdfRouteImport } from './routes/freebies.$slug[.]pdf'
+import { Route as FreebiesSlugRouteImport } from './routes/freebies.$slug'
 import { Route as DiarySlugRouteImport } from './routes/diary.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -114,6 +115,11 @@ const FreebiesSlugDotpdfRoute = FreebiesSlugDotpdfRouteImport.update({
   path: '/freebies/$slug.pdf',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FreebiesSlugRoute = FreebiesSlugRouteImport.update({
+  id: '/freebies/$slug',
+  path: '/freebies/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DiarySlugRoute = DiarySlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
+  '/freebies/$slug': typeof FreebiesSlugRoute
   '/freebies/$slug.pdf': typeof FreebiesSlugDotpdfRoute
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
+  '/freebies/$slug': typeof FreebiesSlugRoute
   '/freebies/$slug.pdf': typeof FreebiesSlugDotpdfRoute
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -174,6 +182,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
+  '/freebies/$slug': typeof FreebiesSlugRoute
   '/freebies/$slug.pdf': typeof FreebiesSlugDotpdfRoute
   '/progress/$slug': typeof ProgressSlugRoute
   '/resources/$slug': typeof ResourcesSlugRoute
@@ -197,6 +206,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
+    | '/freebies/$slug'
     | '/freebies/$slug.pdf'
     | '/progress/$slug'
     | '/resources/$slug'
@@ -213,6 +223,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
+    | '/freebies/$slug'
     | '/freebies/$slug.pdf'
     | '/progress/$slug'
     | '/resources/$slug'
@@ -234,6 +245,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/diary/$slug'
+    | '/freebies/$slug'
     | '/freebies/$slug.pdf'
     | '/progress/$slug'
     | '/resources/$slug'
@@ -254,6 +266,7 @@ export interface RootRouteChildren {
   ResourcesRoute: typeof ResourcesRouteWithChildren
   ShopRoute: typeof ShopRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  FreebiesSlugRoute: typeof FreebiesSlugRoute
   FreebiesSlugDotpdfRoute: typeof FreebiesSlugDotpdfRoute
 }
 
@@ -378,6 +391,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FreebiesSlugDotpdfRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/freebies/$slug': {
+      id: '/freebies/$slug'
+      path: '/freebies/$slug'
+      fullPath: '/freebies/$slug'
+      preLoaderRoute: typeof FreebiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/diary/$slug': {
       id: '/diary/$slug'
       path: '/$slug'
@@ -468,6 +488,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResourcesRoute: ResourcesRouteWithChildren,
   ShopRoute: ShopRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  FreebiesSlugRoute: FreebiesSlugRoute,
   FreebiesSlugDotpdfRoute: FreebiesSlugDotpdfRoute,
 }
 export const routeTree = rootRouteImport

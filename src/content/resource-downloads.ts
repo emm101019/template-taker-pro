@@ -18,6 +18,12 @@ export const resourceDownloads: Record<string, string> = {
   "creator-launch-swipes": creatorLaunchSwipesAsset.url,
 };
 
+// Returns the in-app viewer route (renders every page vertically with pdfjs).
 export function getResourcePdfRoute(slug: string): string | null {
-  return resourceDownloads[slug] ? `/freebies/${slug}.pdf` : null;
+  return resourceDownloads[slug] ? `/freebies/${slug}` : null;
+}
+
+// Returns the raw PDF asset URL (for the Download PDF button inside the viewer).
+export function getResourcePdfAsset(slug: string): string | null {
+  return resourceDownloads[slug] ?? null;
 }
