@@ -61,11 +61,7 @@ function ResourceDetailPage() {
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
   const pdfUrl = getResourcePdfRoute(resource.slug) ?? undefined;
   const [gateOpen, setGateOpen] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
 
-  useEffect(() => {
-    setUnlocked(hasSubscribed());
-  }, []);
 
   return (
     <main className="min-h-screen bg-background text-foreground">
