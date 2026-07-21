@@ -157,7 +157,43 @@ export function buildResourcePdf(title: string, data: ResourcePdf): jsPDF {
   return doc;
 }
 
-export function downloadResourcePdf(slug: string, title: string, data: ResourcePdf) {
-  const doc = buildResourcePdf(title, data);
-  doc.save(`${slug}.pdf`);
+function isIOS(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  if (/iPad|iPhone|iPod/.test(ua)) return true;
+  // iPadOS 13+ reports as Mac; disambiguate with touch points
+  return /Mac/.test(navigator.platform) && (navigator.maxTouchPoints ?? 0) > 1;
 }
+
+export type DownloadResult = { opened: "download" | "newtab" };
+
+export function downloadResourcePdf(
+  slug: string,
+  title: string,
+  data: ResourcePdf,
+): DownloadResult {
+  const doc = buildResourcePdf(title, data);
+  const blob = doc.output("blob");
+  const url = URL.createObjectURL(blob);
+  const filename = `${slug}.pdf`;
+
+  if (isIOS()) {
+    // iOS Safari blocks programmatic downloads — open in a new tab so the user
+    // can tap Share → Save to Files.
+    window.open(url, "_blank");
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+    return { opened: "newtab" };
+  }
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.rel = "noopener";
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  return { opened: "download" };
+}
+
