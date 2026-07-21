@@ -2,6 +2,10 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
+import { resourcePdfs } from "@/content/resource-pdfs";
+import { downloadResourcePdf } from "@/lib/pdf/build-resource-pdf";
+import { useState } from "react";
+
 
 export const Route = createFileRoute("/resources/$slug")({
   loader: ({ params }) => {
