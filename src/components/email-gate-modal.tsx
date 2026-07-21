@@ -35,6 +35,24 @@ export function saveLead(entry: {
   }
 }
 
+export function getAbsolutePdfUrl(url?: string): string | null {
+  if (typeof window === "undefined" || !url) return null;
+  try {
+    const absoluteUrl = new URL(url, window.location.origin);
+    if (absoluteUrl.protocol !== "http:" && absoluteUrl.protocol !== "https:") return null;
+    return absoluteUrl.href;
+  } catch {
+    return null;
+  }
+}
+
+export function navigateToPdf(url?: string): boolean {
+  const absoluteUrl = getAbsolutePdfUrl(url);
+  if (!absoluteUrl) return false;
+  window.location.assign(absoluteUrl);
+  return true;
+}
+
 type Props = {
   open: boolean;
   resourceSlug: string;
@@ -58,7 +76,6 @@ export function EmailGateModal({
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [unlocked, setUnlocked] = useState(false);
-  const [downloadStatus, setDownloadStatus] = useState<DownloadResult | null>(null);
 
   useEffect(() => {
     if (!open) {
@@ -66,7 +83,6 @@ export function EmailGateModal({
       setName("");
       setError(null);
       setUnlocked(false);
-      setDownloadStatus(null);
     }
   }, [open]);
 
@@ -80,12 +96,6 @@ export function EmailGateModal({
   }, [open, onClose]);
 
   if (!open) return null;
-
-  const openPdf = () => {
-    if (!downloadUrl) return;
-    const result = triggerPdfDownload(downloadUrl, filename ?? `${resourceSlug}.pdf`);
-    setDownloadStatus(result);
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,23 +145,25 @@ export function EmailGateModal({
               Your PDF is ready.
             </h2>
             <p className="prose-note mt-3 text-sm">
-              Tap the button below to open your PDF.
+              Tap the button below to open your PDF in this same tab.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href={downloadUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                download={filename}
+              <button
+                type="button"
                 className="button-solid"
-                onClick={() => setDownloadStatus({ opened: "newtab", blocked: false })}
+                onClick={() => {
+                  if (!navigateToPdf(downloadUrl)) {
+                    setError("This PDF link is unavailable right now.");
+                  }
+                }}
               >
                 Open PDF →
-              </a>
+              </button>
               <button type="button" className="product-link text-left" onClick={onClose}>
                 Done
               </button>
             </div>
+            {error ? <p className="mt-3 text-sm text-red-600">{error}</p> : null}
           </div>
         ) : (
           <>
@@ -200,31 +212,4 @@ export function EmailGateModal({
       </div>
     </div>
   );
-}
-
-export type DownloadResult = {
-  opened: "download" | "newtab";
-  blocked: boolean;
-};
-
-export function triggerPdfDownload(url: string, filename: string): DownloadResult {
-  if (typeof window === "undefined") return { opened: "newtab", blocked: true };
-  const finalUrl = new URL(url, window.location.href).href;
-  const ua = window.navigator.userAgent;
-  const isIOS = /iPad|iPhone|iPod/.test(ua) && !(window as unknown as { MSStream?: unknown }).MSStream;
-  if (isIOS) {
-    // iOS Safari ignores `download` for cross-origin URLs; open in a new tab
-    // so the user can Share → Save to Files.
-    const openedWindow = window.open(finalUrl, "_blank");
-    return { opened: "newtab", blocked: !openedWindow };
-  }
-  const a = document.createElement("a");
-  a.href = finalUrl;
-  a.download = filename;
-  a.rel = "noopener noreferrer";
-  a.target = "_blank";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  return { opened: "download", blocked: false };
 }
