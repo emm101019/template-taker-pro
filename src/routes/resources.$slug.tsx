@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { resourcePdfs } from "@/content/resource-pdfs";
-import { downloadResourcePdf } from "@/lib/pdf/build-resource-pdf";
+
 import { useState } from "react";
 
 
@@ -62,8 +62,9 @@ function ResourceDetailPage() {
   const pdf = resourcePdfs[resource.slug];
   const [status, setStatus] = useState<null | "download" | "newtab">(null);
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!pdf) return;
+    const { downloadResourcePdf } = await import("@/lib/pdf/build-resource-pdf");
     const { opened } = downloadResourcePdf(resource.slug, resource.title, pdf);
     setStatus(opened);
   };

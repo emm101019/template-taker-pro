@@ -133,6 +133,39 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    // Auto-recover from stale chunk load failures on iOS Safari and other
+    // browsers that leave a blank page when a module script fails to import.
+    const KEY = "bb-chunk-reload";
+    const shouldReload = (msg: string) =>
+      /Importing a module script failed|Failed to fetch dynamically imported module|error loading dynamically imported module|ChunkLoadError/i.test(
+        msg,
+      );
+    const onError = (e: ErrorEvent) => {
+      const msg = String(e?.message ?? "") + " " + String((e?.error as Error)?.message ?? "");
+      if (shouldReload(msg) && !sessionStorage.getItem(KEY)) {
+        sessionStorage.setItem(KEY, "1");
+        window.location.reload();
+      }
+    };
+    const onRejection = (e: PromiseRejectionEvent) => {
+      const msg = String((e?.reason as Error)?.message ?? e?.reason ?? "");
+      if (shouldReload(msg) && !sessionStorage.getItem(KEY)) {
+        sessionStorage.setItem(KEY, "1");
+        window.location.reload();
+      }
+    };
+    window.addEventListener("error", onError);
+    window.addEventListener("unhandledrejection", onRejection);
+    // Clear the guard on successful load after a short delay.
+    const t = setTimeout(() => sessionStorage.removeItem(KEY), 4000);
+    return () => {
+      window.removeEventListener("error", onError);
+      window.removeEventListener("unhandledrejection", onRejection);
+      clearTimeout(t);
+    };
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
