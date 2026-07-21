@@ -102,14 +102,15 @@ function ResourcesPage() {
 
 
         <div className="mt-12 border-t border-border pt-8">
-          <p className="eyebrow">Join the studio</p>
+          <p className="eyebrow">A quick note</p>
           <h2 className="mt-2 font-serif-alt text-4xl leading-none text-foreground">
-            One email, all the freebies.
+            Every download asks for an email.
           </h2>
           <p className="prose-note mt-3">
-            Enter your email once to unlock every downloadable freebie on this device.
+            We ask for your email each time so we can keep track of who's grabbing what — the form pops up on every download.
           </p>
         </div>
+
       </section>
 
       <EmailGateModal
