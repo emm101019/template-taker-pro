@@ -24,7 +24,23 @@ export const Route = createFileRoute("/freebies/$slug.pdf")({
           });
         }
 
-        return Response.redirect(pdfUrl.href, 302);
+        const pdfResponse = await fetch(pdfUrl.href);
+
+        if (!pdfResponse.ok || !pdfResponse.body) {
+          return new Response("PDF unavailable", {
+            status: 502,
+            headers: { "Content-Type": "text/plain; charset=utf-8" },
+          });
+        }
+
+        return new Response(pdfResponse.body, {
+          status: 200,
+          headers: {
+            "Content-Type": "application/pdf",
+            "Content-Disposition": `inline; filename="${slug}.pdf"`,
+            "Cache-Control": "public, max-age=3600",
+          },
+        });
       },
     },
   },
