@@ -115,32 +115,25 @@ function ResourceDetailPage() {
             Download the PDF.
           </h2>
           <p className="prose-note mt-3">
-            Enter your email once to unlock every freebie on this device.
+            Enter your email to unlock this download.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href={pdfUrl}
               onClick={(e) => {
                 e.preventDefault();
-                if (!pdfUrl) {
-                  return;
-                }
-                if (!unlocked && !hasSubscribed()) {
-                  setGateOpen(true);
-                  return;
-                }
-                navigateToPdf(pdfUrl);
+                if (!pdfUrl) return;
+                setGateOpen(true);
               }}
               className="button-solid"
             >
               Download the PDF →
             </a>
             <span className="text-sm text-muted-foreground">
-              {unlocked
-                ? "You're unlocked — tap to download."
-                : "One email unlocks every freebie."}
+              We ask for your email each time.
             </span>
           </div>
+
         </div>
 
 
