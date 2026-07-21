@@ -102,7 +102,6 @@ export function EmailGateModal({
     });
     setUnlocked(true);
     onUnlock();
-    openPdf();
   };
 
   return (
@@ -136,9 +135,7 @@ export function EmailGateModal({
               Your PDF is ready.
             </h2>
             <p className="prose-note mt-3 text-sm">
-              {downloadStatus?.blocked
-                ? "Safari blocked the automatic open. Tap the button below to open it."
-                : "If it didn't open automatically, tap the button below."}
+              Tap the button below to open your PDF.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a

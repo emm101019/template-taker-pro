@@ -135,9 +135,25 @@ function ResourceDetailPage() {
             Enter your email once to unlock every freebie on this device.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <button type="button" onClick={handleClick} className="button-solid">
+            <a
+              href={pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download={`${resource.slug}.pdf`}
+              onClick={(e) => {
+                if (!pdfUrl) {
+                  e.preventDefault();
+                  return;
+                }
+                if (!unlocked && !hasSubscribed()) {
+                  e.preventDefault();
+                  setGateOpen(true);
+                }
+              }}
+              className="button-solid"
+            >
               Download the PDF →
-            </button>
+            </a>
             <span className="text-sm text-muted-foreground">
               {unlocked
                 ? "You're unlocked — tap to download."
