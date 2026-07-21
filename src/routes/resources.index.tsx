@@ -80,14 +80,8 @@ function ResourcesPage() {
                     href={pdfUrl}
                     onClick={(e) => {
                       e.preventDefault();
-                      if (!pdfUrl) {
-                        return;
-                      }
-                      if (!hasSubscribed()) {
-                        setGate({ slug: resource.slug, title: resource.title, url: pdfUrl });
-                        return;
-                      }
-                      navigateToPdf(pdfUrl);
+                      if (!pdfUrl) return;
+                      setGate({ slug: resource.slug, title: resource.title, url: pdfUrl });
                     }}
                     className="button-solid"
                   >
