@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
-import { resourcePdfs } from "@/content/resource-pdfs";
+import { resourceDownloads } from "@/content/resource-downloads";
 
 
 
@@ -55,7 +55,7 @@ function ResourcesPage() {
 
         <div className="resource-grid mt-8">
           {resources.map((resource) => {
-            const pdf = resourcePdfs[resource.slug];
+            const pdfUrl = resourceDownloads[resource.slug];
             return (
               <div key={resource.slug} className="resource-card flex flex-col">
                 <Link
@@ -72,19 +72,15 @@ function ResourcesPage() {
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">{resource.text}</p>
                 </Link>
                 <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <button
-                    type="button"
+                  <a
+                    href={pdfUrl}
+                    download={`${resource.slug}.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="button-solid"
-                    onClick={async (e) => {
-                      e.preventDefault();
-                      if (!pdf) return;
-                      const { downloadResourcePdf } = await import("@/lib/pdf/build-resource-pdf");
-                      downloadResourcePdf(resource.slug, resource.title, pdf);
-                    }}
-                    disabled={!pdf}
                   >
                     Download PDF ↓
-                  </button>
+                  </a>
                   <Link
                     to="/resources/$slug"
                     params={{ slug: resource.slug }}

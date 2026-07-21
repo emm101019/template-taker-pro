@@ -2,9 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
-import { resourcePdfs } from "@/content/resource-pdfs";
-
-import { useState } from "react";
+import { resourceDownloads } from "@/content/resource-downloads";
 
 
 export const Route = createFileRoute("/resources/$slug")({
@@ -59,18 +57,7 @@ function ResourceNotFound() {
 function ResourceDetailPage() {
   const { resource } = Route.useLoaderData();
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
-  const pdf = resourcePdfs[resource.slug];
-  const [status, setStatus] = useState<null | "download" | "newtab">(null);
-
-  const handleDownload = async () => {
-    if (!pdf) return;
-    const { downloadResourcePdf } = await import("@/lib/pdf/build-resource-pdf");
-    const { opened } = downloadResourcePdf(resource.slug, resource.title, pdf);
-    setStatus(opened);
-  };
-
-
-
+  const pdfUrl = resourceDownloads[resource.slug];
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -128,19 +115,18 @@ function ResourceDetailPage() {
             email below (optional).
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <button type="button" className="button-solid" onClick={handleDownload} disabled={!pdf}>
-              {status ? "Get it again" : "Download the PDF →"}
-            </button>
-            {status === "download" ? (
-              <span className="text-sm text-muted-foreground">
-                Saved as <code>{resource.slug}.pdf</code>
-              </span>
-            ) : null}
-            {status === "newtab" ? (
-              <span className="text-sm text-muted-foreground">
-                Opened in a new tab — tap Share → Save to Files to keep it.
-              </span>
-            ) : null}
+            <a
+              href={pdfUrl}
+              download={`${resource.slug}.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-solid"
+            >
+              Download the PDF →
+            </a>
+            <span className="text-sm text-muted-foreground">
+              Opens the finished PDF file directly.
+            </span>
           </div>
 
           <form className="mt-4 flex flex-col gap-3 sm:flex-row sm:max-w-lg">
