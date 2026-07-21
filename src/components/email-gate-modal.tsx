@@ -102,7 +102,6 @@ export function EmailGateModal({
     });
     setUnlocked(true);
     onUnlock();
-    openPdf();
   };
 
   return (
