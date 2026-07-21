@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
-import { resourceDownloads } from "@/content/resource-downloads";
+import { getResourcePdfRoute } from "@/content/resource-downloads";
 import { EmailGateModal, hasSubscribed, navigateToPdf } from "@/components/email-gate-modal";
 
 
@@ -59,7 +59,7 @@ function ResourcesPage() {
 
         <div className="resource-grid mt-8">
           {resources.map((resource) => {
-            const pdfUrl = resourceDownloads[resource.slug];
+            const pdfUrl = getResourcePdfRoute(resource.slug);
             return (
               <div key={resource.slug} className="resource-card flex flex-col">
                 <Link

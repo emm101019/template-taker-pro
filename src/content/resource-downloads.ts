@@ -17,3 +17,7 @@ export const resourceDownloads: Record<string, string> = {
   "content-strategy-planner": contentStrategyPlannerAsset.url,
   "creator-launch-swipes": creatorLaunchSwipesAsset.url,
 };
+
+export function getResourcePdfRoute(slug: string): string | null {
+  return resourceDownloads[slug] ? `/freebies/${slug}.pdf` : null;
+}
