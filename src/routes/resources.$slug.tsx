@@ -1,8 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { resourceDownloads } from "@/content/resource-downloads";
+import { EmailGateModal, hasSubscribed, triggerPdfDownload } from "@/components/email-gate-modal";
 
 
 export const Route = createFileRoute("/resources/$slug")({
@@ -58,6 +60,20 @@ function ResourceDetailPage() {
   const { resource } = Route.useLoaderData();
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
   const pdfUrl = resourceDownloads[resource.slug];
+  const [gateOpen, setGateOpen] = useState(false);
+
+  const startDownload = () => {
+    if (!pdfUrl) return;
+    triggerPdfDownload(pdfUrl, `${resource.slug}.pdf`);
+  };
+
+  const handleClick = () => {
+    if (hasSubscribed()) {
+      startDownload();
+    } else {
+      setGateOpen(true);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -108,38 +124,21 @@ function ResourceDetailPage() {
         <div className="mt-10 border-t border-border pt-8">
           <p className="eyebrow">Get it free</p>
           <h2 className="mt-2 font-serif-alt text-4xl leading-none text-foreground">
-            Download the PDF — no email required.
+            Download the PDF.
           </h2>
           <p className="prose-note mt-3">
-            Instant download, straight to your device. If you want future freebies too, drop your
-            email below (optional).
+            Enter your email once to unlock every freebie on this device.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href={pdfUrl}
-              download={`${resource.slug}.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button-solid"
-            >
+            <button type="button" onClick={handleClick} className="button-solid">
               Download the PDF →
-            </a>
+            </button>
             <span className="text-sm text-muted-foreground">
-              Opens the finished PDF file directly.
+              {hasSubscribed()
+                ? "You're unlocked — tap to download."
+                : "One email unlocks every freebie."}
             </span>
           </div>
-
-          <form className="mt-4 flex flex-col gap-3 sm:flex-row sm:max-w-lg">
-            <input
-              type="email"
-              className="input-shell"
-              placeholder="Also email me future freebies (optional)"
-              aria-label="Email address"
-            />
-            <button type="submit" className="button-solid">
-              Add me →
-            </button>
-          </form>
         </div>
 
 
@@ -159,6 +158,17 @@ function ResourceDetailPage() {
           </div>
         </div>
       </section>
+
+      <EmailGateModal
+        open={gateOpen}
+        resourceSlug={resource.slug}
+        resourceTitle={resource.title}
+        onUnlock={() => {
+          setGateOpen(false);
+          startDownload();
+        }}
+        onClose={() => setGateOpen(false)}
+      />
 
       <SiteFooter />
     </main>
