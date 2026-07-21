@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { resourcePdfs } from "@/content/resource-pdfs";
-import { downloadResourcePdf } from "@/lib/pdf/build-resource-pdf";
+
 
 
 export const Route = createFileRoute("/resources/")({
@@ -75,9 +75,11 @@ function ResourcesPage() {
                   <button
                     type="button"
                     className="button-solid"
-                    onClick={(e) => {
+                    onClick={async (e) => {
                       e.preventDefault();
-                      if (pdf) downloadResourcePdf(resource.slug, resource.title, pdf);
+                      if (!pdf) return;
+                      const { downloadResourcePdf } = await import("@/lib/pdf/build-resource-pdf");
+                      downloadResourcePdf(resource.slug, resource.title, pdf);
                     }}
                     disabled={!pdf}
                   >
