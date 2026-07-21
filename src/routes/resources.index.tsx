@@ -125,10 +125,9 @@ function ResourcesPage() {
         open={gate !== null}
         resourceSlug={gate?.slug ?? ""}
         resourceTitle={gate?.title ?? ""}
-        onUnlock={() => {
-          if (gate) startDownload(gate.slug, gate.url);
-          setGate(null);
-        }}
+        downloadUrl={gate?.url}
+        filename={gate ? `${gate.slug}.pdf` : undefined}
+        onUnlock={() => {}}
         onClose={() => setGate(null)}
       />
 

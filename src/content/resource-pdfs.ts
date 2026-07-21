@@ -1,4 +1,13 @@
-import type { ResourcePdf } from "@/lib/pdf/build-resource-pdf";
+export type ResourcePdf = {
+  subtitle: string;
+  intro: string;
+  sections: {
+    heading: string;
+    paragraphs?: string[];
+    bullets?: string[];
+  }[];
+  closing: string;
+};
 
 export const resourcePdfs: Record<string, ResourcePdf> = {
   "etsy-starter-kit": {
