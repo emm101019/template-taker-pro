@@ -1416,27 +1416,30 @@
 }
 .starter-section-plum {
   background:
-    radial-gradient(1200px 600px at 15% 0%, color-mix(in oklab, var(--color-highlight) 60%, var(--color-background)), transparent 60%),
-    radial-gradient(900px 500px at 100% 100%, color-mix(in oklab, var(--color-secondary) 45%, var(--color-background)), transparent 60%),
-    linear-gradient(180deg,
-      color-mix(in oklab, var(--color-background) 92%, #efe6d8),
-      color-mix(in oklab, var(--color-secondary) 40%, var(--color-background)) 55%,
-      color-mix(in oklab, #d9c7b3 60%, var(--color-background)));
-  color: var(--color-foreground);
+    radial-gradient(1100px 600px at 15% 0%, #4a2f22, transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, #3a2419, transparent 60%),
+    linear-gradient(180deg, #2b1c14 0%, #3a251a 55%, #24170f 100%);
+  color: #f7efe1;
 }
+.starter-section-plum .starter-section-title,
+.starter-section-plum .starter-section-lede,
+.starter-section-plum p,
+.starter-section-plum h1,
+.starter-section-plum h2,
+.starter-section-plum h3 { color: #f7efe1; }
 .starter-bokeh { display: none; }
 
 .starter-section-lede {
   max-width: 620px; margin: 1rem auto 0;
-  font-size: 1.02rem; line-height: 1.7;
-  color: color-mix(in oklab, var(--color-foreground) 75%, transparent);
+  font-size: 1.02rem; line-height: 1.75;
+  color: color-mix(in oklab, var(--color-foreground) 88%, transparent);
 }
 .starter-script-accent {
   display: block; font-family: var(--font-serif-alt); font-style: italic; font-weight: 400;
-  color: color-mix(in oklab, var(--color-muted-foreground) 90%, var(--color-foreground));
+  color: color-mix(in oklab, var(--color-foreground) 92%, transparent);
   font-size: 0.85em; margin-top: 0.3rem;
 }
-.starter-script-light { color: color-mix(in oklab, var(--color-footer-foreground) 85%, transparent); }
+.starter-script-light { color: #f7efe1; opacity: 0.95; }
 
 /* Chat */
 .starter-chat { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.2rem; max-width: 720px; margin-left: auto; margin-right: auto; }
