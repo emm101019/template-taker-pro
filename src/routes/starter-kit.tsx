@@ -352,18 +352,18 @@ function StarterKitPage() {
       {/* WHAT MAKES THIS DIFFERENT */}
       <section className="starter-section">
         <div className="starter-section-inner starter-story reveal">
-          <p className="starter-eyebrow">What makes this different</p>
+          <p className="starter-eyebrow">What makes this different?</p>
           <h2 className="starter-story-title">
-            You don't just read it.<br />
-            <em>You build your brand inside it.</em>
+            Most free guides give you information.<br />
+            <em>This Starter Kit gives you clarity.</em>
           </h2>
           <div className="starter-story-body">
-            <p>This isn't another downloadable guide.</p>
-            <p>You'll actually build your brand as you move through the experience.</p>
             <p>
-              By the time you finish, you'll understand exactly why your current brand isn't
-              connecting — and you'll know exactly what to do next.
+              Instead of reading pages of theory, you'll walk through the exact framework I use to
+              build memorable brands — with examples, guided exercises, and practical
+              implementation every step of the way.
             </p>
+            <p>By the end, you won't just know what to do. You'll know exactly where to start.</p>
           </div>
           <div className="starter-progress" aria-hidden="true">
             <span className="starter-progress-dot is-on" />
