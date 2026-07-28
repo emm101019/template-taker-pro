@@ -325,14 +325,13 @@ function StarterKitPage() {
       <section className="starter-section starter-section-plum">
         <Sparkles count={10} className="is-light" />
         <div className="starter-section-inner text-center">
-          <p className="starter-eyebrow starter-eyebrow-light reveal">Unlocked inside</p>
+          <p className="starter-eyebrow starter-eyebrow-light reveal">You'll also get access to</p>
           <h2 className="starter-section-title starter-title-light reveal">
             Bonus tools &amp; templates
-            <span className="starter-script-accent starter-script-light"> at every chapter</span>
+            <span className="starter-script-accent starter-script-light"> to make it click</span>
           </h2>
           <p className="starter-sound-body starter-body-light reveal">
-            With every framework you'll unlock a matching Blushbuild tool — prompts, palettes, and
-            plug-in worksheets to make it even easier.
+            Because seeing the strategy in action makes everything click.
           </p>
           <div className="starter-bonus-row">
             {bonusTools.map((b, i) => (
