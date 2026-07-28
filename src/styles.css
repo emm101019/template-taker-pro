@@ -1595,7 +1595,7 @@
   background: var(--color-foreground); color: var(--color-background);
 }
 .starter-faq-answer { padding: 0 1.3rem 1.2rem; animation: sk-open 260ms ease; }
-.starter-faq-answer p { font-size: 0.95rem; line-height: 1.65; color: var(--color-muted-foreground); }
+.starter-faq-answer p { font-size: 0.96rem; line-height: 1.7; color: color-mix(in oklab, var(--color-foreground) 90%, transparent); }
 @keyframes sk-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
 /* Final CTA — deep espresso/mocha gradient with high-contrast type */
