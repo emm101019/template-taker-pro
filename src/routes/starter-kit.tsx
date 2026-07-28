@@ -304,8 +304,8 @@ function StarterKitPage() {
       <section className="starter-section starter-section-cream">
         <div className="starter-section-inner">
           <div className="reveal text-center">
-            <p className="starter-eyebrow">Picture this</p>
-            <h2 className="starter-section-title">Eight chapters from now…</h2>
+            <p className="starter-eyebrow">Picture this…</p>
+            <h2 className="starter-section-title">Imagine where your brand could be just seven days from now…</h2>
           </div>
           <div className="starter-picture-grid">
             {pictureThis.map((p, i) => (
