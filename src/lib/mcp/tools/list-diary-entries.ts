@@ -12,8 +12,8 @@ export default defineTool({
       slug: d.slug,
       title: d.title,
       date: d.date,
-      mood: d.mood,
-      summary: d.summary,
+      month: d.month,
+      excerpt: d.excerpt,
       url: `/diary/${d.slug}`,
     }));
     return {

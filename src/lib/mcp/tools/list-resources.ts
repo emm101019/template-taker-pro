@@ -12,9 +12,8 @@ export default defineTool({
     const items = resources.map((r) => ({
       slug: r.slug,
       title: r.title,
-      summary: r.summary,
-      category: r.category,
-      format: r.format,
+      text: r.text,
+      type: r.type,
       url: `/resources/${r.slug}`,
     }));
     return {

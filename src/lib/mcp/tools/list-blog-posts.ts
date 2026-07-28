@@ -13,7 +13,7 @@ export default defineTool({
       title: p.title,
       excerpt: p.excerpt,
       category: p.category,
-      readTime: p.readTime,
+      readingTime: p.readingTime,
       url: `/blog/${p.slug}`,
     }));
     return {
