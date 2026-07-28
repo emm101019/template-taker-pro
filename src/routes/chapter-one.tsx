@@ -188,7 +188,7 @@ function Words({
         ))}
       </div>
       <p className="ch-panel-foot">
-        {selected.length ? `Your three words: ${selected.join(" · ')".replace(" ')", " · ")) }` : "Now narrow it down to only three."}
+        {selected.length ? `Your three words: ${selected.join(" · ")}` : "Now narrow it down to only three."}
       </p>
       {block.note ? <p className="ch-panel-foot">{block.note}</p> : null}
     </div>
