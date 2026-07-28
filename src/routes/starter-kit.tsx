@@ -382,7 +382,7 @@ function StarterKitPage() {
       <section className="starter-section starter-section-panel">
         <div className="starter-section-inner">
           <div className="reveal text-center">
-            <p className="starter-eyebrow">Quick questions</p>
+            <p className="starter-eyebrow">FAQ</p>
             <h2 className="starter-section-title">Everything you're wondering</h2>
           </div>
           <div className="starter-faq">
