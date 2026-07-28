@@ -1177,8 +1177,8 @@
 .starter-bubble:nth-child(even) { border-top-right-radius: 0.4rem; transform: translateY(14px) translateX(6px); }
 .starter-bubble-blush { background: color-mix(in oklab, var(--color-accent) 55%, var(--color-card)); }
 .starter-bubble-cream { background: color-mix(in oklab, var(--color-highlight) 80%, var(--color-card)); }
-.starter-bubble-plum { background: color-mix(in oklab, #4a2937 8%, var(--color-card)); }
-.starter-bubble-lavender { background: color-mix(in oklab, #b7a7cf 22%, var(--color-card)); }
+.starter-bubble-plum { background: color-mix(in oklab, var(--color-foreground) 8%, var(--color-card)); }
+.starter-bubble-lavender { background: color-mix(in oklab, var(--color-secondary) 60%, var(--color-card)); }
 .starter-bubble-quote {
   position: absolute; top: 0.3rem; left: 1.1rem;
   font-family: var(--font-display);
