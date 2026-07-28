@@ -1566,6 +1566,10 @@
 }
 .starter-bonus-glyph { font-size: 2rem; color: var(--color-foreground); }
 .starter-bonus-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; }
+
+/* FAQ */
+.starter-faq { margin-top: 3rem; max-width: 720px; margin-left: auto; margin-right: auto; display: flex; flex-direction: column; gap: 0.8rem; }
+.starter-faq-item {
   border: 1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent);
   border-radius: 1rem;
   background: var(--color-card);
