@@ -1721,6 +1721,7 @@
 
 .ch-rail { display: none; }
 @media (min-width: 1180px) {
+  .ch-page .ch-inner { transform: translateX(2.2rem); }
   .ch-rail {
     display: block; position: fixed; left: 1.75rem; top: 50%; transform: translateY(-50%); z-index: 40;
   }
@@ -1805,7 +1806,8 @@
   font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--color-muted-foreground);
 }
-.ch-head { max-width: 26ch; }
+.ch-head { max-width: 100%; }
+.ch-h2 { max-width: 20ch; }
 .ch-h2 {
   margin-top: 0.75rem; font-family: var(--font-display); font-weight: 400;
   font-size: clamp(1.95rem, 5vw, 3.3rem); line-height: 1.05; letter-spacing: -0.01em;
