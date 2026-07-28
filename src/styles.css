@@ -1068,32 +1068,46 @@
 .starter-mockup {
   position: relative;
   aspect-ratio: 4 / 5;
-  border-radius: 0.75rem;
-  padding: 2rem;
-  background: #3a2231;
-  color: #f5ead9;
-  border: 1px solid rgba(245, 234, 217, 0.15);
-  box-shadow: 0 30px 60px -30px rgba(58, 34, 49, 0.55);
+  border-radius: 0.6rem;
+  background: color-mix(in oklab, var(--color-card) 90%, white 10%);
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 24px 50px -30px var(--color-paper-shadow);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .starter-mockup::before {
   content: "";
   position: absolute; inset: 0.75rem;
-  border: 1px solid rgba(245, 234, 217, 0.22);
-  border-radius: 0.4rem;
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 22%, transparent);
+  border-radius: 0.3rem;
   pointer-events: none;
 }
-.starter-mockup-inner { position: relative; height: 100%; display: flex; flex-direction: column; padding: 0.5rem; }
-.starter-mockup-eyebrow {
-  font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase;
-  color: rgba(245, 234, 217, 0.6);
+.starter-mockup-header {
+  position: relative;
+  background: var(--color-foreground);
+  padding: 0.9rem 1.75rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.starter-mockup-header-eyebrow {
+  font-size: 0.62rem; letter-spacing: 0.34em; text-transform: uppercase;
+  color: color-mix(in oklab, var(--color-background) 92%, transparent);
+  font-weight: 600;
+}
+.starter-mockup-inner {
+  position: relative;
+  flex: 1;
+  display: flex; flex-direction: column;
+  padding: 1.75rem 1.75rem 1.75rem;
 }
 .starter-mockup-title {
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
   font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(1.9rem, 4.2vw, 2.6rem);
   line-height: 1.05;
-  color: #f5ead9;
+  color: var(--color-foreground);
 }
 .starter-mockup-title em,
 .starter-mockup-title span { font-family: var(--font-serif-alt); font-style: italic; font-weight: 400; }
@@ -1102,17 +1116,17 @@
   font-family: var(--font-serif-alt);
   font-style: italic;
   font-size: 1rem;
-  color: rgba(245, 234, 217, 0.78);
+  color: color-mix(in oklab, var(--color-foreground) 72%, transparent);
 }
 .starter-mockup-line {
   margin-top: auto;
   width: 3rem; height: 1px;
-  background: rgba(245, 234, 217, 0.35);
+  background: color-mix(in oklab, var(--color-foreground) 30%, transparent);
 }
 .starter-mockup-foot {
   margin-top: 0.8rem;
   font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(245, 234, 217, 0.6);
+  color: var(--color-muted-foreground);
 }
 
 
