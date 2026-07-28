@@ -179,27 +179,27 @@ function StarterKitPage() {
         <Sparkles count={14} />
         <div className="starter-hero-inner">
           <div className="starter-hero-copy reveal">
-            <p className="starter-eyebrow starter-eyebrow-pill">✦ Free Starter Kit</p>
+            <p className="starter-eyebrow starter-eyebrow-pill">✦ Free Interactive Starter Kit</p>
             <h1 className="starter-hero-title">
-              <span className="starter-hero-script">the</span>
-              <span className="starter-hero-shimmer">Pretty &amp; Unforgettable</span>
-              <span className="starter-hero-italic">Brand™ Starter Kit</span>
+              <span className="starter-hero-script">build a</span>
+              <span className="starter-hero-shimmer">Faceless Brand</span>
+              <span className="starter-hero-italic">people can't forget.</span>
             </h1>
             <div className="starter-hero-body">
-              <p>Build a brand that feels authentic, premium, and impossible to forget.</p>
-              <p className="starter-hero-emph">This isn't another PDF.</p>
+              <p>Build a brand that feels premium, authentic, and impossible to ignore.</p>
+              <p className="starter-hero-emph">This isn't another free PDF.</p>
               <p>
-                It's an interactive experience designed to walk you through the exact framework I
-                use to build unforgettable brands — with examples, exercises, worksheets, and a
-                personalized brand assessment.
+                It's an interactive Starter Kit that walks you through my complete branding
+                framework — with real examples, visual breakdowns, exercises, and a personalized
+                brand assessment.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <button type="button" onClick={scrollToForm} className="button-solid starter-cta-glow">
-                Get Instant Access →
+                Unlock My Starter Kit →
               </button>
               <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                Instant · Free · No spam
+                Instant Access · Free · No Spam
               </span>
             </div>
           </div>
@@ -212,7 +212,7 @@ function StarterKitPage() {
             <div className="starter-mockup">
               <div className="starter-mockup-shine" />
               <div className="starter-mockup-inner">
-                <p className="starter-mockup-eyebrow">Blushbuild · Chapter One</p>
+                <p className="starter-mockup-eyebrow">Blushbuild · Starter Kit</p>
                 <p className="starter-mockup-title">
                   Pretty &amp;<br />
                   Unforgettable<br />
@@ -220,12 +220,9 @@ function StarterKitPage() {
                 </p>
                 <p className="starter-mockup-note">An interactive Starter Kit</p>
                 <div className="starter-mockup-line" />
-                <p className="starter-mockup-foot">8 chapters · worksheets · assessment</p>
+                <p className="starter-mockup-foot">Framework · worksheets · assessment</p>
               </div>
             </div>
-            <div className="starter-mockup-shadow" />
-          </div>
-        </div>
       </section>
 
       {/* IS THIS YOU — chat style */}
