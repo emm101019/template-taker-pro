@@ -1,38 +1,65 @@
 ## Goal
-Elevate `/starter-kit` to match the richness of the Pretty Products Challenge reference (IMG_6532–IMG_6547): more color, floating motion, and every content block shown in the examples — including a full FAQ accordion.
+Replace all copy on `/starter-kit` with the finalized script provided, keeping the current colorful design, animations, and structure intact.
 
 ## Scope
-Only `src/routes/starter-kit.tsx` and scoped styles in `src/styles.css`. No changes to other routes, data, or business logic. Respect `prefers-reduced-motion`.
+Only `src/routes/starter-kit.tsx`. No style, route, or logic changes. Form still redirects to `/chapter-one`.
 
-## New / upgraded sections (in order)
-1. **Hero** — layered blush→lavender→plum gradient wash, drifting sparkles + hearts around the mockup, animated shimmer on the "Starter Kit" headline, glowing pulse CTA. Keep existing copy.
-2. **Is this you?** — reworked into chat-bubble conversation (alternating left/right with avatar dots, IMG_6533 style), gentle float loop + scroll stagger.
-3. **Sound like you?** — new script-serif transition block bridging pain → promise (IMG_6535).
-4. **What you'll experience** — existing 8 chapter cards, upgraded with gradient borders, hover tilt/lift, sparkle-on-hover, scroll reveal stagger.
-5. **Picture this — Seven days from now…** — new checklist section with 4 outcome cards + rose-gold check badges (IMG_6545).
-6. **Bonus tools & templates** — new visual row of "unlocked" ornament cards (inline SVG lock-cards, IMG_6542 vibe) with floating animation.
-7. **What makes this different** — keep, add animated shimmer line drawing across the progress dots.
-8. **Quick questions / Everything you're wondering (FAQ)** — new accordion with all questions from IMG_6546, adapted to Blushbuild voice:
-   - I'm not a designer. Will this work for me?
-   - How much time do I need each day?
-   - I sell printables / wall art / planners — does it apply?
-   - Do I need paid Canva or fancy tools?
-   - Is it live or can I do it at my own pace?
-   - What happens after the 7 days?
-   - Do you offer refunds / is my email safe?
-   Native `<details>`/`<summary>` for accessibility, custom styled with animated `+`/`−`, smooth expand.
-9. **So… shall we Make It Pretty?** — new deep-plum finale band above the form with aurora blob animation and script accent (IMG_6547 mood, Blushbuild wording).
-10. **Final CTA form** — keep fields + redirect to `/chapter-one`; upgrade to shimmering button, glow ring on focus, floating sparkle ornaments.
+## Copy updates (section by section)
 
-## Motion system (added to styles.css)
-Keyframes: `float-slow`, `drift`, `shimmer`, `aurora`, `sparkle-twinkle`, `gradient-pan`, `pulse-glow`, `reveal-up`, `accordion-open`.
-Utilities: `.reveal` + `.is-visible` toggled by a small IntersectionObserver hook in the page. All looping animations disabled under `@media (prefers-reduced-motion: reduce)`.
+1. **Hero**
+   - Eyebrow: `FREE INTERACTIVE STARTER KIT`
+   - Headline: `Build a Faceless Brand People Can't Forget.`
+   - Body: "Build a brand that feels premium, authentic, and impossible to ignore. This isn't another free PDF. It's an interactive Starter Kit that walks you through my complete branding framework—with real examples, visual breakdowns, exercises, and a personalized brand assessment."
+   - CTA: `Unlock My Starter Kit →`
+   - Micro-note: `Instant Access • Free • No Spam`
 
-## Technical notes
-- Pure CSS + inline SVG ornaments — no new dependencies.
-- Mobile-first: ornament count/size reduced under `sm:`; accordion single-column.
-- Form logic, validation, localStorage save, and `/chapter-one` redirect unchanged.
-- Header banner link to `/starter-kit` unchanged.
+2. **Is this you?** — heading `The messages I get every single week…` with 5 chat bubbles:
+   - "How do I make my brand look more premium?"
+   - "I don't want to show my face… can I still build a successful brand?"
+   - "My content feels all over the place."
+   - "I want my brand to actually stand out."
+   - "I have so many ideas… I just don't know where to start."
+
+3. **Sound like you?** — script block with the "If you've ever thought one of those things…" paragraph ending "That's exactly what you'll start building inside."
+
+4. **What you'll experience** — 7 cards (was 8):
+   - Complete 17-Step Brand Framework
+   - Real brand examples and breakdowns
+   - Before & after transformations
+   - Interactive exercises
+   - Guided implementation prompts
+   - Brand-building worksheets
+   - Personalized Brand Assessment
+
+5. **Picture this…** — heading `Imagine where your brand could be just seven days from now…` with 4 checklist items:
+   - Your brand finally feels cohesive.
+   - You know exactly what makes your business different.
+   - Creating content feels easier because your brand has direction.
+   - Your Instagram actually reflects the business you're building.
+
+6. **Bonus tools & templates** — 6 items: Brand Worksheets, Brand Examples, Visual Breakdowns, Swipe Files, Reflection Prompts, Brand Assessment. Tagline: "Because seeing the strategy in action makes everything click."
+
+7. **What makes this different?** — new copy: "Most free guides give you information. This Starter Kit gives you clarity…" ending "You'll know exactly where to start."
+
+8. **FAQ accordion** — replace with 6 questions:
+   - I'm not creative. Will this still work?
+   - I don't want to show my face. Is this for me?
+   - Do I need Canva Pro?
+   - How long does it take?
+   - Is this really free?
+   - What happens after I finish?
+   Write concise, on-brand answers (2–3 sentences each) for each.
+
+9. **Final CTA band**
+   - Headline: `Ready to Make It Pretty?`
+   - Sub: `Then let's make it unforgettable.`
+   - Body: "Because the brands people remember… aren't built by accident. They're built with intention. They're built with strategy. And yours is next. Enter your email below and unlock the complete Pretty & Unforgettable Brand™ Starter Kit."
+   - Fields: First Name, Email
+   - Button: `✨ Unlock My Starter Kit →`
+   - Micro-note: `Instant Access • Free • Start Building Today`
+
+## Unchanged
+Design system, animations, gradients, floating ornaments, accordion behavior, form validation, localStorage save, redirect to `/chapter-one`, header banner link.
 
 ## Deliverable
-On approval, one edit to `src/routes/starter-kit.tsx` (structure + observer + FAQ data) and one append to `src/styles.css` (keyframes + new `.starter-*` classes). Result: a colorful, animated, fully-featured landing page with FAQ that mirrors the reference depth while staying in the Blushbuild editorial system.
+One edit to `src/routes/starter-kit.tsx` swapping all copy blocks + FAQ data to match the script above.
