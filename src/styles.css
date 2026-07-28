@@ -1720,7 +1720,7 @@
 }
 
 .ch-rail { display: none; }
-@media (min-width: 1180px) {
+@media (min-width: 1400px) {
   .ch-rail {
     display: block; position: fixed; left: max(1.25rem, calc((100vw - 940px) / 2 - 210px)); top: 50%; transform: translateY(-50%); z-index: 40;
   }
