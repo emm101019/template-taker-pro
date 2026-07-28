@@ -1598,42 +1598,44 @@
 .starter-faq-answer p { font-size: 0.95rem; line-height: 1.65; color: var(--color-muted-foreground); }
 @keyframes sk-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
-/* Final CTA — warm neutral gradient */
+/* Final CTA — deep espresso/mocha gradient with high-contrast type */
 .starter-aurora { display: none; }
 .starter-aurora-blob { display: none; }
 .starter-final {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(1000px 500px at 50% 0%, color-mix(in oklab, var(--color-highlight) 70%, var(--color-background)), transparent 65%),
-    linear-gradient(180deg,
-      color-mix(in oklab, var(--color-background) 94%, #efe6d8),
-      color-mix(in oklab, #cdb99f 55%, var(--color-background)));
-  color: var(--color-foreground);
+    radial-gradient(900px 500px at 50% 0%, #5a3a29, transparent 65%),
+    linear-gradient(180deg, #2b1c14 0%, #3d2718 55%, #1f130d 100%);
+  color: #f7efe1;
 }
 .starter-final-title,
 .starter-final-title em,
-.starter-final-body { color: var(--color-foreground); }
-.starter-final-title em { font-family: var(--font-serif-alt); font-style: italic; }
-/* Warm-white form card on gradient */
+.starter-final-body { color: #f7efe1; }
+.starter-final-body { opacity: 0.92; }
+.starter-final-title em { font-family: var(--font-serif-alt); font-style: italic; color: #f7efe1; }
+
+/* Warm-white form card on the dark gradient */
 .starter-final .starter-form {
-  background: color-mix(in oklab, var(--color-card) 94%, var(--color-background));
-  border: 1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent);
-  box-shadow: 0 30px 60px -32px color-mix(in oklab, var(--color-foreground) 30%, transparent);
+  background: #f8f1e3;
+  border: 1px solid rgba(43, 28, 20, 0.14);
+  box-shadow: 0 40px 80px -32px rgba(0,0,0,0.55);
 }
-.starter-final .starter-field span { color: color-mix(in oklab, var(--color-foreground) 65%, transparent); }
+.starter-final .starter-field span { color: #4a3529; font-weight: 600; }
 .starter-final .starter-field input {
-  background: var(--color-background);
-  border: 1px solid color-mix(in oklab, var(--color-foreground) 18%, transparent);
-  color: var(--color-foreground);
+  background: #fffaf0;
+  border: 1px solid rgba(43, 28, 20, 0.28);
+  color: #2a221f;
 }
-.starter-final .starter-field input::placeholder { color: color-mix(in oklab, var(--color-foreground) 40%, transparent); }
-.starter-final .starter-field input:focus { border-color: color-mix(in oklab, var(--color-foreground) 45%, transparent); }
+.starter-final .starter-field input::placeholder { color: rgba(42, 34, 31, 0.55); }
+.starter-final .starter-field input:focus { border-color: #2b1c14; outline: none; }
 .starter-final .starter-form-submit {
-  background: var(--color-foreground);
-  color: var(--color-background);
+  background: #2b1c14;
+  color: #f7efe1;
+  font-weight: 600;
 }
-.starter-final .starter-form-note,
-.starter-final .starter-eyebrow-light { color: color-mix(in oklab, var(--color-foreground) 60%, transparent); }
+.starter-final .starter-form-submit:hover { background: #3d2718; }
+.starter-final .starter-form-note { color: #6b4f3f; }
+.starter-final .starter-eyebrow-light { color: #f7efe1; opacity: 0.9; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
