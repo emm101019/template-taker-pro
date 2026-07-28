@@ -279,7 +279,7 @@ function StarterKitPage() {
         <div className="starter-section-inner">
           <div className="reveal text-center">
             <p className="starter-eyebrow">What you'll experience</p>
-            <h2 className="starter-section-title">Eight quiet chapters. One unforgettable brand.</h2>
+            <h2 className="starter-section-title">Inside the Starter Kit, you'll unlock…</h2>
           </div>
           <div className="starter-experience-grid">
             {experienceItems.map((item, i) => (
