@@ -39,48 +39,46 @@ type ConversationCard = {
 };
 
 const conversationCards: ConversationCard[] = [
-  { text: "My brand feels all over the place.", tone: "plum", side: "right", glyph: "✦" },
-  { text: "I don't know why people aren't connecting.", tone: "lavender", side: "left", glyph: "❁" },
-  { text: "I want a brand that feels premium.", tone: "blush", side: "right", glyph: "♡" },
-  { text: "I'm tired of piecing everything together.", tone: "cream", side: "left", glyph: "✧" },
+  { text: "How do I make my brand look more premium?", tone: "plum", side: "right", glyph: "✦" },
+  { text: "I don't want to show my face… can I still build a successful brand?", tone: "lavender", side: "left", glyph: "❁" },
+  { text: "My content feels all over the place.", tone: "blush", side: "right", glyph: "♡" },
+  { text: "I want my brand to actually stand out.", tone: "cream", side: "left", glyph: "✧" },
+  { text: "I have so many ideas… I just don't know where to start.", tone: "plum", side: "right", glyph: "☾" },
 ];
 
 const experienceItems = [
-  { label: "Chapter 01", title: "The 17-Step Brand Framework", text: "The exact sequence I use to build unforgettable brands — mapped step-by-step." },
-  { label: "Chapter 02", title: "Live Brand Build", text: "Watch a real brand come to life in front of you, with every decision explained." },
-  { label: "Chapter 03", title: "Real Brand Examples", text: "Case studies from brands built with this framework — what worked, what didn't." },
-  { label: "Chapter 04", title: "Interactive Exercises", text: "Small, thoughtful prompts that shape your brand as you move through the kit." },
-  { label: "Chapter 05", title: "Brand Worksheets", text: "Beautifully designed worksheets you'll actually want to fill out." },
-  { label: "Chapter 06", title: "Messaging Walkthroughs", text: "Find the words that make your brand feel human, magnetic, and unmistakably yours." },
-  { label: "Chapter 07", title: "Brand Audit", text: "A gentle, honest look at where your brand is right now — and where it's leaking magic." },
-  { label: "Chapter 08", title: "Brand Assessment", text: "A personalized read on your brand's clarity, cohesion, and quiet power." },
+  { label: "Inside 01", title: "The complete 17-Step Brand Framework", text: "The exact sequence I use to build unforgettable brands — mapped step-by-step." },
+  { label: "Inside 02", title: "Real brand examples and breakdowns", text: "See the framework applied to real brands, with every choice explained." },
+  { label: "Inside 03", title: "Before & after transformations", text: "The visible glow-up — what changed, why it worked, and how to do the same." },
+  { label: "Inside 04", title: "Interactive exercises", text: "Small, thoughtful prompts that shape your brand as you move through the kit." },
+  { label: "Inside 05", title: "Guided implementation prompts", text: "Turn strategy into actual next steps — no guessing, no blank pages." },
+  { label: "Inside 06", title: "Brand-building worksheets", text: "Beautifully designed worksheets you'll actually want to fill out." },
+  { label: "Inside 07", title: "A personalized Brand Assessment", text: "A quiet, honest read on your brand's clarity, cohesion, and pulling power." },
 ] as const;
 
 const pictureThis = [
-  { title: "Your brand looks like it belongs on the shelf you dream of.", text: "Cohesive, styled, and unmistakably yours — the brand people screenshot for inspo." },
-  { title: "You know exactly WHY every choice is there.", text: "Not decoration — intention. Every colour, word, and image answering a real buyer question." },
-  { title: "You have a before/after you're proud to post.", text: "The kind of glow-up that makes people ask \u201cokay HOW?!\u201d" },
-  { title: "You own a repeatable formula.", text: "Next launch? A weekend. The one after that? An afternoon. It compounds." },
+  { title: "Your brand finally feels cohesive.", text: "Every touchpoint speaks the same language — visually, emotionally, quietly premium." },
+  { title: "You know exactly what makes your business different.", text: "No more copying trends. You have language for the thing only you can offer." },
+  { title: "Creating content feels easier because your brand has direction.", text: "You'll stop starting from scratch. Every post flows from a clear brand core." },
+  { title: "Your Instagram actually reflects the business you're building.", text: "A feed that looks like the brand in your head — finally on the outside too." },
 ];
 
 const bonusTools = [
-  { glyph: "❁", label: "Prompt Library" },
-  { glyph: "✦", label: "Palette Cards" },
-  { glyph: "♡", label: "Voice Recipes" },
-  { glyph: "☾", label: "Mood Boards" },
-  { glyph: "✧", label: "Layout Kits" },
-  { glyph: "❋", label: "Launch Scripts" },
-  { glyph: "✿", label: "Audit Sheets" },
+  { glyph: "❁", label: "Brand Worksheets" },
+  { glyph: "✦", label: "Brand Examples" },
+  { glyph: "♡", label: "Visual Breakdowns" },
+  { glyph: "☾", label: "Swipe Files" },
+  { glyph: "✧", label: "Reflection Prompts" },
+  { glyph: "❋", label: "Brand Assessment" },
 ];
 
 const faqs = [
-  { q: "I'm not a designer. Will this work for me?", a: "Yes — the whole kit is built for founders, creators, and shop owners with zero design background. Every framework is plug-and-play." },
-  { q: "How much time do I need each day?", a: "Around 20–30 minutes per chapter. You can move faster or slower — everything is self-paced and saved as you go." },
-  { q: "I sell printables / wall art / planners — does it apply?", a: "Absolutely. The framework works for digital products, physical goods, services, and personal brands. The language and worksheets adapt to what you sell." },
-  { q: "Do I need paid Canva or fancy tools?", a: "No. Everything works with free Canva, Google Docs, or pen and paper. The magic is in the framework, not the software." },
-  { q: "Is it live or can I do it at my own pace?", a: "Completely self-paced. Once you unlock Chapter One, it's yours forever — come and go as your life allows." },
-  { q: "What happens after the 8 chapters?", a: "You'll receive gentle follow-ups with bonus prompts and the invitation to keep building with the Blushbuild library." },
-  { q: "Is my email safe? Can I unsubscribe?", a: "Always. One-click unsubscribe on every email, and I never share your info. Ever." },
+  { q: "I'm not creative. Will this still work?", a: "Yes — this kit is built for founders and creators, not designers. Every framework is plug-and-play, with prompts that do the heavy lifting for you." },
+  { q: "I don't want to show my face. Is this for me?", a: "Completely. The whole kit is designed for faceless and personal brands alike — the framework works whether or not you ever appear on camera." },
+  { q: "Do I need Canva Pro?", a: "No. Everything inside works with free Canva, Google Docs, or even pen and paper. The magic is in the framework, not the software." },
+  { q: "How long does it take?", a: "You can move through it in a weekend or stretch it over a few weeks — it's fully self-paced. Most people feel a real shift within the first sitting." },
+  { q: "Is this really free?", a: "Yes — 100% free, instant access, no card required. Just your first name and email so I can unlock it for you." },
+  { q: "What happens after I finish?", a: "You'll leave with a clear, cohesive brand foundation and an invitation into the full Pretty & Unforgettable Brand™ experience if you want to keep building." },
 ];
 
 function useReveal() {
