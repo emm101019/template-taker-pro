@@ -1,62 +1,65 @@
-## Hero neutral rework — /starter-kit
+## Goal
+Replace all copy on `/starter-kit` with the finalized script provided, keeping the current colorful design, animations, and structure intact.
 
-Only the hero section changes. No other page, route, style block, or form logic is touched. No code is edited until you approve this plan.
+## Scope
+Only `src/routes/starter-kit.tsx`. No style, route, or logic changes. Form still redirects to `/chapter-one`.
 
-### 1. Hierarchy (top → bottom, mobile-first)
+## Copy updates (section by section)
 
-1. Eyebrow pill — `✦ FREE INTERACTIVE STARTER KIT` (existing pill style, neutral border/background).
-2. **H1** in `--font-display` (Cormorant Garamond), `--color-foreground` (site's dark espresso):
-   `Pretty & Unforgettable Brand™ Starter Kit`
-   ("&" set in `--font-serif-alt` italic for editorial rhythm; "Brand™ Starter Kit" wraps to its own line on desktop).
-3. **Supporting promise** directly under H1, in Italiana italic, `color-mix` of foreground @ 70%:
-   `Build a faceless brand people can't forget — premium, authentic, unmistakably yours.`
-4. Short body paragraph, kept:
-   Italic emphasis line "Not another free PDF." + follow-up sentence describing the interactive Starter Kit.
-5. CTA row: existing `.button-solid` + `Instant Access · Free · No Spam` micro-caption.
-6. Right column (stacks below on mobile): one neutral mockup card (details in §2).
+1. **Hero**
+   - Eyebrow: `FREE INTERACTIVE STARTER KIT`
+   - Headline: `Build a Faceless Brand People Can't Forget.`
+   - Body: "Build a brand that feels premium, authentic, and impossible to ignore. This isn't another free PDF. It's an interactive Starter Kit that walks you through my complete branding framework—with real examples, visual breakdowns, exercises, and a personalized brand assessment."
+   - CTA: `Unlock My Starter Kit →`
+   - Micro-note: `Instant Access • Free • No Spam`
 
-### 2. Neutral color treatment
+2. **Is this you?** — heading `The messages I get every single week…` with 5 chat bubbles:
+   - "How do I make my brand look more premium?"
+   - "I don't want to show my face… can I still build a successful brand?"
+   - "My content feels all over the place."
+   - "I want my brand to actually stand out."
+   - "I have so many ideas… I just don't know where to start."
 
-Palette pulled only from existing site tokens — nothing new introduced:
+3. **Sound like you?** — script block with the "If you've ever thought one of those things…" paragraph ending "That's exactly what you'll start building inside."
 
-- Hero background: `var(--color-background)` (cream/ivory).
-- Section divider: `border-bottom: 1px solid var(--color-border)` (taupe).
-- Typography: `var(--color-foreground)` for headline, `var(--color-muted-foreground)` for eyebrow/caption, foreground @ ~70–80% for body.
-- CTA: existing `.button-solid`, no glow, no pulse.
+4. **What you'll experience** — 7 cards (was 8):
+   - Complete 17-Step Brand Framework
+   - Real brand examples and breakdowns
+   - Before & after transformations
+   - Interactive exercises
+   - Guided implementation prompts
+   - Brand-building worksheets
+   - Personalized Brand Assessment
 
-Mockup card (the single contrast element):
+5. **Picture this…** — heading `Imagine where your brand could be just seven days from now…` with 4 checklist items:
+   - Your brand finally feels cohesive.
+   - You know exactly what makes your business different.
+   - Creating content feels easier because your brand has direction.
+   - Your Instagram actually reflects the business you're building.
 
-- Fill: warm white / oatmeal — `color-mix(in oklab, var(--color-card) 90%, white 10%)`.
-- Outer border: 1px `var(--color-border)`.
-- Header band across top of card: espresso — `var(--color-foreground)` at full opacity, height ~2.75rem, contains `BLUSHBUILD · CHAPTER ONE` eyebrow in cream (`var(--color-background)`).
-- Inner editorial border: 1px hairline in `color-mix(var(--color-foreground) 25%, transparent)`, inset 0.75rem.
-- Shadow: `0 24px 50px -30px var(--color-paper-shadow)` (matches other cards on the site).
-- Contents below header band, all in foreground/foreground-muted:
-  - Serif title `Pretty & Unforgettable / Brand™` (display + italic serif).
-  - Italic note `An interactive Starter Kit`.
-  - Hairline divider in border color.
-  - Foot micro-caps `Framework · Worksheets · Assessment`.
+6. **Bonus tools & templates** — 6 items: Brand Worksheets, Brand Examples, Visual Breakdowns, Swipe Files, Reflection Prompts, Brand Assessment. Tagline: "Because seeing the strategy in action makes everything click."
 
-No purple, plum, lavender, blush, gradients, sparkles, orbits, glow, shimmer, or floating glyphs anywhere in the hero.
+7. **What makes this different?** — new copy: "Most free guides give you information. This Starter Kit gives you clarity…" ending "You'll know exactly where to start."
 
-### 3. Removals
+8. **FAQ accordion** — replace with 6 questions:
+   - I'm not creative. Will this still work?
+   - I don't want to show my face. Is this for me?
+   - Do I need Canva Pro?
+   - How long does it take?
+   - Is this really free?
+   - What happens after I finish?
+   Write concise, on-brand answers (2–3 sentences each) for each.
 
-From the hero JSX and its scoped styles only:
+9. **Final CTA band**
+   - Headline: `Ready to Make It Pretty?`
+   - Sub: `Then let's make it unforgettable.`
+   - Body: "Because the brands people remember… aren't built by accident. They're built with intention. They're built with strategy. And yours is next. Enter your email below and unlock the complete Pretty & Unforgettable Brand™ Starter Kit."
+   - Fields: First Name, Email
+   - Button: `✨ Unlock My Starter Kit →`
+   - Micro-note: `Instant Access • Free • Start Building Today`
 
-- Any remaining plum/purple fills on `.starter-mockup` (currently `#3a2231` + cream text) — replaced with the neutral oatmeal card above.
-- Existing decorative pill shadow tint if any lingers — replaced with plain border.
-- Confirm removal (already gone last turn but re-verify): `Sparkles` in hero, `.starter-hero-glow`, `.starter-orbit*`, `.starter-hero-shimmer`, `.starter-hero-script`, `.starter-cta-glow` from the CTA button, `.starter-mockup-shine`, floating animation on the card.
+## Unchanged
+Design system, animations, gradients, floating ornaments, accordion behavior, form validation, localStorage save, redirect to `/chapter-one`, header banner link.
 
-### 4. Files & rules changed
-
-- `src/routes/starter-kit.tsx` — only the `{/* HERO */}` block (~lines 176–222). Remove `starter-cta-glow` if still on the CTA; keep everything else on the page identical.
-- `src/styles.css` — only these selectors:
-  - `.starter-hero` (keep neutral background + border-bottom).
-  - `.starter-mockup`, `.starter-mockup::before`, `.starter-mockup-inner`, `.starter-mockup-eyebrow`, `.starter-mockup-title`, `.starter-mockup-note`, `.starter-mockup-line`, `.starter-mockup-foot` — rewritten to the oatmeal-card treatment above (add a `.starter-mockup-header` rule for the espresso band).
-  - `.starter-eyebrow-pill` — confirm neutral (already neutral, no change expected).
-
-No other selectors touched. No new CSS variables added. No dependency changes.
-
-### 5. Confirmation
-
-No code will be modified until you approve this plan.
+## Deliverable
+One edit to `src/routes/starter-kit.tsx` swapping all copy blocks + FAQ data to match the script above.
