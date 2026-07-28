@@ -419,13 +419,17 @@ function StarterKitPage() {
         <Sparkles count={16} className="is-light" />
         <div className="starter-final-inner">
           <p className="starter-eyebrow starter-eyebrow-light reveal">Your beginning starts today</p>
-          <p className="starter-script-big starter-script-light reveal">so… shall we</p>
+          <p className="starter-script-big starter-script-light reveal">ready to</p>
           <h2 className="starter-final-title reveal">
             Make It <em>Pretty?</em>
           </h2>
           <p className="starter-final-body reveal">
-            Enter your details below and I'll instantly unlock your Pretty &amp; Unforgettable
-            Brand™ Starter Kit, where you'll begin Chapter One of your brand transformation.
+            Then let's make it unforgettable. Because the brands people remember aren't built by
+            accident. They're built with intention. They're built with strategy. And yours is next.
+          </p>
+          <p className="starter-final-body reveal">
+            Enter your email below and unlock the complete Pretty &amp; Unforgettable Brand™
+            Starter Kit.
           </p>
 
           <form ref={formRef} onSubmit={handleSubmit} className="starter-form reveal" noValidate>
@@ -442,7 +446,7 @@ function StarterKitPage() {
               />
             </label>
             <label className="starter-field">
-              <span>Email</span>
+              <span>Email address</span>
               <input
                 type="email"
                 value={email}
@@ -455,10 +459,10 @@ function StarterKitPage() {
             </label>
             {error ? <p className="starter-form-error">{error}</p> : null}
             <button type="submit" className="button-solid starter-form-submit starter-cta-glow" disabled={submitting}>
-              {submitting ? "Unlocking…" : "Unlock Chapter One →"}
+              {submitting ? "Unlocking…" : "✨ Unlock My Starter Kit →"}
             </button>
             <p className="starter-form-note">
-              By continuing you'll join the Blushbuild list. Unsubscribe anytime.
+              Instant Access · Free · Start Building Today
             </p>
           </form>
         </div>
