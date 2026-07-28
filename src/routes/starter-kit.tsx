@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import starterHeroImage from "@/assets/starter-kit-hero.jpg.asset.json";
+
 
 export const Route = createFileRoute("/starter-kit")({
   head: () => ({
