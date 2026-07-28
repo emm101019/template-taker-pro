@@ -1,65 +1,49 @@
-## Goal
-Replace all copy on `/starter-kit` with the finalized script provided, keeping the current colorful design, animations, and structure intact.
+## Give `/starter-kit` a lush, "Pretty Products"-level hero
 
-## Scope
-Only `src/routes/starter-kit.tsx`. No style, route, or logic changes. Form still redirects to `/chapter-one`.
+Match the richness of the reference (deep lavender field, layered product stack, florals, birds, glow, sparkles) while staying inside the existing blush/lavender/plum + serif/script style already used elsewhere on the page. Only the hero block changes.
 
-## Copy updates (section by section)
+### Visual direction
 
-1. **Hero**
-   - Eyebrow: `FREE INTERACTIVE STARTER KIT`
-   - Headline: `Build a Faceless Brand People Can't Forget.`
-   - Body: "Build a brand that feels premium, authentic, and impossible to ignore. This isn't another free PDF. It's an interactive Starter Kit that walks you through my complete branding framework—with real examples, visual breakdowns, exercises, and a personalized brand assessment."
-   - CTA: `Unlock My Starter Kit →`
-   - Micro-note: `Instant Access • Free • No Spam`
+- Deep lavender-to-plum gradient field with soft radial glow (uses existing `--starter-lavender` / `--starter-plum` tokens, no new palette).
+- One AI-generated hero composition image, styled like the reference: a layered stack of a workbook cover, laptop mockup, tablet mockup, and printed worksheets, surrounded by white hydrangeas, green leaves, two soft-focus birds mid-flight, butterflies, and a central circular "07 DAYS" badge — all on the lavender field, lit like a still-life photograph. Generated at 1400×1200 with `imagegen--generate_image` (premium quality, for legible mock text on the workbook cover reading "The Pretty & Unforgettable Brand™ Starter Kit"). Saved to `src/assets/starter-hero-stack.jpg` and imported.
+- The image replaces the current CSS "mockup card" on the right; the left column keeps the current copy/CTA but is restyled to sit on the darker lavender field with light-on-dark type (script accent stays blush).
 
-2. **Is this you?** — heading `The messages I get every single week…` with 5 chat bubbles:
-   - "How do I make my brand look more premium?"
-   - "I don't want to show my face… can I still build a successful brand?"
-   - "My content feels all over the place."
-   - "I want my brand to actually stand out."
-   - "I have so many ideas… I just don't know where to start."
+### Hero layout (desktop)
 
-3. **Sound like you?** — script block with the "If you've ever thought one of those things…" paragraph ending "That's exactly what you'll start building inside."
+```text
+┌──────────────────────────────┬────────────────────────────────┐
+│ ✦ FREE INTERACTIVE           │            ✦    ♡              │
+│   STARTER KIT                │      ┌───────────────────┐     │
+│                              │      │  hydrangeas +     │     │
+│ build a                      │      │  workbook cover   │     │
+│ Faceless Brand               │      │  laptop + tablet  │     │
+│ people can't forget.         │      │  birds + leaves   │     │
+│                              │      │  "07 DAYS" seal   │     │
+│ Build a brand that feels …   │      └───────────────────┘     │
+│ premium, authentic, and      │           ✧            ❁       │
+│ impossible to ignore.        │                                │
+│                              │                                │
+│ [ Unlock My Starter Kit → ]  │                                │
+│ Instant Access · Free        │                                │
+└──────────────────────────────┴────────────────────────────────┘
+```
 
-4. **What you'll experience** — 7 cards (was 8):
-   - Complete 17-Step Brand Framework
-   - Real brand examples and breakdowns
-   - Before & after transformations
-   - Interactive exercises
-   - Guided implementation prompts
-   - Brand-building worksheets
-   - Personalized Brand Assessment
+- Background: full-bleed lavender→plum gradient with a soft blush radial glow behind the image; existing `Sparkles` component reused, count bumped to 22, tinted lighter for contrast.
+- Left copy: existing headline structure kept, but headline color shifts to warm cream on the dark field; "Faceless Brand" keeps the blush shimmer; a thin blush divider with a centered `✦` sits under the headline.
+- Right: the generated composition floats in with a soft drop shadow and a slow ambient float animation (reuse existing `starter-orbit` keyframes; no new animation libs). Four small orbit glyphs (`✦ ♡ ✧ ❁`) drift around it.
+- CTA button and eyebrow pill unchanged in behavior; only restyled for the darker field (blush gradient stays; eyebrow becomes translucent white pill with blush text).
 
-5. **Picture this…** — heading `Imagine where your brand could be just seven days from now…` with 4 checklist items:
-   - Your brand finally feels cohesive.
-   - You know exactly what makes your business different.
-   - Creating content feels easier because your brand has direction.
-   - Your Instagram actually reflects the business you're building.
+### Mobile behavior
 
-6. **Bonus tools & templates** — 6 items: Brand Worksheets, Brand Examples, Visual Breakdowns, Swipe Files, Reflection Prompts, Brand Assessment. Tagline: "Because seeing the strategy in action makes everything click."
+- Image stacks above the copy, capped at ~360px wide, centered.
+- Headline drops one size step; orbit glyphs hide below 640px (matches current mobile rules).
 
-7. **What makes this different?** — new copy: "Most free guides give you information. This Starter Kit gives you clarity…" ending "You'll know exactly where to start."
+### Files touched
 
-8. **FAQ accordion** — replace with 6 questions:
-   - I'm not creative. Will this still work?
-   - I don't want to show my face. Is this for me?
-   - Do I need Canva Pro?
-   - How long does it take?
-   - Is this really free?
-   - What happens after I finish?
-   Write concise, on-brand answers (2–3 sentences each) for each.
+- `src/assets/starter-hero-stack.jpg` — new, generated via `imagegen--generate_image` (premium tier so the workbook cover text renders legibly).
+- `src/routes/starter-kit.tsx` — replace only the `{/* HERO */}` JSX with the new two-column layout and import the new asset. Nothing below the hero changes.
+- `src/styles.css` — add `.starter-hero--lush` variant styles (dark gradient field, cream headline color, image frame + float, blush divider) and extend the existing mobile media query for the hero. No token changes.
 
-9. **Final CTA band**
-   - Headline: `Ready to Make It Pretty?`
-   - Sub: `Then let's make it unforgettable.`
-   - Body: "Because the brands people remember… aren't built by accident. They're built with intention. They're built with strategy. And yours is next. Enter your email below and unlock the complete Pretty & Unforgettable Brand™ Starter Kit."
-   - Fields: First Name, Email
-   - Button: `✨ Unlock My Starter Kit →`
-   - Micro-note: `Instant Access • Free • Start Building Today`
+### Out of scope
 
-## Unchanged
-Design system, animations, gradients, floating ornaments, accordion behavior, form validation, localStorage save, redirect to `/chapter-one`, header banner link.
-
-## Deliverable
-One edit to `src/routes/starter-kit.tsx` swapping all copy blocks + FAQ data to match the script above.
+- No changes to sections below the hero, no new routes, no data or form-logic changes, no new dependencies.
