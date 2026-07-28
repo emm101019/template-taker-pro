@@ -39,48 +39,46 @@ type ConversationCard = {
 };
 
 const conversationCards: ConversationCard[] = [
-  { text: "My brand feels all over the place.", tone: "plum", side: "right", glyph: "✦" },
-  { text: "I don't know why people aren't connecting.", tone: "lavender", side: "left", glyph: "❁" },
-  { text: "I want a brand that feels premium.", tone: "blush", side: "right", glyph: "♡" },
-  { text: "I'm tired of piecing everything together.", tone: "cream", side: "left", glyph: "✧" },
+  { text: "How do I make my brand look more premium?", tone: "plum", side: "right", glyph: "✦" },
+  { text: "I don't want to show my face… can I still build a successful brand?", tone: "lavender", side: "left", glyph: "❁" },
+  { text: "My content feels all over the place.", tone: "blush", side: "right", glyph: "♡" },
+  { text: "I want my brand to actually stand out.", tone: "cream", side: "left", glyph: "✧" },
+  { text: "I have so many ideas… I just don't know where to start.", tone: "plum", side: "right", glyph: "☾" },
 ];
 
 const experienceItems = [
-  { label: "Chapter 01", title: "The 17-Step Brand Framework", text: "The exact sequence I use to build unforgettable brands — mapped step-by-step." },
-  { label: "Chapter 02", title: "Live Brand Build", text: "Watch a real brand come to life in front of you, with every decision explained." },
-  { label: "Chapter 03", title: "Real Brand Examples", text: "Case studies from brands built with this framework — what worked, what didn't." },
-  { label: "Chapter 04", title: "Interactive Exercises", text: "Small, thoughtful prompts that shape your brand as you move through the kit." },
-  { label: "Chapter 05", title: "Brand Worksheets", text: "Beautifully designed worksheets you'll actually want to fill out." },
-  { label: "Chapter 06", title: "Messaging Walkthroughs", text: "Find the words that make your brand feel human, magnetic, and unmistakably yours." },
-  { label: "Chapter 07", title: "Brand Audit", text: "A gentle, honest look at where your brand is right now — and where it's leaking magic." },
-  { label: "Chapter 08", title: "Brand Assessment", text: "A personalized read on your brand's clarity, cohesion, and quiet power." },
+  { label: "Inside 01", title: "The complete 17-Step Brand Framework", text: "The exact sequence I use to build unforgettable brands — mapped step-by-step." },
+  { label: "Inside 02", title: "Real brand examples and breakdowns", text: "See the framework applied to real brands, with every choice explained." },
+  { label: "Inside 03", title: "Before & after transformations", text: "The visible glow-up — what changed, why it worked, and how to do the same." },
+  { label: "Inside 04", title: "Interactive exercises", text: "Small, thoughtful prompts that shape your brand as you move through the kit." },
+  { label: "Inside 05", title: "Guided implementation prompts", text: "Turn strategy into actual next steps — no guessing, no blank pages." },
+  { label: "Inside 06", title: "Brand-building worksheets", text: "Beautifully designed worksheets you'll actually want to fill out." },
+  { label: "Inside 07", title: "A personalized Brand Assessment", text: "A quiet, honest read on your brand's clarity, cohesion, and pulling power." },
 ] as const;
 
 const pictureThis = [
-  { title: "Your brand looks like it belongs on the shelf you dream of.", text: "Cohesive, styled, and unmistakably yours — the brand people screenshot for inspo." },
-  { title: "You know exactly WHY every choice is there.", text: "Not decoration — intention. Every colour, word, and image answering a real buyer question." },
-  { title: "You have a before/after you're proud to post.", text: "The kind of glow-up that makes people ask \u201cokay HOW?!\u201d" },
-  { title: "You own a repeatable formula.", text: "Next launch? A weekend. The one after that? An afternoon. It compounds." },
+  { title: "Your brand finally feels cohesive.", text: "Every touchpoint speaks the same language — visually, emotionally, quietly premium." },
+  { title: "You know exactly what makes your business different.", text: "No more copying trends. You have language for the thing only you can offer." },
+  { title: "Creating content feels easier because your brand has direction.", text: "You'll stop starting from scratch. Every post flows from a clear brand core." },
+  { title: "Your Instagram actually reflects the business you're building.", text: "A feed that looks like the brand in your head — finally on the outside too." },
 ];
 
 const bonusTools = [
-  { glyph: "❁", label: "Prompt Library" },
-  { glyph: "✦", label: "Palette Cards" },
-  { glyph: "♡", label: "Voice Recipes" },
-  { glyph: "☾", label: "Mood Boards" },
-  { glyph: "✧", label: "Layout Kits" },
-  { glyph: "❋", label: "Launch Scripts" },
-  { glyph: "✿", label: "Audit Sheets" },
+  { glyph: "❁", label: "Brand Worksheets" },
+  { glyph: "✦", label: "Brand Examples" },
+  { glyph: "♡", label: "Visual Breakdowns" },
+  { glyph: "☾", label: "Swipe Files" },
+  { glyph: "✧", label: "Reflection Prompts" },
+  { glyph: "❋", label: "Brand Assessment" },
 ];
 
 const faqs = [
-  { q: "I'm not a designer. Will this work for me?", a: "Yes — the whole kit is built for founders, creators, and shop owners with zero design background. Every framework is plug-and-play." },
-  { q: "How much time do I need each day?", a: "Around 20–30 minutes per chapter. You can move faster or slower — everything is self-paced and saved as you go." },
-  { q: "I sell printables / wall art / planners — does it apply?", a: "Absolutely. The framework works for digital products, physical goods, services, and personal brands. The language and worksheets adapt to what you sell." },
-  { q: "Do I need paid Canva or fancy tools?", a: "No. Everything works with free Canva, Google Docs, or pen and paper. The magic is in the framework, not the software." },
-  { q: "Is it live or can I do it at my own pace?", a: "Completely self-paced. Once you unlock Chapter One, it's yours forever — come and go as your life allows." },
-  { q: "What happens after the 8 chapters?", a: "You'll receive gentle follow-ups with bonus prompts and the invitation to keep building with the Blushbuild library." },
-  { q: "Is my email safe? Can I unsubscribe?", a: "Always. One-click unsubscribe on every email, and I never share your info. Ever." },
+  { q: "I'm not creative. Will this still work?", a: "Yes — this kit is built for founders and creators, not designers. Every framework is plug-and-play, with prompts that do the heavy lifting for you." },
+  { q: "I don't want to show my face. Is this for me?", a: "Completely. The whole kit is designed for faceless and personal brands alike — the framework works whether or not you ever appear on camera." },
+  { q: "Do I need Canva Pro?", a: "No. Everything inside works with free Canva, Google Docs, or even pen and paper. The magic is in the framework, not the software." },
+  { q: "How long does it take?", a: "You can move through it in a weekend or stretch it over a few weeks — it's fully self-paced. Most people feel a real shift within the first sitting." },
+  { q: "Is this really free?", a: "Yes — 100% free, instant access, no card required. Just your first name and email so I can unlock it for you." },
+  { q: "What happens after I finish?", a: "You'll leave with a clear, cohesive brand foundation and an invitation into the full Pretty & Unforgettable Brand™ experience if you want to keep building." },
 ];
 
 function useReveal() {
@@ -181,27 +179,27 @@ function StarterKitPage() {
         <Sparkles count={14} />
         <div className="starter-hero-inner">
           <div className="starter-hero-copy reveal">
-            <p className="starter-eyebrow starter-eyebrow-pill">✦ Free Starter Kit</p>
+            <p className="starter-eyebrow starter-eyebrow-pill">✦ Free Interactive Starter Kit</p>
             <h1 className="starter-hero-title">
-              <span className="starter-hero-script">the</span>
-              <span className="starter-hero-shimmer">Pretty &amp; Unforgettable</span>
-              <span className="starter-hero-italic">Brand™ Starter Kit</span>
+              <span className="starter-hero-script">build a</span>
+              <span className="starter-hero-shimmer">Faceless Brand</span>
+              <span className="starter-hero-italic">people can't forget.</span>
             </h1>
             <div className="starter-hero-body">
-              <p>Build a brand that feels authentic, premium, and impossible to forget.</p>
-              <p className="starter-hero-emph">This isn't another PDF.</p>
+              <p>Build a brand that feels premium, authentic, and impossible to ignore.</p>
+              <p className="starter-hero-emph">This isn't another free PDF.</p>
               <p>
-                It's an interactive experience designed to walk you through the exact framework I
-                use to build unforgettable brands — with examples, exercises, worksheets, and a
-                personalized brand assessment.
+                It's an interactive Starter Kit that walks you through my complete branding
+                framework — with real examples, visual breakdowns, exercises, and a personalized
+                brand assessment.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <button type="button" onClick={scrollToForm} className="button-solid starter-cta-glow">
-                Get Instant Access →
+                Unlock My Starter Kit →
               </button>
               <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                Instant · Free · No spam
+                Instant Access · Free · No Spam
               </span>
             </div>
           </div>
@@ -214,7 +212,7 @@ function StarterKitPage() {
             <div className="starter-mockup">
               <div className="starter-mockup-shine" />
               <div className="starter-mockup-inner">
-                <p className="starter-mockup-eyebrow">Blushbuild · Chapter One</p>
+                <p className="starter-mockup-eyebrow">Blushbuild · Starter Kit</p>
                 <p className="starter-mockup-title">
                   Pretty &amp;<br />
                   Unforgettable<br />
@@ -222,7 +220,7 @@ function StarterKitPage() {
                 </p>
                 <p className="starter-mockup-note">An interactive Starter Kit</p>
                 <div className="starter-mockup-line" />
-                <p className="starter-mockup-foot">8 chapters · worksheets · assessment</p>
+                <p className="starter-mockup-foot">Framework · worksheets · assessment</p>
               </div>
             </div>
             <div className="starter-mockup-shadow" />
@@ -235,14 +233,13 @@ function StarterKitPage() {
         <div className="starter-bokeh" aria-hidden="true" />
         <div className="starter-section-inner">
           <div className="reveal text-center">
-            <p className="starter-eyebrow">Straight from my inbox</p>
+            <p className="starter-eyebrow">Is this you?</p>
             <h2 className="starter-section-title">
-              The whispers I hear
+              The messages I get
               <span className="starter-script-accent"> every single week…</span>
             </h2>
             <p className="starter-section-lede">
-              If you've ever thought any of these — you're in very good company, and this kit was
-              built for you. ♡
+              If any of these sound familiar — you're in exactly the right place. ♡
             </p>
           </div>
           <div className="starter-chat">
@@ -268,9 +265,10 @@ function StarterKitPage() {
         <div className="starter-section-inner starter-sound">
           <p className="starter-script-big reveal">Sound like you?</p>
           <p className="starter-sound-body reveal">
-            Then the next eight chapters are going to feel like a little bit of magic. Every one of
-            these whispers gets answered inside the kit — with frameworks, worksheets, and words
-            you can actually use. ✨
+            If you've ever thought one of those things, you're exactly who I created this Starter
+            Kit for. Because building a memorable brand isn't about having the prettiest logo or
+            the perfect Instagram feed — it's about creating a brand people trust, remember, and
+            can't stop thinking about. That's exactly what you'll start building inside. ✨
           </p>
         </div>
       </section>
@@ -281,7 +279,7 @@ function StarterKitPage() {
         <div className="starter-section-inner">
           <div className="reveal text-center">
             <p className="starter-eyebrow">What you'll experience</p>
-            <h2 className="starter-section-title">Eight quiet chapters. One unforgettable brand.</h2>
+            <h2 className="starter-section-title">Inside the Starter Kit, you'll unlock…</h2>
           </div>
           <div className="starter-experience-grid">
             {experienceItems.map((item, i) => (
@@ -306,8 +304,8 @@ function StarterKitPage() {
       <section className="starter-section starter-section-cream">
         <div className="starter-section-inner">
           <div className="reveal text-center">
-            <p className="starter-eyebrow">Picture this</p>
-            <h2 className="starter-section-title">Eight chapters from now…</h2>
+            <p className="starter-eyebrow">Picture this…</p>
+            <h2 className="starter-section-title">Imagine where your brand could be just seven days from now…</h2>
           </div>
           <div className="starter-picture-grid">
             {pictureThis.map((p, i) => (
@@ -327,14 +325,13 @@ function StarterKitPage() {
       <section className="starter-section starter-section-plum">
         <Sparkles count={10} className="is-light" />
         <div className="starter-section-inner text-center">
-          <p className="starter-eyebrow starter-eyebrow-light reveal">Unlocked inside</p>
+          <p className="starter-eyebrow starter-eyebrow-light reveal">You'll also get access to</p>
           <h2 className="starter-section-title starter-title-light reveal">
             Bonus tools &amp; templates
-            <span className="starter-script-accent starter-script-light"> at every chapter</span>
+            <span className="starter-script-accent starter-script-light"> to make it click</span>
           </h2>
           <p className="starter-sound-body starter-body-light reveal">
-            With every framework you'll unlock a matching Blushbuild tool — prompts, palettes, and
-            plug-in worksheets to make it even easier.
+            Because seeing the strategy in action makes everything click.
           </p>
           <div className="starter-bonus-row">
             {bonusTools.map((b, i) => (
@@ -355,18 +352,18 @@ function StarterKitPage() {
       {/* WHAT MAKES THIS DIFFERENT */}
       <section className="starter-section">
         <div className="starter-section-inner starter-story reveal">
-          <p className="starter-eyebrow">What makes this different</p>
+          <p className="starter-eyebrow">What makes this different?</p>
           <h2 className="starter-story-title">
-            You don't just read it.<br />
-            <em>You build your brand inside it.</em>
+            Most free guides give you information.<br />
+            <em>This Starter Kit gives you clarity.</em>
           </h2>
           <div className="starter-story-body">
-            <p>This isn't another downloadable guide.</p>
-            <p>You'll actually build your brand as you move through the experience.</p>
             <p>
-              By the time you finish, you'll understand exactly why your current brand isn't
-              connecting — and you'll know exactly what to do next.
+              Instead of reading pages of theory, you'll walk through the exact framework I use to
+              build memorable brands — with examples, guided exercises, and practical
+              implementation every step of the way.
             </p>
+            <p>By the end, you won't just know what to do. You'll know exactly where to start.</p>
           </div>
           <div className="starter-progress" aria-hidden="true">
             <span className="starter-progress-dot is-on" />
@@ -385,7 +382,7 @@ function StarterKitPage() {
       <section className="starter-section starter-section-panel">
         <div className="starter-section-inner">
           <div className="reveal text-center">
-            <p className="starter-eyebrow">Quick questions</p>
+            <p className="starter-eyebrow">FAQ</p>
             <h2 className="starter-section-title">Everything you're wondering</h2>
           </div>
           <div className="starter-faq">
@@ -422,13 +419,17 @@ function StarterKitPage() {
         <Sparkles count={16} className="is-light" />
         <div className="starter-final-inner">
           <p className="starter-eyebrow starter-eyebrow-light reveal">Your beginning starts today</p>
-          <p className="starter-script-big starter-script-light reveal">so… shall we</p>
+          <p className="starter-script-big starter-script-light reveal">ready to</p>
           <h2 className="starter-final-title reveal">
             Make It <em>Pretty?</em>
           </h2>
           <p className="starter-final-body reveal">
-            Enter your details below and I'll instantly unlock your Pretty &amp; Unforgettable
-            Brand™ Starter Kit, where you'll begin Chapter One of your brand transformation.
+            Then let's make it unforgettable. Because the brands people remember aren't built by
+            accident. They're built with intention. They're built with strategy. And yours is next.
+          </p>
+          <p className="starter-final-body reveal">
+            Enter your email below and unlock the complete Pretty &amp; Unforgettable Brand™
+            Starter Kit.
           </p>
 
           <form ref={formRef} onSubmit={handleSubmit} className="starter-form reveal" noValidate>
@@ -445,7 +446,7 @@ function StarterKitPage() {
               />
             </label>
             <label className="starter-field">
-              <span>Email</span>
+              <span>Email address</span>
               <input
                 type="email"
                 value={email}
@@ -458,10 +459,10 @@ function StarterKitPage() {
             </label>
             {error ? <p className="starter-form-error">{error}</p> : null}
             <button type="submit" className="button-solid starter-form-submit starter-cta-glow" disabled={submitting}>
-              {submitting ? "Unlocking…" : "Unlock Chapter One →"}
+              {submitting ? "Unlocking…" : "✨ Unlock My Starter Kit →"}
             </button>
             <p className="starter-form-note">
-              By continuing you'll join the Blushbuild list. Unsubscribe anytime.
+              Instant Access · Free · Start Building Today
             </p>
           </form>
         </div>
