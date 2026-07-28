@@ -219,10 +219,6 @@ function StarterKitPage() {
                 width={1408}
                 height={1200}
               />
-              <span className="starter-hero-photo-seal" aria-hidden="true">
-                <span>7</span>
-                <span>DAYS</span>
-              </span>
             </div>
           </div>
 
