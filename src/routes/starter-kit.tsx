@@ -265,9 +265,10 @@ function StarterKitPage() {
         <div className="starter-section-inner starter-sound">
           <p className="starter-script-big reveal">Sound like you?</p>
           <p className="starter-sound-body reveal">
-            Then the next eight chapters are going to feel like a little bit of magic. Every one of
-            these whispers gets answered inside the kit — with frameworks, worksheets, and words
-            you can actually use. ✨
+            If you've ever thought one of those things, you're exactly who I created this Starter
+            Kit for. Because building a memorable brand isn't about having the prettiest logo or
+            the perfect Instagram feed — it's about creating a brand people trust, remember, and
+            can't stop thinking about. That's exactly what you'll start building inside. ✨
           </p>
         </div>
       </section>
