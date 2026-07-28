@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import starterHeroImage from "@/assets/starter-kit-hero.jpg.asset.json";
+
 
 export const Route = createFileRoute("/starter-kit")({
   head: () => ({
@@ -203,23 +205,16 @@ function StarterKitPage() {
             </div>
           </div>
 
-          <div className="starter-hero-visual reveal" aria-hidden="true">
-            <div className="starter-mockup">
-              <div className="starter-mockup-header">
-                <p className="starter-mockup-header-eyebrow">Blushbuild · Chapter One</p>
-              </div>
-              <div className="starter-mockup-inner">
-                <p className="starter-mockup-title">
-                  Pretty <em>&amp;</em><br />
-                  Unforgettable<br />
-                  <span>Brand™</span>
-                </p>
-                <p className="starter-mockup-note">An interactive Starter Kit</p>
-                <div className="starter-mockup-line" />
-                <p className="starter-mockup-foot">Framework · Worksheets · Assessment</p>
-              </div>
-            </div>
+          <div className="starter-hero-visual reveal">
+            <img
+              src={starterHeroImage.url}
+              alt="Pretty & Unforgettable Brand Starter Kit editorial mockup with workbook, laptop, iPad, worksheets, notebook and ceramic coffee cup"
+              width={1024}
+              height={1024}
+              className="starter-hero-image"
+            />
           </div>
+
         </div>
       </section>
 
