@@ -1599,11 +1599,42 @@
 .starter-faq-answer p { font-size: 0.95rem; line-height: 1.65; color: var(--color-muted-foreground); }
 @keyframes sk-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
-/* Final CTA — dark espresso, no colored aurora */
+/* Final CTA — warm neutral gradient */
 .starter-aurora { display: none; }
 .starter-aurora-blob { display: none; }
-.starter-final { position: relative; overflow: hidden; background: var(--color-footer); color: var(--color-footer-foreground); }
-.starter-final-title em { font-family: var(--font-serif-alt); font-style: italic; color: var(--color-footer-foreground); }
+.starter-final {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(1000px 500px at 50% 0%, color-mix(in oklab, var(--color-highlight) 70%, var(--color-background)), transparent 65%),
+    linear-gradient(180deg,
+      color-mix(in oklab, var(--color-background) 94%, #efe6d8),
+      color-mix(in oklab, #cdb99f 55%, var(--color-background)));
+  color: var(--color-foreground);
+}
+.starter-final-title,
+.starter-final-title em,
+.starter-final-body { color: var(--color-foreground); }
+.starter-final-title em { font-family: var(--font-serif-alt); font-style: italic; }
+/* Warm-white form card on gradient */
+.starter-final .starter-form {
+  background: color-mix(in oklab, var(--color-card) 94%, var(--color-background));
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent);
+  box-shadow: 0 30px 60px -32px color-mix(in oklab, var(--color-foreground) 30%, transparent);
+}
+.starter-final .starter-field span { color: color-mix(in oklab, var(--color-foreground) 65%, transparent); }
+.starter-final .starter-field input {
+  background: var(--color-background);
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 18%, transparent);
+  color: var(--color-foreground);
+}
+.starter-final .starter-field input::placeholder { color: color-mix(in oklab, var(--color-foreground) 40%, transparent); }
+.starter-final .starter-field input:focus { border-color: color-mix(in oklab, var(--color-foreground) 45%, transparent); }
+.starter-final .starter-form-submit {
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+.starter-final .starter-form-note,
+.starter-final .starter-eyebrow-light { color: color-mix(in oklab, var(--color-foreground) 60%, transparent); }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
