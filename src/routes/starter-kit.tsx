@@ -205,8 +205,10 @@ function StarterKitPage() {
 
           <div className="starter-hero-visual reveal" aria-hidden="true">
             <div className="starter-mockup">
+              <div className="starter-mockup-header">
+                <p className="starter-mockup-header-eyebrow">Blushbuild · Chapter One</p>
+              </div>
               <div className="starter-mockup-inner">
-                <p className="starter-mockup-eyebrow">Blushbuild · Chapter One</p>
                 <p className="starter-mockup-title">
                   Pretty <em>&amp;</em><br />
                   Unforgettable<br />
