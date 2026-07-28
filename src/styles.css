@@ -1050,7 +1050,7 @@
   max-width: 44ch;
   font-size: 1rem;
   line-height: 1.7;
-  color: color-mix(in oklab, var(--color-foreground) 80%, transparent);
+  color: color-mix(in oklab, var(--color-foreground) 90%, transparent);
 }
 .starter-hero-emph {
   font-family: var(--font-serif-alt);
