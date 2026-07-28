@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import heroStack from "@/assets/starter-hero-stack.jpg.asset.json";
+
 
 export const Route = createFileRoute("/starter-kit")({
   head: () => ({
@@ -204,27 +206,26 @@ function StarterKitPage() {
             </div>
           </div>
 
-          <div className="starter-hero-visual reveal" aria-hidden="true">
-            <span className="starter-orbit starter-orbit-1">✦</span>
-            <span className="starter-orbit starter-orbit-2">♡</span>
-            <span className="starter-orbit starter-orbit-3">✧</span>
-            <span className="starter-orbit starter-orbit-4">❁</span>
-            <div className="starter-mockup">
-              <div className="starter-mockup-shine" />
-              <div className="starter-mockup-inner">
-                <p className="starter-mockup-eyebrow">Blushbuild · Starter Kit</p>
-                <p className="starter-mockup-title">
-                  Pretty &amp;<br />
-                  Unforgettable<br />
-                  <span>Brand™</span>
-                </p>
-                <p className="starter-mockup-note">An interactive Starter Kit</p>
-                <div className="starter-mockup-line" />
-                <p className="starter-mockup-foot">Framework · worksheets · assessment</p>
-              </div>
+          <div className="starter-hero-visual reveal">
+            <span className="starter-orbit starter-orbit-1" aria-hidden="true">✦</span>
+            <span className="starter-orbit starter-orbit-2" aria-hidden="true">♡</span>
+            <span className="starter-orbit starter-orbit-3" aria-hidden="true">✧</span>
+            <span className="starter-orbit starter-orbit-4" aria-hidden="true">❁</span>
+            <div className="starter-hero-photo">
+              <div className="starter-hero-photo-glow" aria-hidden="true" />
+              <img
+                src={heroStack.url}
+                alt="The Pretty & Unforgettable Brand Starter Kit — workbook, laptop, tablet, worksheets, and hydrangeas on a lavender field"
+                width={1408}
+                height={1200}
+              />
+              <span className="starter-hero-photo-seal" aria-hidden="true">
+                <span>7</span>
+                <span>DAYS</span>
+              </span>
             </div>
-            <div className="starter-mockup-shadow" />
           </div>
+
         </div>
       </section>
 

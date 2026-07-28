@@ -1647,3 +1647,59 @@
   .starter-bonus-card, .starter-aurora-blob, .starter-cta-glow, .starter-hero-shimmer { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Lush hero photo composition */
+.starter-hero-photo {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow:
+    0 40px 80px -30px color-mix(in oklab, #6b4a7a 60%, transparent),
+    0 12px 30px -12px color-mix(in oklab, #9b72cf 45%, transparent);
+  border: 1px solid color-mix(in oklab, white 55%, transparent);
+  background: #ede4f2;
+  animation: sk-float 10s ease-in-out infinite;
+  transform-origin: center;
+}
+.starter-hero-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.starter-hero-photo-glow {
+  position: absolute; inset: -20%;
+  background: radial-gradient(ellipse at 50% 50%, color-mix(in oklab, #f8dfec 70%, transparent), transparent 60%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
+}
+.starter-hero-photo-seal {
+  position: absolute; top: 8%; right: -18px;
+  width: 88px; height: 88px; border-radius: 999px;
+  background: linear-gradient(135deg, #f8dfec, #e8c5d0);
+  color: #6b4a7a;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--font-serif-alt);
+  box-shadow: 0 10px 24px -8px color-mix(in oklab, #9b72cf 50%, transparent);
+  border: 1px solid color-mix(in oklab, white 70%, transparent);
+  animation: sk-drift 8s ease-in-out infinite;
+  transform: rotate(8deg);
+}
+.starter-hero-photo-seal span:first-child { font-size: 1.9rem; line-height: 1; font-style: italic; }
+.starter-hero-photo-seal span:last-child { font-size: 0.62rem; letter-spacing: 0.22em; margin-top: 2px; }
+
+@keyframes sk-float {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-0.4deg); }
+}
+
+@media (max-width: 768px) {
+  .starter-hero-photo { border-radius: 22px; max-width: 420px; margin: 0 auto; }
+  .starter-hero-photo-seal { width: 66px; height: 66px; top: 4%; right: -10px; }
+  .starter-hero-photo-seal span:first-child { font-size: 1.4rem; }
+  .starter-hero-photo-seal span:last-child { font-size: 0.55rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .starter-hero-photo, .starter-hero-photo-seal { animation: none !important; }
+}
