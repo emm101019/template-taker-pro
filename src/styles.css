@@ -1415,8 +1415,14 @@
   background: color-mix(in oklab, var(--color-secondary) 55%, var(--color-background));
 }
 .starter-section-plum {
-  background: var(--color-footer);
-  color: var(--color-footer-foreground);
+  background:
+    radial-gradient(1200px 600px at 15% 0%, color-mix(in oklab, var(--color-highlight) 60%, var(--color-background)), transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, color-mix(in oklab, var(--color-secondary) 45%, var(--color-background)), transparent 60%),
+    linear-gradient(180deg,
+      color-mix(in oklab, var(--color-background) 92%, #efe6d8),
+      color-mix(in oklab, var(--color-secondary) 40%, var(--color-background)) 55%,
+      color-mix(in oklab, #d9c7b3 60%, var(--color-background)));
+  color: var(--color-foreground);
 }
 .starter-bokeh { display: none; }
 
