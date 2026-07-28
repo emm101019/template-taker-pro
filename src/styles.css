@@ -1487,7 +1487,8 @@
   margin-top: 1.5rem; font-size: 1.05rem; line-height: 1.75;
   color: color-mix(in oklab, var(--color-foreground) 78%, transparent);
 }
-.starter-body-light { color: color-mix(in oklab, var(--color-footer-foreground) 85%, transparent); }
+.starter-body-light { color: #f2e8d8; opacity: 0.95; }
+.starter-eyebrow-light { color: #f2e8d8; opacity: 0.9; }
 
 /* Experience card upgrade — neutral */
 .starter-experience-card { position: relative; overflow: hidden; }
