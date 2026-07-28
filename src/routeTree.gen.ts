@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StarterKitRouteImport } from './routes/starter-kit'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ResourcesRouteImport } from './routes/resources'
@@ -29,6 +30,11 @@ import { Route as FreebiesSlugRouteImport } from './routes/freebies.$slug'
 import { Route as DiarySlugRouteImport } from './routes/diary.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const StarterKitRoute = StarterKitRouteImport.update({
+  id: '/starter-kit',
+  path: '/starter-kit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/resources': typeof ResourcesRouteWithChildren
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/starter-kit': typeof StarterKitRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/starter-kit': typeof StarterKitRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/resources': typeof ResourcesRouteWithChildren
   '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/starter-kit': typeof StarterKitRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -195,6 +204,7 @@ export interface FileRouteTypes {
     | '/resources'
     | '/shop'
     | '/sitemap.xml'
+    | '/starter-kit'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -211,6 +221,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/sitemap.xml'
+    | '/starter-kit'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -232,6 +243,7 @@ export interface FileRouteTypes {
     | '/resources'
     | '/shop'
     | '/sitemap.xml'
+    | '/starter-kit'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -254,11 +266,19 @@ export interface RootRouteChildren {
   ResourcesRoute: typeof ResourcesRouteWithChildren
   ShopRoute: typeof ShopRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StarterKitRoute: typeof StarterKitRoute
   FreebiesSlugRoute: typeof FreebiesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/starter-kit': {
+      id: '/starter-kit'
+      path: '/starter-kit'
+      fullPath: '/starter-kit'
+      preLoaderRoute: typeof StarterKitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -468,18 +488,9 @@ const rootRouteChildren: RootRouteChildren = {
   ResourcesRoute: ResourcesRouteWithChildren,
   ShopRoute: ShopRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StarterKitRoute: StarterKitRoute,
   FreebiesSlugRoute: FreebiesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
