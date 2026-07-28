@@ -1,65 +1,57 @@
-## Goal
-Replace all copy on `/starter-kit` with the finalized script provided, keeping the current colorful design, animations, and structure intact.
+## Hero rework — /starter-kit
 
-## Scope
-Only `src/routes/starter-kit.tsx`. No style, route, or logic changes. Form still redirects to `/chapter-one`.
+Scope: only the hero section of `src/routes/starter-kit.tsx` (lines ~176–229) plus the matching `.starter-hero*` rules in `src/styles.css`. Nothing else on the page, no other routes, form logic unchanged.
 
-## Copy updates (section by section)
+### New visual hierarchy (top → bottom, mobile-first)
 
-1. **Hero**
-   - Eyebrow: `FREE INTERACTIVE STARTER KIT`
-   - Headline: `Build a Faceless Brand People Can't Forget.`
-   - Body: "Build a brand that feels premium, authentic, and impossible to ignore. This isn't another free PDF. It's an interactive Starter Kit that walks you through my complete branding framework—with real examples, visual breakdowns, exercises, and a personalized brand assessment."
-   - CTA: `Unlock My Starter Kit →`
-   - Micro-note: `Instant Access • Free • No Spam`
+1. Eyebrow pill — `✦ FREE INTERACTIVE STARTER KIT` (existing style, unchanged).
+2. **H1 headline** — the product name, in the site's editorial serif (Cormorant/Italiana), no shimmer, no gradient:
+   ```
+   Pretty & Unforgettable
+   Brand™ Starter Kit
+   ```
+   "Brand™" stays on its own line; "&" set in italic serif for rhythm.
+3. **Supporting promise** (sub-headline, smaller, muted foreground):
+   "Build a faceless brand people can't forget — premium, authentic, unmistakably yours."
+4. Body paragraph (kept, trimmed):
+   "Not another free PDF. An interactive Starter Kit that walks you through the complete branding framework — real examples, visual breakdowns, exercises, and a personalized brand assessment."
+5. CTA row (unchanged): `Unlock My Starter Kit →` + `Instant Access · Free · No Spam`.
+6. Dark plum contrast card on the right (desktop) / below copy (mobile) — see below.
 
-2. **Is this you?** — heading `The messages I get every single week…` with 5 chat bubbles:
-   - "How do I make my brand look more premium?"
-   - "I don't want to show my face… can I still build a successful brand?"
-   - "My content feels all over the place."
-   - "I want my brand to actually stand out."
-   - "I have so many ideas… I just don't know where to start."
+### Color treatment
 
-3. **Sound like you?** — script block with the "If you've ever thought one of those things…" paragraph ending "That's exactly what you'll start building inside."
+- Remove the pink/lavender wash: delete `.starter-hero-glow`, the hero `<Sparkles>` layer, and the orbiting glyphs.
+- Hero background = site default cream/ivory (`bg-background`), same border-bottom divider used elsewhere.
+- Typography = existing site tokens (`font-serif-alt` for H1, `text-foreground` / `text-muted-foreground`), no shimmer/gradient text.
+- CTA = existing `.button-solid` with no extra glow.
+- Contrast is delivered by ONE element: a deep-plum bordered "book cover" card replacing the current pastel mockup.
 
-4. **What you'll experience** — 7 cards (was 8):
-   - Complete 17-Step Brand Framework
-   - Real brand examples and breakdowns
-   - Before & after transformations
-   - Interactive exercises
-   - Guided implementation prompts
-   - Brand-building worksheets
-   - Personalized Brand Assessment
+### Dark plum mockup card (the intentional contrast)
 
-5. **Picture this…** — heading `Imagine where your brand could be just seven days from now…` with 4 checklist items:
-   - Your brand finally feels cohesive.
-   - You know exactly what makes your business different.
-   - Creating content feels easier because your brand has direction.
-   - Your Instagram actually reflects the business you're building.
+- Background: deep plum from the existing lower "final" section token (reuse, don't invent a new color).
+- Cream inner border + subtle inner shadow, matches the luxury card treatment already on the page.
+- Contents:
+  - Eyebrow: `BLUSHBUILD · CHAPTER ONE`
+  - Serif title: `Pretty & Unforgettable Brand™`
+  - Note: `An interactive Starter Kit`
+  - Hairline divider
+  - Foot: `Framework · Worksheets · Assessment`
+- No floating orbits, no shine sweep. Static, editorial, on-brand.
 
-6. **Bonus tools & templates** — 6 items: Brand Worksheets, Brand Examples, Visual Breakdowns, Swipe Files, Reflection Prompts, Brand Assessment. Tagline: "Because seeing the strategy in action makes everything click."
+### Mobile layout
 
-7. **What makes this different?** — new copy: "Most free guides give you information. This Starter Kit gives you clarity…" ending "You'll know exactly where to start."
+- Single column, headline first, card below CTA.
+- Card max-width capped so it doesn't dominate; comfortable padding matching other sections.
 
-8. **FAQ accordion** — replace with 6 questions:
-   - I'm not creative. Will this still work?
-   - I don't want to show my face. Is this for me?
-   - Do I need Canva Pro?
-   - How long does it take?
-   - Is this really free?
-   - What happens after I finish?
-   Write concise, on-brand answers (2–3 sentences each) for each.
+### Files touched
 
-9. **Final CTA band**
-   - Headline: `Ready to Make It Pretty?`
-   - Sub: `Then let's make it unforgettable.`
-   - Body: "Because the brands people remember… aren't built by accident. They're built with intention. They're built with strategy. And yours is next. Enter your email below and unlock the complete Pretty & Unforgettable Brand™ Starter Kit."
-   - Fields: First Name, Email
-   - Button: `✨ Unlock My Starter Kit →`
-   - Micro-note: `Instant Access • Free • Start Building Today`
+- `src/routes/starter-kit.tsx` — replace the `{/* HERO */}` block only (lines ~176–229). Remove `Sparkles` + `.starter-orbit*` + `.starter-hero-glow` usage from the hero.
+- `src/styles.css` — retire hero-specific pastel/shimmer/orbit rules (`.starter-hero-glow`, `.starter-hero-shimmer`, `.starter-hero-script`, `.starter-orbit*`, `.starter-mockup-shine`); add restrained rules for the new plum card reusing existing plum/cream tokens. No new color tokens introduced.
 
-## Unchanged
-Design system, animations, gradients, floating ornaments, accordion behavior, form validation, localStorage save, redirect to `/chapter-one`, header banner link.
+### Out of scope
 
-## Deliverable
-One edit to `src/routes/starter-kit.tsx` swapping all copy blocks + FAQ data to match the script above.
+- All other sections (Is this you, Sound like you, Experience, Picture this, Bonus, Differentiators, FAQ, Final CTA) untouched.
+- Form fields, validation, submit handler, redirect: unchanged.
+- No other routes modified.
+
+Awaiting approval before editing.
