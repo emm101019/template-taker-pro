@@ -1050,7 +1050,7 @@
   max-width: 44ch;
   font-size: 1rem;
   line-height: 1.7;
-  color: color-mix(in oklab, var(--color-foreground) 80%, transparent);
+  color: color-mix(in oklab, var(--color-foreground) 90%, transparent);
 }
 .starter-hero-emph {
   font-family: var(--font-serif-alt);
@@ -1240,7 +1240,7 @@
   margin-top: 0.7rem;
   font-size: 0.92rem;
   line-height: 1.6;
-  color: color-mix(in oklab, var(--color-foreground) 72%, transparent);
+  color: color-mix(in oklab, var(--color-foreground) 88%, transparent);
 }
 .starter-experience-arrow {
   position: absolute; right: 1.3rem; bottom: 1.1rem;
@@ -1416,27 +1416,30 @@
 }
 .starter-section-plum {
   background:
-    radial-gradient(1200px 600px at 15% 0%, color-mix(in oklab, var(--color-highlight) 60%, var(--color-background)), transparent 60%),
-    radial-gradient(900px 500px at 100% 100%, color-mix(in oklab, var(--color-secondary) 45%, var(--color-background)), transparent 60%),
-    linear-gradient(180deg,
-      color-mix(in oklab, var(--color-background) 92%, #efe6d8),
-      color-mix(in oklab, var(--color-secondary) 40%, var(--color-background)) 55%,
-      color-mix(in oklab, #d9c7b3 60%, var(--color-background)));
-  color: var(--color-foreground);
+    radial-gradient(1100px 600px at 15% 0%, #4a2f22, transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, #3a2419, transparent 60%),
+    linear-gradient(180deg, #2b1c14 0%, #3a251a 55%, #24170f 100%);
+  color: #f7efe1;
 }
+.starter-section-plum .starter-section-title,
+.starter-section-plum .starter-section-lede,
+.starter-section-plum p,
+.starter-section-plum h1,
+.starter-section-plum h2,
+.starter-section-plum h3 { color: #f7efe1; }
 .starter-bokeh { display: none; }
 
 .starter-section-lede {
   max-width: 620px; margin: 1rem auto 0;
-  font-size: 1.02rem; line-height: 1.7;
-  color: color-mix(in oklab, var(--color-foreground) 75%, transparent);
+  font-size: 1.02rem; line-height: 1.75;
+  color: color-mix(in oklab, var(--color-foreground) 88%, transparent);
 }
 .starter-script-accent {
   display: block; font-family: var(--font-serif-alt); font-style: italic; font-weight: 400;
-  color: color-mix(in oklab, var(--color-muted-foreground) 90%, var(--color-foreground));
+  color: color-mix(in oklab, var(--color-foreground) 92%, transparent);
   font-size: 0.85em; margin-top: 0.3rem;
 }
-.starter-script-light { color: color-mix(in oklab, var(--color-footer-foreground) 85%, transparent); }
+.starter-script-light { color: #f7efe1; opacity: 0.95; }
 
 /* Chat */
 .starter-chat { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.2rem; max-width: 720px; margin-left: auto; margin-right: auto; }
@@ -1482,9 +1485,10 @@
 }
 .starter-sound-body {
   margin-top: 1.5rem; font-size: 1.05rem; line-height: 1.75;
-  color: color-mix(in oklab, var(--color-foreground) 78%, transparent);
+  color: color-mix(in oklab, var(--color-foreground) 90%, transparent);
 }
-.starter-body-light { color: color-mix(in oklab, var(--color-footer-foreground) 85%, transparent); }
+.starter-body-light { color: #f2e8d8; opacity: 0.95; }
+.starter-eyebrow-light { color: #f2e8d8; opacity: 0.9; }
 
 /* Experience card upgrade — neutral */
 .starter-experience-card { position: relative; overflow: hidden; }
@@ -1526,7 +1530,7 @@
 }
 .starter-picture-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -22px color-mix(in oklab, var(--color-foreground) 28%, transparent); }
 .starter-picture-card h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-foreground); margin-bottom: 0.4rem; }
-.starter-picture-card p { font-size: 0.92rem; line-height: 1.6; color: var(--color-muted-foreground); }
+.starter-picture-card p { font-size: 0.94rem; line-height: 1.65; color: color-mix(in oklab, var(--color-foreground) 88%, transparent); }
 .starter-check {
   width: 2rem; height: 2rem; border-radius: 999px; flex-shrink: 0;
   background: var(--color-secondary);
@@ -1536,36 +1540,31 @@
   font-weight: 700;
 }
 
-/* Bonus tools — dark espresso section */
-.starter-title-light { color: var(--color-footer-foreground); }
-.starter-bonus-row {
-  margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
-}
-/* Bonus tools — warm ivory→oatmeal gradient with warm-white cards */
-.starter-title-light { color: var(--color-foreground); }
+/* Bonus tools — dark chocolate cards on the espresso section */
+.starter-title-light { color: #f7efe1; }
 .starter-bonus-row {
   margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
 }
 .starter-bonus-card {
   position: relative; width: 130px; height: 160px;
   border-radius: 1rem;
-  background: color-mix(in oklab, var(--color-card) 92%, var(--color-background));
-  border: 1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent);
+  background: linear-gradient(160deg, #4a2f22, #2b1c14);
+  border: 1px solid rgba(247, 239, 225, 0.22);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
-  box-shadow: 0 20px 40px -26px color-mix(in oklab, var(--color-foreground) 30%, transparent), inset 0 1px 0 rgba(255,255,255,0.6);
+  box-shadow: 0 24px 40px -22px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.08);
   animation: sk-float 5s ease-in-out infinite;
-  color: var(--color-foreground);
+  color: #f7efe1;
 }
 .starter-bonus-lock {
   position: absolute; top: -10px;
-  background: var(--color-foreground);
-  color: var(--color-background);
+  background: #f7efe1;
+  color: #2b1c14;
   width: 26px; height: 26px; border-radius: 999px;
-  display: grid; place-items: center; font-size: 0.9rem;
-  box-shadow: 0 4px 10px -4px color-mix(in oklab, var(--color-foreground) 40%, transparent);
+  display: grid; place-items: center; font-size: 0.9rem; font-weight: 700;
+  box-shadow: 0 4px 10px -4px rgba(0,0,0,0.5);
 }
-.starter-bonus-glyph { font-size: 2rem; color: var(--color-foreground); }
-.starter-bonus-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.starter-bonus-glyph { font-size: 2rem; color: #f7efe1; }
+.starter-bonus-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: #f7efe1; }
 
 /* FAQ */
 .starter-faq { margin-top: 3rem; max-width: 720px; margin-left: auto; margin-right: auto; display: flex; flex-direction: column; gap: 0.8rem; }
@@ -1596,45 +1595,47 @@
   background: var(--color-foreground); color: var(--color-background);
 }
 .starter-faq-answer { padding: 0 1.3rem 1.2rem; animation: sk-open 260ms ease; }
-.starter-faq-answer p { font-size: 0.95rem; line-height: 1.65; color: var(--color-muted-foreground); }
+.starter-faq-answer p { font-size: 0.96rem; line-height: 1.7; color: color-mix(in oklab, var(--color-foreground) 90%, transparent); }
 @keyframes sk-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
-/* Final CTA — warm neutral gradient */
+/* Final CTA — deep espresso/mocha gradient with high-contrast type */
 .starter-aurora { display: none; }
 .starter-aurora-blob { display: none; }
 .starter-final {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(1000px 500px at 50% 0%, color-mix(in oklab, var(--color-highlight) 70%, var(--color-background)), transparent 65%),
-    linear-gradient(180deg,
-      color-mix(in oklab, var(--color-background) 94%, #efe6d8),
-      color-mix(in oklab, #cdb99f 55%, var(--color-background)));
-  color: var(--color-foreground);
+    radial-gradient(900px 500px at 50% 0%, #5a3a29, transparent 65%),
+    linear-gradient(180deg, #2b1c14 0%, #3d2718 55%, #1f130d 100%);
+  color: #f7efe1;
 }
 .starter-final-title,
 .starter-final-title em,
-.starter-final-body { color: var(--color-foreground); }
-.starter-final-title em { font-family: var(--font-serif-alt); font-style: italic; }
-/* Warm-white form card on gradient */
+.starter-final-body { color: #f7efe1; }
+.starter-final-body { opacity: 0.92; }
+.starter-final-title em { font-family: var(--font-serif-alt); font-style: italic; color: #f7efe1; }
+
+/* Warm-white form card on the dark gradient */
 .starter-final .starter-form {
-  background: color-mix(in oklab, var(--color-card) 94%, var(--color-background));
-  border: 1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent);
-  box-shadow: 0 30px 60px -32px color-mix(in oklab, var(--color-foreground) 30%, transparent);
+  background: #f8f1e3;
+  border: 1px solid rgba(43, 28, 20, 0.14);
+  box-shadow: 0 40px 80px -32px rgba(0,0,0,0.55);
 }
-.starter-final .starter-field span { color: color-mix(in oklab, var(--color-foreground) 65%, transparent); }
+.starter-final .starter-field span { color: #4a3529; font-weight: 600; }
 .starter-final .starter-field input {
-  background: var(--color-background);
-  border: 1px solid color-mix(in oklab, var(--color-foreground) 18%, transparent);
-  color: var(--color-foreground);
+  background: #fffaf0;
+  border: 1px solid rgba(43, 28, 20, 0.28);
+  color: #2a221f;
 }
-.starter-final .starter-field input::placeholder { color: color-mix(in oklab, var(--color-foreground) 40%, transparent); }
-.starter-final .starter-field input:focus { border-color: color-mix(in oklab, var(--color-foreground) 45%, transparent); }
+.starter-final .starter-field input::placeholder { color: rgba(42, 34, 31, 0.55); }
+.starter-final .starter-field input:focus { border-color: #2b1c14; outline: none; }
 .starter-final .starter-form-submit {
-  background: var(--color-foreground);
-  color: var(--color-background);
+  background: #2b1c14;
+  color: #f7efe1;
+  font-weight: 600;
 }
-.starter-final .starter-form-note,
-.starter-final .starter-eyebrow-light { color: color-mix(in oklab, var(--color-foreground) 60%, transparent); }
+.starter-final .starter-form-submit:hover { background: #3d2718; }
+.starter-final .starter-form-note { color: #6b4f3f; }
+.starter-final .starter-eyebrow-light { color: #f7efe1; opacity: 0.9; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
