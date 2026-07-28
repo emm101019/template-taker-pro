@@ -223,6 +223,9 @@ function StarterKitPage() {
                 <p className="starter-mockup-foot">Framework · worksheets · assessment</p>
               </div>
             </div>
+            <div className="starter-mockup-shadow" />
+          </div>
+        </div>
       </section>
 
       {/* IS THIS YOU — chat style */}
