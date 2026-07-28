@@ -1541,30 +1541,31 @@
 .starter-bonus-row {
   margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
 }
+/* Bonus tools — warm ivory→oatmeal gradient with warm-white cards */
+.starter-title-light { color: var(--color-foreground); }
+.starter-bonus-row {
+  margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+}
 .starter-bonus-card {
   position: relative; width: 130px; height: 160px;
   border-radius: 1rem;
-  background: color-mix(in oklab, var(--color-footer-foreground) 8%, var(--color-footer));
-  border: 1px solid color-mix(in oklab, var(--color-footer-foreground) 20%, transparent);
+  background: color-mix(in oklab, var(--color-card) 92%, var(--color-background));
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
-  box-shadow: 0 20px 40px -24px rgba(0,0,0,0.5), inset 0 1px 0 color-mix(in oklab, var(--color-footer-foreground) 15%, transparent);
+  box-shadow: 0 20px 40px -26px color-mix(in oklab, var(--color-foreground) 30%, transparent), inset 0 1px 0 rgba(255,255,255,0.6);
   animation: sk-float 5s ease-in-out infinite;
-  color: var(--color-footer-foreground);
+  color: var(--color-foreground);
 }
 .starter-bonus-lock {
   position: absolute; top: -10px;
-  background: var(--color-footer-foreground);
-  color: var(--color-footer);
+  background: var(--color-foreground);
+  color: var(--color-background);
   width: 26px; height: 26px; border-radius: 999px;
   display: grid; place-items: center; font-size: 0.9rem;
-  box-shadow: 0 4px 10px -4px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 10px -4px color-mix(in oklab, var(--color-foreground) 40%, transparent);
 }
-.starter-bonus-glyph { font-size: 2rem; color: var(--color-footer-foreground); }
+.starter-bonus-glyph { font-size: 2rem; color: var(--color-foreground); }
 .starter-bonus-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; }
-
-/* FAQ */
-.starter-faq { margin-top: 3rem; max-width: 720px; margin-left: auto; margin-right: auto; display: flex; flex-direction: column; gap: 0.8rem; }
-.starter-faq-item {
   border: 1px solid color-mix(in oklab, var(--color-foreground) 14%, transparent);
   border-radius: 1rem;
   background: var(--color-card);
