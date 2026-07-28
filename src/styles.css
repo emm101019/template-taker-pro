@@ -1530,7 +1530,7 @@
 }
 .starter-picture-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -22px color-mix(in oklab, var(--color-foreground) 28%, transparent); }
 .starter-picture-card h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--color-foreground); margin-bottom: 0.4rem; }
-.starter-picture-card p { font-size: 0.92rem; line-height: 1.6; color: var(--color-muted-foreground); }
+.starter-picture-card p { font-size: 0.94rem; line-height: 1.65; color: color-mix(in oklab, var(--color-foreground) 88%, transparent); }
 .starter-check {
   width: 2rem; height: 2rem; border-radius: 999px; flex-shrink: 0;
   background: var(--color-secondary);
