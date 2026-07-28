@@ -233,14 +233,13 @@ function StarterKitPage() {
         <div className="starter-bokeh" aria-hidden="true" />
         <div className="starter-section-inner">
           <div className="reveal text-center">
-            <p className="starter-eyebrow">Straight from my inbox</p>
+            <p className="starter-eyebrow">Is this you?</p>
             <h2 className="starter-section-title">
-              The whispers I hear
+              The messages I get
               <span className="starter-script-accent"> every single week…</span>
             </h2>
             <p className="starter-section-lede">
-              If you've ever thought any of these — you're in very good company, and this kit was
-              built for you. ♡
+              If any of these sound familiar — you're in exactly the right place. ♡
             </p>
           </div>
           <div className="starter-chat">
