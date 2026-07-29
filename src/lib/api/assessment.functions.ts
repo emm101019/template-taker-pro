@@ -63,8 +63,8 @@ export const submitAssessment = createServerFn({ method: "POST" })
 export const listSubmissions = createServerFn({ method: "POST" })
   .inputValidator(adminSchema)
   .handler(async ({ data }) => {
-    const expected = process.env.ADMIN_ACCESS_CODE;
-    if (!expected || data.code !== expected) throw new Error("Invalid access code");
+    const expected = process.env.ADMIN_ACCESS_CODE?.trim();
+    if (!expected || data.code.trim() !== expected) throw new Error("Invalid access code");
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: rows, error } = await supabaseAdmin
       .from("brand_assessment_submissions")
