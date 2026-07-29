@@ -1,49 +1,17 @@
-## Give `/starter-kit` a lush, "Pretty Products"-level hero
+## What's going on
 
-Match the richness of the reference (deep lavender field, layered product stack, florals, birds, glow, sparkles) while staying inside the existing blush/lavender/plum + serif/script style already used elsewhere on the page. Only the hero block changes.
+`ADMIN_ACCESS_CODE` does exist in the project's secrets, so a value is stored — but I can't read it back to confirm which value it holds. Two likely reasons the dashboard still rejects your code:
 
-### Visual direction
+1. The secure form wasn't submitted (or was submitted with a different value than you're typing).
+2. The value was updated but the running preview server still holds the old environment, so `/admin/assessments` compares against the previous code.
 
-- Deep lavender-to-plum gradient field with soft radial glow (uses existing `--starter-lavender` / `--starter-plum` tokens, no new palette).
-- One AI-generated hero composition image, styled like the reference: a layered stack of a workbook cover, laptop mockup, tablet mockup, and printed worksheets, surrounded by white hydrangeas, green leaves, two soft-focus birds mid-flight, butterflies, and a central circular "07 DAYS" badge — all on the lavender field, lit like a still-life photograph. Generated at 1400×1200 with `imagegen--generate_image` (premium quality, for legible mock text on the workbook cover reading "The Pretty & Unforgettable Brand™ Starter Kit"). Saved to `src/assets/starter-hero-stack.jpg` and imported.
-- The image replaces the current CSS "mockup card" on the right; the left column keeps the current copy/CTA but is restyled to sit on the darker lavender field with light-on-dark type (script accent stays blush).
+## Plan
 
-### Hero layout (desktop)
+1. Open the secure secret form again for `ADMIN_ACCESS_CODE` so you can type the exact code you want. Nothing is saved until you submit that form.
+2. Restart the preview server so the new value is loaded into the environment that the admin server function reads.
+3. Verify end-to-end: hit `/admin/assessments`, enter the code, and confirm the dashboard opens and lists submissions (0 rows is a valid pass).
+4. If it still fails, add a temporary server-side check that reports only whether the env var is present and its length — never the value — to pinpoint whether the secret reached the runtime.
 
-```text
-┌──────────────────────────────┬────────────────────────────────┐
-│ ✦ FREE INTERACTIVE           │            ✦    ♡              │
-│   STARTER KIT                │      ┌───────────────────┐     │
-│                              │      │  hydrangeas +     │     │
-│ build a                      │      │  workbook cover   │     │
-│ Faceless Brand               │      │  laptop + tablet  │     │
-│ people can't forget.         │      │  birds + leaves   │     │
-│                              │      │  "07 DAYS" seal   │     │
-│ Build a brand that feels …   │      └───────────────────┘     │
-│ premium, authentic, and      │           ✧            ❁       │
-│ impossible to ignore.        │                                │
-│                              │                                │
-│ [ Unlock My Starter Kit → ]  │                                │
-│ Instant Access · Free        │                                │
-└──────────────────────────────┴────────────────────────────────┘
-```
+## Technical detail
 
-- Background: full-bleed lavender→plum gradient with a soft blush radial glow behind the image; existing `Sparkles` component reused, count bumped to 22, tinted lighter for contrast.
-- Left copy: existing headline structure kept, but headline color shifts to warm cream on the dark field; "Faceless Brand" keeps the blush shimmer; a thin blush divider with a centered `✦` sits under the headline.
-- Right: the generated composition floats in with a soft drop shadow and a slow ambient float animation (reuse existing `starter-orbit` keyframes; no new animation libs). Four small orbit glyphs (`✦ ♡ ✧ ❁`) drift around it.
-- CTA button and eyebrow pill unchanged in behavior; only restyled for the darker field (blush gradient stays; eyebrow becomes translucent white pill with blush text).
-
-### Mobile behavior
-
-- Image stacks above the copy, capped at ~360px wide, centered.
-- Headline drops one size step; orbit glyphs hide below 640px (matches current mobile rules).
-
-### Files touched
-
-- `src/assets/starter-hero-stack.jpg` — new, generated via `imagegen--generate_image` (premium tier so the workbook cover text renders legibly).
-- `src/routes/starter-kit.tsx` — replace only the `{/* HERO */}` JSX with the new two-column layout and import the new asset. Nothing below the hero changes.
-- `src/styles.css` — add `.starter-hero--lush` variant styles (dark gradient field, cream headline color, image frame + float, blush divider) and extend the existing mobile media query for the hero. No token changes.
-
-### Out of scope
-
-- No changes to sections below the hero, no new routes, no data or form-logic changes, no new dependencies.
+`src/lib/api/assessment.functions.ts` reads `process.env.ADMIN_ACCESS_CODE` inside the handlers of `listSubmissions` and `updateSubmission` and does a strict string compare, so whitespace or a trailing newline in the saved value would also cause a mismatch — worth entering the code with no leading/trailing spaces.
