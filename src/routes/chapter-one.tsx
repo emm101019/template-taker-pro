@@ -644,6 +644,32 @@ function ChapterOnePage() {
         </div>
       </section>
 
+      <section className="as-page" style={{ paddingTop: "clamp(2.5rem, 8vw, 5rem)" }}>
+        <div className="as-shell as-welcome">
+          <p className="as-label">Ready for the next step?</p>
+          <h2 className="as-title">
+            The Pretty &amp; <em>Unforgettable</em> Brand Assessment
+          </h2>
+          <div className="as-lede">
+            <p>
+              If you&apos;ve been nodding your head while reading this and realizing your brand deserves
+              more than random templates, constant second-guessing, and guesswork, this assessment is your
+              next step.
+            </p>
+            <p>
+              I want to understand where your brand currently stands, what you&apos;re trying to build,
+              what you&apos;ve already tried, and what may be stopping you from creating a brand that
+              feels clear, cohesive, and unforgettable.
+            </p>
+          </div>
+          <Link to="/assessment" className="as-button">
+            Take the Free Brand Assessment
+          </Link>
+        </div>
+      </section>
+
+
+
       <SiteFooter />
     </main>
   );

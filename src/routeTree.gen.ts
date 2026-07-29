@@ -18,6 +18,7 @@ import { Route as McpRouteImport } from './routes/mcp'
 import { Route as DiaryRouteImport } from './routes/diary'
 import { Route as ChapterOneRouteImport } from './routes/chapter-one'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AssessmentRouteImport } from './routes/assessment'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShopIndexRouteImport } from './routes/shop.index'
@@ -31,6 +32,7 @@ import { Route as ProgressSlugRouteImport } from './routes/progress.$slug'
 import { Route as FreebiesSlugRouteImport } from './routes/freebies.$slug'
 import { Route as DiarySlugRouteImport } from './routes/diary.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AdminAssessmentsRouteImport } from './routes/admin.assessments'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
@@ -78,6 +80,11 @@ const ChapterOneRoute = ChapterOneRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssessmentRoute = AssessmentRouteImport.update({
+  id: '/assessment',
+  path: '/assessment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -145,6 +152,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const AdminAssessmentsRoute = AdminAssessmentsRouteImport.update({
+  id: '/admin/assessments',
+  path: '/admin/assessments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Char91DotwellKnownChar93OauthProtectedResourceRoute =
   Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
     id: '/.well-known/oauth-protected-resource',
@@ -167,6 +179,7 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/assessment': typeof AssessmentRoute
   '/blog': typeof BlogRouteWithChildren
   '/chapter-one': typeof ChapterOneRoute
   '/diary': typeof DiaryRouteWithChildren
@@ -178,6 +191,7 @@ export interface FileRoutesByFullPath {
   '/starter-kit': typeof StarterKitRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/admin/assessments': typeof AdminAssessmentsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -194,12 +208,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/assessment': typeof AssessmentRoute
   '/chapter-one': typeof ChapterOneRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/starter-kit': typeof StarterKitRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/admin/assessments': typeof AdminAssessmentsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -217,6 +233,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/assessment': typeof AssessmentRoute
   '/blog': typeof BlogRouteWithChildren
   '/chapter-one': typeof ChapterOneRoute
   '/diary': typeof DiaryRouteWithChildren
@@ -228,6 +245,7 @@ export interface FileRoutesById {
   '/starter-kit': typeof StarterKitRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/admin/assessments': typeof AdminAssessmentsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -246,6 +264,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/assessment'
     | '/blog'
     | '/chapter-one'
     | '/diary'
@@ -257,6 +276,7 @@ export interface FileRouteTypes {
     | '/starter-kit'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/admin/assessments'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -273,12 +293,14 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/assessment'
     | '/chapter-one'
     | '/mcp'
     | '/sitemap.xml'
     | '/starter-kit'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/admin/assessments'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -295,6 +317,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/assessment'
     | '/blog'
     | '/chapter-one'
     | '/diary'
@@ -306,6 +329,7 @@ export interface FileRouteTypes {
     | '/starter-kit'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/admin/assessments'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -323,6 +347,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AssessmentRoute: typeof AssessmentRoute
   BlogRoute: typeof BlogRouteWithChildren
   ChapterOneRoute: typeof ChapterOneRoute
   DiaryRoute: typeof DiaryRouteWithChildren
@@ -334,6 +359,7 @@ export interface RootRouteChildren {
   StarterKitRoute: typeof StarterKitRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  AdminAssessmentsRoute: typeof AdminAssessmentsRoute
   FreebiesSlugRoute: typeof FreebiesSlugRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -401,6 +427,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessment': {
+      id: '/assessment'
+      path: '/assessment'
+      fullPath: '/assessment'
+      preLoaderRoute: typeof AssessmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -494,6 +527,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/admin/assessments': {
+      id: '/admin/assessments'
+      path: '/admin/assessments'
+      fullPath: '/admin/assessments'
+      preLoaderRoute: typeof AdminAssessmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.well-known/oauth-protected-resource': {
       id: '/.well-known/oauth-protected-resource'
       path: '/.well-known/oauth-protected-resource'
@@ -585,6 +625,7 @@ const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AssessmentRoute: AssessmentRoute,
   BlogRoute: BlogRouteWithChildren,
   ChapterOneRoute: ChapterOneRoute,
   DiaryRoute: DiaryRouteWithChildren,
@@ -597,6 +638,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  AdminAssessmentsRoute: AdminAssessmentsRoute,
   FreebiesSlugRoute: FreebiesSlugRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
