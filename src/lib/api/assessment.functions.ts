@@ -81,9 +81,10 @@ export const updateSubmission = createServerFn({ method: "POST" })
     const expected = process.env.ADMIN_ACCESS_CODE;
     if (!expected || data.code !== expected) throw new Error("Invalid access code");
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const patch: Record<string, unknown> = {};
+    const patch: { status?: string; private_notes?: string } = {};
     if (data.status) patch.status = data.status;
     if (data.private_notes !== undefined) patch.private_notes = data.private_notes;
+
     const { error } = await supabaseAdmin
       .from("brand_assessment_submissions")
       .update(patch)
