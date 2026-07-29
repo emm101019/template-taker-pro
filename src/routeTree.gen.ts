@@ -32,6 +32,7 @@ import { Route as ProgressSlugRouteImport } from './routes/progress.$slug'
 import { Route as FreebiesSlugRouteImport } from './routes/freebies.$slug'
 import { Route as DiarySlugRouteImport } from './routes/diary.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AdminAssessmentsRouteImport } from './routes/admin.assessments'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
@@ -151,6 +152,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const AdminAssessmentsRoute = AdminAssessmentsRouteImport.update({
+  id: '/admin/assessments',
+  path: '/admin/assessments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Char91DotwellKnownChar93OauthProtectedResourceRoute =
   Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
     id: '/.well-known/oauth-protected-resource',
@@ -185,6 +191,7 @@ export interface FileRoutesByFullPath {
   '/starter-kit': typeof StarterKitRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/admin/assessments': typeof AdminAssessmentsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -208,6 +215,7 @@ export interface FileRoutesByTo {
   '/starter-kit': typeof StarterKitRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/admin/assessments': typeof AdminAssessmentsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -237,6 +245,7 @@ export interface FileRoutesById {
   '/starter-kit': typeof StarterKitRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/admin/assessments': typeof AdminAssessmentsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/diary/$slug': typeof DiarySlugRoute
   '/freebies/$slug': typeof FreebiesSlugRoute
@@ -267,6 +276,7 @@ export interface FileRouteTypes {
     | '/starter-kit'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/admin/assessments'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -290,6 +300,7 @@ export interface FileRouteTypes {
     | '/starter-kit'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/admin/assessments'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -318,6 +329,7 @@ export interface FileRouteTypes {
     | '/starter-kit'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/admin/assessments'
     | '/blog/$slug'
     | '/diary/$slug'
     | '/freebies/$slug'
@@ -347,6 +359,7 @@ export interface RootRouteChildren {
   StarterKitRoute: typeof StarterKitRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  AdminAssessmentsRoute: typeof AdminAssessmentsRoute
   FreebiesSlugRoute: typeof FreebiesSlugRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -514,6 +527,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/admin/assessments': {
+      id: '/admin/assessments'
+      path: '/admin/assessments'
+      fullPath: '/admin/assessments'
+      preLoaderRoute: typeof AdminAssessmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.well-known/oauth-protected-resource': {
       id: '/.well-known/oauth-protected-resource'
       path: '/.well-known/oauth-protected-resource'
@@ -618,6 +638,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  AdminAssessmentsRoute: AdminAssessmentsRoute,
   FreebiesSlugRoute: FreebiesSlugRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
