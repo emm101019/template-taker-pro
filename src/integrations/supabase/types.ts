@@ -14,7 +14,81 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      brand_assessment_submissions: {
+        Row: {
+          additional_information: string | null
+          biggest_challenges: string[]
+          commitment_score: number
+          cost_of_inaction: string | null
+          created_at: string
+          current_situation: string
+          current_stage: string
+          desired_90_day_result: string
+          desired_transformation: string | null
+          email: string
+          first_name: string
+          help_needed: string
+          id: string
+          instagram_username: string | null
+          open_to_support: string
+          perceived_block: string | null
+          previous_attempts: string | null
+          private_notes: string | null
+          status: string
+          updated_at: string
+          what_has_not_worked: string | null
+          why_now: string | null
+        }
+        Insert: {
+          additional_information?: string | null
+          biggest_challenges?: string[]
+          commitment_score?: number
+          cost_of_inaction?: string | null
+          created_at?: string
+          current_situation: string
+          current_stage: string
+          desired_90_day_result: string
+          desired_transformation?: string | null
+          email: string
+          first_name: string
+          help_needed: string
+          id?: string
+          instagram_username?: string | null
+          open_to_support: string
+          perceived_block?: string | null
+          previous_attempts?: string | null
+          private_notes?: string | null
+          status?: string
+          updated_at?: string
+          what_has_not_worked?: string | null
+          why_now?: string | null
+        }
+        Update: {
+          additional_information?: string | null
+          biggest_challenges?: string[]
+          commitment_score?: number
+          cost_of_inaction?: string | null
+          created_at?: string
+          current_situation?: string
+          current_stage?: string
+          desired_90_day_result?: string
+          desired_transformation?: string | null
+          email?: string
+          first_name?: string
+          help_needed?: string
+          id?: string
+          instagram_username?: string | null
+          open_to_support?: string
+          perceived_block?: string | null
+          previous_attempts?: string | null
+          private_notes?: string | null
+          status?: string
+          updated_at?: string
+          what_has_not_worked?: string | null
+          why_now?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
