@@ -47,11 +47,10 @@ async function generatePdf(slug: string) {
   if (!data) throw new Error(`Unknown resource: ${slug}`);
 
   const doc = await PDFDocument.create();
-  console.log("StandardFonts", StandardFonts);
   const helvetica = await doc.embedFont(StandardFonts.Helvetica);
   const helveticaBold = await doc.embedFont(StandardFonts.HelveticaBold);
-  const timesBold = await doc.embedFont(StandardFonts.TimesBold);
-  const timesItalic = await doc.embedFont(StandardFonts.TimesItalic);
+  const timesBold = await doc.embedFont(StandardFonts.TimesRomanBold);
+  const timesItalic = await doc.embedFont(StandardFonts.TimesRomanItalic);
 
   let page = doc.addPage([PAGE_W, PAGE_H]);
   let y = drawPageBase(page, timesItalic);
