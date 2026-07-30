@@ -17,6 +17,7 @@ import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as DiaryRouteImport } from './routes/diary'
 import { Route as ChapterOneRouteImport } from './routes/chapter-one'
+import { Route as CartRouteImport } from './routes/cart'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AssessmentRouteImport } from './routes/assessment'
 import { Route as AboutRouteImport } from './routes/about'
@@ -75,6 +76,11 @@ const DiaryRoute = DiaryRouteImport.update({
 const ChapterOneRoute = ChapterOneRouteImport.update({
   id: '/chapter-one',
   path: '/chapter-one',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -181,6 +187,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/assessment': typeof AssessmentRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cart': typeof CartRoute
   '/chapter-one': typeof ChapterOneRoute
   '/diary': typeof DiaryRouteWithChildren
   '/mcp': typeof McpRoute
@@ -209,6 +216,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/assessment': typeof AssessmentRoute
+  '/cart': typeof CartRoute
   '/chapter-one': typeof ChapterOneRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -235,6 +243,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/assessment': typeof AssessmentRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cart': typeof CartRoute
   '/chapter-one': typeof ChapterOneRoute
   '/diary': typeof DiaryRouteWithChildren
   '/mcp': typeof McpRoute
@@ -266,6 +275,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/assessment'
     | '/blog'
+    | '/cart'
     | '/chapter-one'
     | '/diary'
     | '/mcp'
@@ -294,6 +304,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/assessment'
+    | '/cart'
     | '/chapter-one'
     | '/mcp'
     | '/sitemap.xml'
@@ -319,6 +330,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/assessment'
     | '/blog'
+    | '/cart'
     | '/chapter-one'
     | '/diary'
     | '/mcp'
@@ -349,6 +361,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AssessmentRoute: typeof AssessmentRoute
   BlogRoute: typeof BlogRouteWithChildren
+  CartRoute: typeof CartRoute
   ChapterOneRoute: typeof ChapterOneRoute
   DiaryRoute: typeof DiaryRouteWithChildren
   McpRoute: typeof McpRoute
@@ -420,6 +433,13 @@ declare module '@tanstack/react-router' {
       path: '/chapter-one'
       fullPath: '/chapter-one'
       preLoaderRoute: typeof ChapterOneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -627,6 +647,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AssessmentRoute: AssessmentRoute,
   BlogRoute: BlogRouteWithChildren,
+  CartRoute: CartRoute,
   ChapterOneRoute: ChapterOneRoute,
   DiaryRoute: DiaryRouteWithChildren,
   McpRoute: McpRoute,
