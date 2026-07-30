@@ -183,9 +183,9 @@ function StarterKitPage() {
           <div className="starter-hero-copy reveal">
             <p className="starter-eyebrow starter-eyebrow-pill">✦ Free Interactive Starter Kit</p>
             <h1 className="starter-hero-title">
-              <span className="starter-hero-script">build a</span>
-              <span className="starter-hero-shimmer">Faceless Brand</span>
-              <span className="starter-hero-italic">people can't forget.</span>
+              <span className="starter-hero-script">Pretty &amp;</span>
+              <span className="starter-hero-shimmer">Unforgettable Brand</span>
+              <span className="starter-hero-italic">Starter Kit</span>
             </h1>
             <div className="starter-hero-body">
               <p>Build a brand that feels premium, authentic, and impossible to ignore.</p>
