@@ -61,11 +61,14 @@ function formatValue(key: string, value: unknown) {
 
 function friendlyError(error: unknown) {
   const message = error instanceof Error ? error.message : String(error ?? "");
+  if (/provider is not enabled|Unsupported provider|validation_failed/i.test(message)) {
+    return "Google sign-in isn't turned on for this site yet. Enable the Google provider in your Supabase authentication settings, then try again.";
+  }
   if (/Forbidden/i.test(message)) {
-    return "This account is not authorised to view submissions. Sign out and use the owner email.";
+    return "This Google account isn't authorised. Sign out and continue with the owner's Google account.";
   }
   if (/Unauthorized/i.test(message)) {
-    return "Your session expired. Please request a new login link.";
+    return "Your session expired. Please sign in with Google again.";
   }
   if (/Missing Supabase environment|SUPABASE_/i.test(message)) {
     return `Server configuration problem: ${message}`;
