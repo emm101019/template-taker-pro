@@ -224,7 +224,7 @@ export type Resource = {
 export const resources: Resource[] = [
   {
     slug: "brand-starter-kit",
-    title: "Pretty & Unforgettable Brand Starter Kit",
+    title: "Etsy Starter Kit",
     type: "PDF",
     text: "Everything you need to open your shop with confidence.",
     cover: images.iced2,
