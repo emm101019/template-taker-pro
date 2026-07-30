@@ -73,8 +73,7 @@ export const listSubmissions = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     assertOwner(context.claims as Record<string, unknown>);
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: rows, error } = await supabaseAdmin
+    const { data: rows, error } = await context.supabase
       .from("brand_assessment_submissions")
       .select("*")
       .order("created_at", { ascending: false })
@@ -88,12 +87,11 @@ export const updateSubmission = createServerFn({ method: "POST" })
   .inputValidator(updateSchema)
   .handler(async ({ data, context }) => {
     assertOwner(context.claims as Record<string, unknown>);
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const patch: { status?: string; private_notes?: string } = {};
     if (data.status) patch.status = data.status;
     if (data.private_notes !== undefined) patch.private_notes = data.private_notes;
 
-    const { error } = await supabaseAdmin
+    const { error } = await context.supabase
       .from("brand_assessment_submissions")
       .update(patch)
       .eq("id", data.id);
