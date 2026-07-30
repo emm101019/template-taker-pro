@@ -123,19 +123,20 @@ function AdminAssessments() {
     else setRows(null);
   }, [sessionEmail, load]);
 
-  const sendLink = async () => {
+  const signInGoogle = async () => {
     setSending(true);
     setError(null);
     try {
-      const { error: otpError } = await supabase.auth.signInWithOtp({
-        email: OWNER_EMAIL,
-        options: { emailRedirectTo: `${window.location.origin}/admin/assessments` },
+      const { error: oauthError } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${window.location.origin}/admin/assessments`,
+          queryParams: { prompt: "select_account" },
+        },
       });
-      if (otpError) throw otpError;
-      setSent(true);
+      if (oauthError) throw oauthError;
     } catch (err) {
       setError(friendlyError(err));
-    } finally {
       setSending(false);
     }
   };
@@ -143,8 +144,8 @@ function AdminAssessments() {
   const signOut = async () => {
     await supabase.auth.signOut();
     setRows(null);
-    setSent(false);
   };
+
 
   const patch = async (id: string, values: { status?: string; private_notes?: string }) => {
     try {
