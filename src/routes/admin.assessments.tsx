@@ -18,8 +18,6 @@ export const Route = createFileRoute("/admin/assessments")({
   component: AdminAssessments,
 });
 
-const OWNER_EMAIL = "cocoberrymerry@gmail.com";
-
 const STATUSES = ["New", "Reviewing", "Followed Up", "Qualified", "Not a Fit"] as const;
 
 const LABELS: Record<string, string> = {
@@ -61,11 +59,14 @@ function formatValue(key: string, value: unknown) {
 
 function friendlyError(error: unknown) {
   const message = error instanceof Error ? error.message : String(error ?? "");
+  if (/provider is not enabled|Unsupported provider|validation_failed/i.test(message)) {
+    return "Google sign-in isn't turned on for this site yet. Enable the Google provider in your Supabase authentication settings, then try again.";
+  }
   if (/Forbidden/i.test(message)) {
-    return "This account is not authorised to view submissions. Sign out and use the owner email.";
+    return "This Google account isn't authorised. Sign out and continue with the owner's Google account.";
   }
   if (/Unauthorized/i.test(message)) {
-    return "Your session expired. Please request a new login link.";
+    return "Your session expired. Please sign in with Google again.";
   }
   if (/Missing Supabase environment|SUPABASE_/i.test(message)) {
     return `Server configuration problem: ${message}`;
@@ -81,7 +82,6 @@ function AdminAssessments() {
   const [checking, setChecking] = useState(true);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [loading, setLoading] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
@@ -120,19 +120,20 @@ function AdminAssessments() {
     else setRows(null);
   }, [sessionEmail, load]);
 
-  const sendLink = async () => {
+  const signInGoogle = async () => {
     setSending(true);
     setError(null);
     try {
-      const { error: otpError } = await supabase.auth.signInWithOtp({
-        email: OWNER_EMAIL,
-        options: { emailRedirectTo: `${window.location.origin}/admin/assessments` },
+      const { error: oauthError } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${window.location.origin}/admin/assessments`,
+          queryParams: { prompt: "select_account" },
+        },
       });
-      if (otpError) throw otpError;
-      setSent(true);
+      if (oauthError) throw oauthError;
     } catch (err) {
       setError(friendlyError(err));
-    } finally {
       setSending(false);
     }
   };
@@ -140,8 +141,8 @@ function AdminAssessments() {
   const signOut = async () => {
     await supabase.auth.signOut();
     setRows(null);
-    setSent(false);
   };
+
 
   const patch = async (id: string, values: { status?: string; private_notes?: string }) => {
     try {
@@ -192,22 +193,18 @@ function AdminAssessments() {
           <p className="as-label">Private</p>
           <h1 className="as-title">Assessment submissions</h1>
           <p>
-            This dashboard is owner-only. We&rsquo;ll email a secure sign-in link to the owner
-            address on file — no password needed.
+            This dashboard is owner-only. Continue with the owner&rsquo;s Google account to view
+            submissions — no password needed.
           </p>
-          {sent ? (
-            <p className="as-note">
-              Link sent. Check the owner inbox and open the link on this device.
-            </p>
-          ) : null}
           {error ? <p className="as-error">{error}</p> : null}
-          <button type="button" className="as-button" disabled={sending} onClick={sendLink}>
-            {sending ? "Sending…" : "Send me a secure login link"}
+          <button type="button" className="as-button" disabled={sending} onClick={signInGoogle}>
+            {sending ? "Opening Google…" : "Continue with Google"}
           </button>
         </div>
       </main>
     );
   }
+
 
   return (
     <main className="as-page">
