@@ -66,7 +66,7 @@ function Index() {
           to="/starter-kit"
           className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 text-center text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground transition hover:text-foreground sm:text-xs"
         >
-          NEW HERE? GET YOUR FREE ETSY STARTER KIT ✨
+          NEW HERE? GET YOUR FREE PRETTY & UNFORGETTABLE BRAND STARTER KIT ✨
         </Link>
       </section>
 
