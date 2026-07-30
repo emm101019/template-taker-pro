@@ -87,6 +87,16 @@ function ResourcesPage() {
                   >
                     Download PDF ↓
                   </a>
+                  <button
+                    type="button"
+                    className="product-link"
+                    onClick={() =>
+                      add({ slug: resource.slug, title: resource.title, type: resource.type })
+                    }
+                    disabled={has(resource.slug)}
+                  >
+                    {has(resource.slug) ? "In your cart ♡" : "Add to cart +"}
+                  </button>
                   <Link
                     to="/resources/$slug"
                     params={{ slug: resource.slug }}
