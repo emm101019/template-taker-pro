@@ -195,22 +195,18 @@ function AdminAssessments() {
           <p className="as-label">Private</p>
           <h1 className="as-title">Assessment submissions</h1>
           <p>
-            This dashboard is owner-only. We&rsquo;ll email a secure sign-in link to the owner
-            address on file — no password needed.
+            This dashboard is owner-only. Continue with the owner&rsquo;s Google account to view
+            submissions — no password needed.
           </p>
-          {sent ? (
-            <p className="as-note">
-              Link sent. Check the owner inbox and open the link on this device.
-            </p>
-          ) : null}
           {error ? <p className="as-error">{error}</p> : null}
-          <button type="button" className="as-button" disabled={sending} onClick={sendLink}>
-            {sending ? "Sending…" : "Send me a secure login link"}
+          <button type="button" className="as-button" disabled={sending} onClick={signInGoogle}>
+            {sending ? "Opening Google…" : "Continue with Google"}
           </button>
         </div>
       </main>
     );
   }
+
 
   return (
     <main className="as-page">
