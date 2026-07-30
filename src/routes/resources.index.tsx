@@ -31,6 +31,7 @@ export const Route = createFileRoute("/resources/")({
 const types = ["All", "PDF", "GUIDE", "TEMPLATE", "DOC", "FREE"] as const;
 
 function ResourcesPage() {
+  const { add, has, count } = useFreebieCart();
   const [gate, setGate] = useState<{ slug: string; title: string; url: string } | null>(null);
 
   return (
