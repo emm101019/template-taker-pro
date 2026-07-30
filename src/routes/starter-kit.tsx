@@ -382,11 +382,11 @@ function StarterKitPage() {
             <p className="starter-eyebrow">FAQ</p>
             <h2 className="starter-section-title">Everything you're wondering</h2>
           </div>
-          <div className="starter-faq">
+          <div className="starter-faq reveal">
             {faqs.map((f, i) => {
               const open = openFaq === i;
               return (
-                <div key={f.q} className={`starter-faq-item reveal ${open ? "is-open" : ""}`} style={{ transitionDelay: `${i * 50}ms` }}>
+                <div key={f.q} className={`starter-faq-item ${open ? "is-open" : ""}`}>
                   <button
                     type="button"
                     className="starter-faq-question"
