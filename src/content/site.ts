@@ -943,6 +943,66 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const blogPostExtras: Record<string, { takeaways: string[]; actionPlan: string[] }> = {
+  "brand-people-remember-without-showing-your-face": {
+    takeaways: [
+      "Recognition comes from repeated signals — colors, formats, and phrasing — not from a face.",
+      "A point of view is the strongest memory hook a faceless brand has.",
+      "Specific detail replaces the warmth a face would otherwise provide.",
+    ],
+    actionPlan: [
+      "Write three opinions your brand will repeat until people associate them with you.",
+      "Lock two fonts, one background tone, and one accent, then stop changing them.",
+      "Name your recurring format and publish it on the same day every week.",
+    ],
+  },
+  "simple-3-part-content-system": {
+    takeaways: [
+      "One strong anchor piece per week carries the entire content system.",
+      "Derivatives should be extracted from the anchor, never written from scratch.",
+      "A single repeated invitation converts better than a different link every post.",
+    ],
+    actionPlan: [
+      "Write one anchor piece answering a question you were actually asked.",
+      "Extract three derivative posts from it in under an hour total.",
+      "Point every piece this week at one free resource and one signup page.",
+    ],
+  },
+  "turn-one-freebie-into-an-email-list": {
+    takeaways: [
+      "One well-promoted freebie beats five scattered ones because attention compounds.",
+      "The promise should name a specific outcome and a realistic timeframe.",
+      "Replies to your second email are the clearest sign the list is alive.",
+    ],
+    actionPlan: [
+      "Rewrite your freebie promise so it names an outcome, not a topic.",
+      "Build a dedicated landing page and link it from your most-read post.",
+      "Send a three-email welcome sequence that helps before it sells.",
+    ],
+  },
+  "why-your-brand-feels-inconsistent": {
+    takeaways: [
+      "Inconsistency is a decisions problem, not a design-talent problem.",
+      "Voice drift is felt more strongly than visual drift, and it's usually ignored.",
+      "Fixing your five most-visible surfaces captures most of the improvement.",
+    ],
+    actionPlan: [
+      "Audit your last twenty posts and key pages side by side on one screen.",
+      "Lock two fonts, one background, one accent, and a five-phrase voice bank.",
+      "Run a thirty-second consistency check before anything gets published.",
+    ],
+  },
+  "you-need-a-finish-line": {
+    takeaways: [
+      "The bottleneck is almost never ideas — it's the willingness to close something.",
+      "Done must be written down concretely or it stays a negotiable feeling.",
+      "Real feedback on a shipped version beats another month of private polishing.",
+    ],
+    actionPlan: [
+      "Write the finish-line definition for your current project today.",
+      "Set a hard ship date and move every improvement idea to version two.",
+      "Track finishes per month instead of projects started.",
+    ],
+  },
   "digital-products-that-actually-sell": {
     takeaways: [
       "Small, specific products are outperforming oversized courses because buyers want a faster win.",
