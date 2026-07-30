@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { getResourcePdfRoute } from "@/content/resource-downloads";
 import { EmailGateModal } from "@/components/email-gate-modal";
+import { useFreebieCart } from "@/lib/freebie-cart";
 
 
 
@@ -31,6 +32,7 @@ export const Route = createFileRoute("/resources/")({
 const types = ["All", "PDF", "GUIDE", "TEMPLATE", "DOC", "FREE"] as const;
 
 function ResourcesPage() {
+  const { add, has, count } = useFreebieCart();
   const [gate, setGate] = useState<{ slug: string; title: string; url: string } | null>(null);
 
   return (
@@ -56,6 +58,19 @@ function ResourcesPage() {
             </span>
           ))}
         </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3 rounded-3xl border border-border bg-highlight/40 px-5 py-4">
+          <p className="text-sm text-muted-foreground">
+            {count === 0
+              ? "Add as many freebies as you like — checkout is always $0."
+              : `${count} freebie${count === 1 ? "" : "s"} in your cart — total $0.00.`}
+          </p>
+          <Link to="/cart" className="product-link">
+            View cart →
+          </Link>
+        </div>
+
+
 
         <div className="resource-grid mt-8">
           {resources.map((resource) => {
@@ -87,6 +102,16 @@ function ResourcesPage() {
                   >
                     Download PDF ↓
                   </a>
+                  <button
+                    type="button"
+                    className="product-link"
+                    onClick={() =>
+                      add({ slug: resource.slug, title: resource.title, type: resource.type })
+                    }
+                    disabled={has(resource.slug)}
+                  >
+                    {has(resource.slug) ? "In your cart ♡" : "Add to cart +"}
+                  </button>
                   <Link
                     to="/resources/$slug"
                     params={{ slug: resource.slug }}

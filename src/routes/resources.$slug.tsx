@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { resources } from "@/content/site";
 import { getResourcePdfRoute } from "@/content/resource-downloads";
 import { EmailGateModal } from "@/components/email-gate-modal";
+import { useFreebieCart } from "@/lib/freebie-cart";
 
 
 export const Route = createFileRoute("/resources/$slug")({
@@ -61,6 +62,7 @@ function ResourceDetailPage() {
   const related = resources.filter((r) => r.slug !== resource.slug).slice(0, 3);
   const pdfUrl = getResourcePdfRoute(resource.slug) ?? undefined;
   const [gateOpen, setGateOpen] = useState(false);
+  const { add, has, count } = useFreebieCart();
 
 
   return (
@@ -129,9 +131,17 @@ function ResourceDetailPage() {
             >
               Download the PDF →
             </a>
-            <span className="text-sm text-muted-foreground">
-              We ask for your email each time.
-            </span>
+            <button
+              type="button"
+              className="product-link text-left"
+              onClick={() => add({ slug: resource.slug, title: resource.title, type: resource.type })}
+              disabled={has(resource.slug)}
+            >
+              {has(resource.slug) ? "In your cart ♡" : "Add to cart +"}
+            </button>
+            <Link to="/cart" className="text-sm text-muted-foreground underline underline-offset-4">
+              View cart{count > 0 ? ` (${count})` : ""} →
+            </Link>
           </div>
 
         </div>

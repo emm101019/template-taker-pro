@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useFreebieCart } from "@/lib/freebie-cart";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -11,6 +12,8 @@ const navLinks = [
 ] as const;
 
 export function SiteHeader() {
+  const { count } = useFreebieCart();
+
   return (
     <>
       <section className="border-b border-border bg-highlight">
@@ -53,6 +56,18 @@ export function SiteHeader() {
             </Link>
             <Link to="/shop" className="icon-shell" aria-label="Shop">
               ♡
+            </Link>
+            <Link
+              to="/cart"
+              className="icon-shell relative"
+              aria-label={`Freebie cart (${count} item${count === 1 ? "" : "s"})`}
+            >
+              ⛬
+              {count > 0 ? (
+                <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-foreground px-1 text-[0.6rem] font-semibold leading-none text-background">
+                  {count}
+                </span>
+              ) : null}
             </Link>
             <Link to="/about" className="button-solid">
               Join the list
