@@ -413,7 +413,7 @@ export const diaryEntries: DiaryEntry[] = [
     cover: images.iced6,
     excerpt: "Nine days of refreshing the dashboard. What actually moved the needle.",
     body: [
-      "Day one of my shop being open, I refreshed the seller dashboard 42 times. I know because Etsy shows you.",
+      "Day one of my shop being open, I refreshed the seller dashboard 42 times. I know because the dashboard shows you.",
       "The first three days were silent. the marketplace algorithm needs a little runway with a brand new shop, and I had exactly one listing, no reviews, and a shop banner made in twelve minutes.",
       "What actually broke the silence: I made three Pinterest pins for the same listing, each with a different hook, and scheduled them for the same evening. The next morning I woke up to my first sale — from a pin, not from marketplace search.",
       "It's not glamorous. There was no viral moment. Just a slow, quiet building of listings, pins, and one-star product photos that I later replaced.",

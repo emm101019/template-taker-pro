@@ -106,7 +106,7 @@ export const resourcePdfs: Record<string, ResourcePdf> = {
           "15. My weekly content batch, hour by hour",
           "16. Fonts I use for every launch (with samples)",
           "17. 3 free Canva alternatives to premium templates",
-          "18. Reading your Etsy stats without panicking",
+          "18. Reading your shop stats without panicking",
           "19. What I'd do with my first $100 in shop revenue",
           "20. 7 tabs I always have open on launch day",
         ],
