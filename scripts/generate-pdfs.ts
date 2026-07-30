@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb, PDFPage, PDFFont } from "pdf-lib";
 import { resourcePdfs } from "../src/content/resource-pdfs";
 
 const OUT_DIR = path.resolve(process.cwd(), "public/freebies");
@@ -24,7 +24,7 @@ const SUBTITLE_SIZE = 13;
 const TITLE_SIZE = 28;
 const SECTION_SIZE = 15;
 
-function wrapLine(text: string, width: number, font: any, size: number): string[] {
+function wrapLine(text: string, width: number, font: PDFFont, size: number): string[] {
   const words = text.split(/\s+/);
   const lines: string[] = [];
   let current = "";
@@ -49,12 +49,11 @@ async function generatePdf(slug: string) {
   const doc = await PDFDocument.create();
   const helvetica = await doc.embedFont(StandardFonts.Helvetica);
   const helveticaBold = await doc.embedFont(StandardFonts.HelveticaBold);
-  const times = await doc.embedFont(StandardFonts.TimesRoman);
   const timesBold = await doc.embedFont(StandardFonts.TimesBold);
   const timesItalic = await doc.embedFont(StandardFonts.TimesItalic);
 
   let page = doc.addPage([PAGE_W, PAGE_H]);
-  let y = drawPageBase(page, 1);
+  let y = drawPageBase(page, timesItalic);
 
   // Cover label
   page.drawText("A Blushbuild Freebie", {
@@ -115,7 +114,7 @@ async function generatePdf(slug: string) {
 
   // Content pages
   for (const section of data.sections) {
-    ({ page, y } = ensureSpace(doc, page, y, SECTION_SIZE + 24));
+    ({ page, y } = ensureSpace(doc, page, y, timesBold, helvetica, SECTION_SIZE + 24));
     y -= 12;
     page.drawText(section.heading, {
       x: MARGIN_X,
@@ -128,7 +127,7 @@ async function generatePdf(slug: string) {
 
     if (section.paragraphs) {
       for (const para of section.paragraphs) {
-        ({ page, y } = ensureSpace(doc, page, y, BODY_LEADING));
+        ({ page, y } = ensureSpace(doc, page, y, timesBold, helvetica, BODY_LEADING));
         const lines = wrapLine(para, CONTENT_W, helvetica, BODY_SIZE);
         for (const line of lines) {
           page.drawText(line, {
@@ -149,10 +148,10 @@ async function generatePdf(slug: string) {
       const bulletIndent = 14;
       const bulletWidth = CONTENT_W - bulletIndent;
       for (const bullet of section.bullets) {
-        ({ page, y } = ensureSpace(doc, page, y, BODY_LEADING));
+        ({ page, y } = ensureSpace(doc, page, y, timesBold, helvetica, BODY_LEADING));
         const lines = wrapLine(bullet, bulletWidth, helvetica, BODY_SIZE);
         for (let i = 0; i < lines.length; i++) {
-          const x = i === 0 ? MARGIN_X + bulletIndent : MARGIN_X + bulletIndent;
+          const x = MARGIN_X + bulletIndent;
           if (i === 0) {
             page.drawText("•", {
               x: MARGIN_X + 2,
@@ -178,7 +177,7 @@ async function generatePdf(slug: string) {
   }
 
   // Closing
-  ({ page, y } = ensureSpace(doc, page, y, BODY_LEADING * 4));
+  ({ page, y } = ensureSpace(doc, page, y, timesBold, helvetica, BODY_LEADING * 4));
   y -= 12;
   const closingLines = wrapLine(data.closing, CONTENT_W, helvetica, BODY_SIZE);
   for (const line of closingLines) {
@@ -193,10 +192,10 @@ async function generatePdf(slug: string) {
     y -= BODY_LEADING;
   }
 
-  // Redraw footers on all pages with correct page numbers
+  // Draw headers/footers on all pages with correct page numbers
   const pages = doc.getPages();
   for (let i = 0; i < pages.length; i++) {
-    drawFooter(pages[i], i + 1, pages.length, helvetica);
+    drawHeaderAndFooter(pages[i], i + 1, pages.length, helvetica, timesItalic);
   }
 
   const pdfBytes = await doc.save();
@@ -205,7 +204,7 @@ async function generatePdf(slug: string) {
   console.log(`Generated public/freebies/${slug}.pdf (${pages.length} pages)`);
 }
 
-function drawPageBase(page: any, pageNum: number) {
+function drawPageBase(page: PDFPage, headerFont: PDFFont) {
   // Background
   page.drawRectangle({
     x: 0,
@@ -215,26 +214,34 @@ function drawPageBase(page: any, pageNum: number) {
     color: CREAM,
   });
 
-  // Header line
-  const headerY = PAGE_H - 54;
+  // Header word
   page.drawText("Blushbuild", {
     x: MARGIN_X,
-    y: headerY,
+    y: PAGE_H - 54,
     size: 14,
-    font: page.doc?.context?.font || StandardFonts.TimesItalic,
+    font: headerFont,
     color: TEXT,
   });
-  // We'll draw the line in drawFooter/header area; skip here to avoid font issues
-  return headerY - 36;
+
+  return PAGE_H - 96;
 }
 
-function drawFooter(page: any, pageNum: number, total: number, font: any) {
+function drawHeaderAndFooter(page: PDFPage, pageNum: number, total: number, footerFont: PDFFont, headerFont: PDFFont) {
   // Header line across top
   page.drawLine({
     start: { x: MARGIN_X, y: PAGE_H - 66 },
     end: { x: PAGE_W - MARGIN_X, y: PAGE_H - 66 },
     thickness: 0.75,
     color: ACCENT,
+  });
+
+  // Header word (in case page was added after base)
+  page.drawText("Blushbuild", {
+    x: MARGIN_X,
+    y: PAGE_H - 54,
+    size: 14,
+    font: headerFont,
+    color: TEXT,
   });
 
   // Footer line across bottom
@@ -249,22 +256,22 @@ function drawFooter(page: any, pageNum: number, total: number, font: any) {
     x: MARGIN_X,
     y: 36,
     size: SMALL_SIZE,
-    font,
+    font: footerFont,
     color: TEXT,
   });
   page.drawText(`Page ${pageNum}`, {
-    x: PAGE_W - MARGIN_X - font.widthOfTextAtSize(`Page ${pageNum}`, SMALL_SIZE),
+    x: PAGE_W - MARGIN_X - footerFont.widthOfTextAtSize(`Page ${pageNum}`, SMALL_SIZE),
     y: 36,
     size: SMALL_SIZE,
-    font,
+    font: footerFont,
     color: TEXT,
   });
 }
 
-function ensureSpace(doc: PDFDocument, page: any, y: number, needed: number) {
+function ensureSpace(doc: PDFDocument, page: PDFPage, y: number, headerFont: PDFFont, footerFont: PDFFont, needed: number) {
   if (y - needed < MARGIN_BOTTOM + 18) {
     const newPage = doc.addPage([PAGE_W, PAGE_H]);
-    drawPageBase(newPage, doc.getPageCount());
+    drawPageBase(newPage, headerFont);
     return { page: newPage, y: PAGE_H - 108 };
   }
   return { page, y };
@@ -275,3 +282,4 @@ generatePdf(slug).catch((err) => {
   console.error(err);
   process.exit(1);
 });
+
