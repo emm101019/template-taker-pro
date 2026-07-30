@@ -580,6 +580,66 @@ export const diaryEntries: DiaryEntry[] = [
 ];
 
 export const diaryEntryExtras: Record<string, { lessons: string[]; nextSteps: string[] }> = {
+  "what-im-changing-before-august": {
+    lessons: [
+      "Most overwhelm comes from too many open formats, not from too little effort.",
+      "Specific content outperforms inspirational content almost every time.",
+      "Protected build hours disappear unless they are blocked before content is scheduled.",
+    ],
+    nextSteps: [
+      "Cut the content plan to one long-form piece, one Pinterest batch, and one email per week.",
+      "Ship the Starter Kit revisions and Canva lesson edits before starting anything new.",
+      "Hold two publish-free build mornings each week through August.",
+    ],
+  },
+  "stopped-posting-every-day": {
+    lessons: [
+      "Daily posting without capacity publishes your depletion, not your best thinking.",
+      "Fewer, better posts raise saves and replies even when reach stays flat.",
+      "The time freed by a slower rhythm is what finally moves products forward.",
+    ],
+    nextSteps: [
+      "Hold a firm three-posts-per-week rhythm for a full quarter before reassessing.",
+      "Apply the 'if it can't be done properly, it doesn't go out' rule to every draft.",
+      "Reinvest the reclaimed days into product revisions and sales page rewrites.",
+    ],
+  },
+  "building-the-starter-kit": {
+    lessons: [
+      "A free resource that nobody finishes is a first impression working against you.",
+      "Platform-specific language dates your advice and narrows who feels included.",
+      "Beginners move faster with one clear path than with a menu of possible directions.",
+    ],
+    nextSteps: [
+      "Add the brand assessment to the end of chapter one.",
+      "Collect completion feedback for a full month before making conversion claims.",
+      "Rewrite any remaining examples that still assume a single selling platform.",
+    ],
+  },
+  "finishing-before-starting-new": {
+    lessons: [
+      "Products rarely stall on the idea. They stall at the unglamorous 80% mark.",
+      "A new idea arriving mid-project is usually avoidance wearing a better outfit.",
+      "Shipped means purchasable and phone-tested, not almost ready.",
+    ],
+    nextSteps: [
+      "Keep the finish-first rule: nothing new starts until one open thing is live.",
+      "Log every new idea in the idea bank with who, what, and why now.",
+      "Clear the remaining half-built products in order of how close they are to done.",
+    ],
+  },
+  "the-quiet-work-nobody-sees": {
+    lessons: [
+      "Most polish problems are only visible on a real phone, not a resized browser.",
+      "The highest-leverage rewrites usually make a paragraph shorter, not longer.",
+      "Counting only visible output makes maintenance work feel like failure.",
+    ],
+    nextSteps: [
+      "Run a monthly mobile pass across every key page.",
+      "Rewrite each sales page opener until it names the buyer's outcome in one line.",
+      "Keep a daily fixed-it log alongside the published log.",
+    ],
+  },
   "first-digital-product-idea": {
     lessons: [
       "The strongest product ideas usually come from repeated questions, not from trend reports.",
