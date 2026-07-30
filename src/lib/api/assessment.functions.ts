@@ -1,6 +1,17 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+
+const OWNER_EMAIL = "cocoberrymerry@gmail.com";
+
+function assertOwner(claims: Record<string, unknown>) {
+  const email = typeof claims.email === "string" ? claims.email.trim().toLowerCase() : "";
+  if (email !== OWNER_EMAIL) {
+    throw new Error("Forbidden: this account is not the site owner.");
+  }
+}
+
 const submissionSchema = z.object({
   first_name: z.string().trim().min(1).max(120),
   email: z.string().trim().email().max(255),
@@ -21,9 +32,7 @@ const submissionSchema = z.object({
   additional_information: z.string().trim().max(5000).optional().nullable(),
 });
 
-const adminSchema = z.object({ code: z.string().min(1).max(200) });
-
-const updateSchema = adminSchema.extend({
+const updateSchema = z.object({
   id: z.string().uuid(),
   status: z.enum(["New", "Reviewing", "Followed Up", "Qualified", "Not a Fit"]).optional(),
   private_notes: z.string().max(10000).optional(),
@@ -61,25 +70,24 @@ export const submitAssessment = createServerFn({ method: "POST" })
   });
 
 export const listSubmissions = createServerFn({ method: "POST" })
-  .inputValidator(adminSchema)
-  .handler(async ({ data }) => {
-    const expected = process.env.ADMIN_ACCESS_CODE?.trim();
-    if (!expected || data.code.trim() !== expected) throw new Error("Invalid access code");
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    assertOwner(context.claims as Record<string, unknown>);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: rows, error } = await supabaseAdmin
       .from("brand_assessment_submissions")
       .select("*")
       .order("created_at", { ascending: false })
       .limit(1000);
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(`Database error: ${error.message}`);
     return { rows: rows ?? [] };
   });
 
 export const updateSubmission = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
   .inputValidator(updateSchema)
-  .handler(async ({ data }) => {
-    const expected = process.env.ADMIN_ACCESS_CODE?.trim();
-    if (!expected || data.code.trim() !== expected) throw new Error("Invalid access code");
+  .handler(async ({ data, context }) => {
+    assertOwner(context.claims as Record<string, unknown>);
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const patch: { status?: string; private_notes?: string } = {};
     if (data.status) patch.status = data.status;
@@ -89,6 +97,6 @@ export const updateSubmission = createServerFn({ method: "POST" })
       .from("brand_assessment_submissions")
       .update(patch)
       .eq("id", data.id);
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(`Database error: ${error.message}`);
     return { ok: true as const };
   });
