@@ -389,6 +389,101 @@ export type DiaryEntry = {
 
 export const diaryEntries: DiaryEntry[] = [
   {
+    slug: "what-im-changing-before-august",
+    title: "What I'm Changing Before August",
+    date: "Jul 30",
+    month: "July 2026",
+    cover: images.clarity,
+    excerpt:
+      "A candid monthly reset: fewer content formats, finishing what's already open, and protecting the hours that actually build the brand.",
+    body: [
+      "July ended with more open tabs than finished things, and I want to say that plainly before I write anything encouraging. I had four content formats running at once, two products in half-built states, and a running list of 'quick fixes' for the site that had stopped being quick weeks ago. Nothing was on fire. Everything was just slightly unfinished, which is its own kind of exhausting.",
+      "So I did the thing I put off every month until it becomes unavoidable: I printed the plan and crossed things out. Not reorganized — crossed out. Three of the four content formats are going. What stays is one weekly long-form piece, one Pinterest batch, and one email. That's it. Every other format was something I added because it seemed like the kind of thing a brand my size should be doing, and none of them were things my actual readers asked for.",
+      "The second change is a finish-first rule I'm holding myself to through August. Nothing new starts until the Starter Kit revisions and the Canva lesson edits are done and live. Not 'mostly done.' Live, linked, and tested on a phone. I know exactly why I keep breaking this rule — starting is fun and finishing is admin — but the brand people see is made of finished things, not intentions.",
+      "The third change is about hours. I blocked two mornings a week where nothing gets published, nothing gets answered, and nothing gets designed. Those mornings are for building the products themselves. Every time I've let content eat those blocks, the shop has stalled and the content has still felt rushed, so I lose twice.",
+      "I also went back through June and July analytics with a colder eye than usual. The pieces that did the most were the specific ones — the ones with a number, a process, or a mistake in them. The vague inspirational posts, which took the least time to write, also did the least of anything. That's a comforting result, because it means effort and outcome are still roughly aligned here.",
+      "The last thing I'm changing is smaller and more personal: I'm going to stop measuring a week by how much I published. A good week now means one finished thing shipped and one thing genuinely improved. That's a low bar on paper and a high bar in practice, which is usually the sign of a rule worth keeping.",
+      "August starts on Saturday. I'd rather walk into it with a short, honest plan than a beautiful one I quietly abandon by the tenth.",
+    ],
+    pullQuote: "The brand people see is made of finished things, not intentions.",
+  },
+  {
+    slug: "stopped-posting-every-day",
+    title: "The Week I Stopped Trying to Post Every Day",
+    date: "Jul 22",
+    month: "July 2026",
+    cover: images.coquette2,
+    excerpt:
+      "I dropped from daily posting to three intentional pieces a week — and the brand didn't collapse. Here's what actually changed.",
+    body: [
+      "For about five months I posted every single day, and I want to be honest about why: not strategy, fear. Somewhere I'd absorbed the idea that a day without a post was a day the algorithm forgot me, and that a forgotten brand is a dead brand. So I posted through tired days, uninspired days, and days when I clearly had nothing to say.",
+      "What that produced was a feed with a lot of volume and very little weight. Looking back through it, maybe one in six posts was something I'd stand behind. The rest were filler I made to keep a streak alive that nobody but me was tracking.",
+      "So in the middle of July I stopped. Three posts a week, each one planned, written, and actually edited. The first few days felt genuinely uncomfortable — that itchy sense that I was falling behind while everyone else kept going. That feeling lasted about four days and then simply left.",
+      "The results were not dramatic in either direction, which is the part I want people to hear. Reach dipped slightly for a week and then recovered. Saves went up, because the posts were more useful. Replies went up noticeably, because I finally had the energy to answer them properly instead of drafting tomorrow's post while half-reading today's comments.",
+      "The bigger change was off-screen. With four days a week not spent making content, I finished two product revisions that had been open since June and rewrote a sales page I'd been avoiding. None of that shows up in a metrics screenshot, but all of it is what the business is actually made of.",
+      "I don't think daily posting is wrong. I think daily posting without capacity is wrong, because what you're really publishing on those days is your own depletion. A rhythm you can hold for a year beats a sprint you abandon in six weeks and feel guilty about for the rest.",
+      "My rule now is simple: if I can't do it properly, it doesn't go out. Three good things a week is a real brand. Seven rushed ones is just noise with my name on it.",
+    ],
+    pullQuote: "A rhythm you can hold for a year beats a sprint you abandon in six weeks.",
+  },
+  {
+    slug: "building-the-starter-kit",
+    title: "Building the Pretty & Unforgettable Brand Starter Kit",
+    date: "Jul 11",
+    month: "July 2026",
+    cover: images.brandStandsOut,
+    excerpt:
+      "Behind the scenes of rebuilding the free kit: sharper direction, marketplace language removed, and a first chapter beginners can actually finish.",
+    body: [
+      "The old free kit was fine, and fine is the worst thing a first impression can be. It was a tidy PDF with sensible advice, and almost nobody finished it. When I asked a handful of readers why, the answers were consistent: it told them what to think about but never told them what to do next.",
+      "So I rebuilt it, and the rebuild started with language. The whole kit had been written around one marketplace — every example, every screenshot, every phrase. That made it feel narrow, and it dated the advice to one platform's rules. I stripped that out entirely and rewrote the examples so they work whether someone is selling on a marketplace, a shop page, or a single link in a bio.",
+      "The name change came out of the same instinct. 'Pretty & Unforgettable Brand Starter Kit' says what the thing is for: making a brand that looks considered and stays in someone's head. It's a promise about the outcome, not a description of a platform.",
+      "The structural change was the biggest one. Instead of a document you read, it's now an interactive first chapter you move through, with exercises that save as you go. You answer a prompt, you see your answer collected, and by the end you have a page of your own words rather than a page of mine. That difference in feeling is enormous for beginners, who usually don't need more information — they need a place to put their thinking.",
+      "I also cut roughly a third of the content. Every section that started with 'you might also want to consider' got deleted. A starter kit that presents twelve possible directions isn't a starter kit; it's a menu that induces paralysis. What's left is one path, clearly sequenced, with the optional detours removed.",
+      "I'm not going to pretend I have proof yet that this converts better. It went live too recently for that, and I'd rather report real numbers later than invent flattering ones now. What I can say is that the completion feedback so far is different in tone: people are telling me what they wrote, not just that they downloaded it.",
+      "The next pass will add the brand assessment at the end, so someone finishing chapter one gets a clear read on where their brand actually stands before they decide what to build next.",
+    ],
+    pullQuote: "Beginners rarely need more information. They need a place to put their thinking.",
+  },
+  {
+    slug: "finishing-before-starting-new",
+    title: "Why I'm Finishing Before I Start Something New",
+    date: "Jun 24",
+    month: "June 2026",
+    cover: images.iced2,
+    excerpt:
+      "Six half-built products, one honest audit, and the finish-first rule that changed how the shop actually grows.",
+    body: [
+      "I counted them in June: six half-finished products. A workbook at 70%, a template pack with the covers done and nothing else, two guides stuck at outline, a swipe file missing its examples, and a course module I'd recorded once and hated. Together they represented weeks of real work and exactly zero available things for anyone to buy.",
+      "The uncomfortable part is that none of them stalled because they were bad ideas. They stalled at the same point — the boring 80% mark, where the concept is proven, the fun is over, and what remains is formatting, proofreading, and exporting. And every time I hit that wall, a new idea appeared, conveniently, feeling much more exciting than the one in front of me.",
+      "New ideas are a form of procrastination that feels like ambition. That's why they're so hard to catch. Nobody feels guilty about starting something; you feel productive right up until you notice you have six versions of nearly-done and nothing live.",
+      "So I made a finish-first rule and wrote it where I'd see it: nothing new gets started until one open thing is fully shipped. Fully means the file is exported, the listing is written, the images are made, the page is tested on a phone, and it is purchasable by a stranger. Not 90%. Shipped.",
+      "The first two weeks under that rule were genuinely dull. I finished the workbook, which took eleven hours of unglamorous work and no creative highs at all. But it went live, and it started selling in its first week, and it was suddenly worth something instead of being a folder on my desktop.",
+      "I also added a small release valve, because a rule with no flexibility gets broken entirely. New ideas go in an idea bank with three lines: who it's for, what it fixes, and why now. They wait there. Most of them look considerably less urgent two weeks later, which tells me everything about what they really were.",
+      "The shop grew more in the four weeks after that rule than in the three months before it, and I didn't have a single new idea in that time. I just finished old ones.",
+    ],
+    pullQuote: "New ideas are a form of procrastination that feels like ambition.",
+  },
+  {
+    slug: "the-quiet-work-nobody-sees",
+    title: "The Quiet Work Nobody Sees",
+    date: "Jun 8",
+    month: "June 2026",
+    cover: images.coquette6,
+    excerpt:
+      "Revisions, broken links, mobile testing, and the fourth rewrite of a paragraph — the invisible work that makes a brand feel polished.",
+    body: [
+      "This week I made nothing new. I fixed a footer link that had been broken for who knows how long, rewrote the same paragraph four times, tested six pages on an actual phone instead of a resized browser window, and re-exported a product file because the margins were wrong on page nine.",
+      "None of that is postable. There's no before-and-after that photographs well, no number that went up, no lesson dramatic enough to build a caption around. And yet it's the exact category of work that separates a brand that feels considered from one that feels almost-there.",
+      "The mobile testing was the most sobering part. On a real phone, two of my headings wrapped badly, one button sat too close to the edge to tap comfortably, and a section I'd been proud of turned into a wall of text. On my laptop all of it looked fine. Most of my readers have never seen the laptop version and never will.",
+      "The paragraph I rewrote four times was the opening of a sales page. Version one explained the product. Version two explained the product with adjectives. Version three finally said what the buyer would be able to do afterward, and version four said it in half the words. That's roughly ninety minutes for about thirty words, and it's still probably the highest-leverage ninety minutes of the week.",
+      "I think a lot of people burn out because they only count the visible work. If your definition of a productive day is 'published something,' then a day spent fixing, testing, and tightening feels like a failure, and you'll either skip that work or resent it. Both are expensive.",
+      "So I started logging it. A short list at the end of each day of what got fixed, not just what got made. It's a small trick and it works, because seeing 'fixed the mobile spacing on three pages' written down makes it feel like the real work it is.",
+      "Polished brands aren't made in the exciting hours. They're made in the quiet ones, by someone willing to look at the same paragraph a fourth time.",
+    ],
+    pullQuote: "Polished brands aren't made in the exciting hours. They're made in the quiet ones.",
+  },
+  {
     slug: "first-digital-product-idea",
     title: "How I Came Up With My First Digital Product Idea",
     date: "May 12",
@@ -485,6 +580,66 @@ export const diaryEntries: DiaryEntry[] = [
 ];
 
 export const diaryEntryExtras: Record<string, { lessons: string[]; nextSteps: string[] }> = {
+  "what-im-changing-before-august": {
+    lessons: [
+      "Most overwhelm comes from too many open formats, not from too little effort.",
+      "Specific content outperforms inspirational content almost every time.",
+      "Protected build hours disappear unless they are blocked before content is scheduled.",
+    ],
+    nextSteps: [
+      "Cut the content plan to one long-form piece, one Pinterest batch, and one email per week.",
+      "Ship the Starter Kit revisions and Canva lesson edits before starting anything new.",
+      "Hold two publish-free build mornings each week through August.",
+    ],
+  },
+  "stopped-posting-every-day": {
+    lessons: [
+      "Daily posting without capacity publishes your depletion, not your best thinking.",
+      "Fewer, better posts raise saves and replies even when reach stays flat.",
+      "The time freed by a slower rhythm is what finally moves products forward.",
+    ],
+    nextSteps: [
+      "Hold a firm three-posts-per-week rhythm for a full quarter before reassessing.",
+      "Apply the 'if it can't be done properly, it doesn't go out' rule to every draft.",
+      "Reinvest the reclaimed days into product revisions and sales page rewrites.",
+    ],
+  },
+  "building-the-starter-kit": {
+    lessons: [
+      "A free resource that nobody finishes is a first impression working against you.",
+      "Platform-specific language dates your advice and narrows who feels included.",
+      "Beginners move faster with one clear path than with a menu of possible directions.",
+    ],
+    nextSteps: [
+      "Add the brand assessment to the end of chapter one.",
+      "Collect completion feedback for a full month before making conversion claims.",
+      "Rewrite any remaining examples that still assume a single selling platform.",
+    ],
+  },
+  "finishing-before-starting-new": {
+    lessons: [
+      "Products rarely stall on the idea. They stall at the unglamorous 80% mark.",
+      "A new idea arriving mid-project is usually avoidance wearing a better outfit.",
+      "Shipped means purchasable and phone-tested, not almost ready.",
+    ],
+    nextSteps: [
+      "Keep the finish-first rule: nothing new starts until one open thing is live.",
+      "Log every new idea in the idea bank with who, what, and why now.",
+      "Clear the remaining half-built products in order of how close they are to done.",
+    ],
+  },
+  "the-quiet-work-nobody-sees": {
+    lessons: [
+      "Most polish problems are only visible on a real phone, not a resized browser.",
+      "The highest-leverage rewrites usually make a paragraph shorter, not longer.",
+      "Counting only visible output makes maintenance work feel like failure.",
+    ],
+    nextSteps: [
+      "Run a monthly mobile pass across every key page.",
+      "Rewrite each sales page opener until it names the buyer's outcome in one line.",
+      "Keep a daily fixed-it log alongside the published log.",
+    ],
+  },
   "first-digital-product-idea": {
     lessons: [
       "The strongest product ideas usually come from repeated questions, not from trend reports.",
@@ -571,6 +726,105 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "brand-people-remember-without-showing-your-face",
+    title: "How to Build a Brand People Remember Without Showing Your Face",
+    category: "Strategy",
+    date: "July 27, 2026",
+    cover: images.facelessBiz,
+    excerpt:
+      "Recognition doesn't come from a face. It comes from repetition, a point of view, and a visual system people can spot in one scroll.",
+    readingTime: "7 min read",
+    body: [
+      "The assumption behind most personal-brand advice is that people remember faces. They don't, particularly. They remember patterns. A face is one convenient pattern, but it's far from the only one, and it's the one most likely to make you avoid publishing on the days you don't feel like being seen.",
+      "What actually creates recognition is repetition of a small number of distinctive signals. A consistent color story. A recurring sentence structure. A format people can name — 'the Sunday breakdown,' 'the one-photo teardown.' If someone can describe your content to a friend without describing you, you have a brand.",
+      "Start with a point of view, because it's the signal that does the most work. Not a niche — an opinion. 'Digital products' is a niche. 'Most creators should finish one product before starting three' is a point of view. Opinions make people feel something, and feeling is what turns a scroll into a memory. Write down three things you believe that a reasonable person in your space might disagree with, and let those beliefs run underneath everything you publish.",
+      "Then build a visual system tight enough to be recognized at thumbnail size. Two fonts, one background tone, one accent, and a fixed layout for your most common post type. The mistake is variety: people change their look constantly hoping something lands, which resets recognition every time. Boring consistency looks like confidence, and confidence reads as premium.",
+      "Give your recurring content a name. Named formats are portable — they can be recommended, searched, and remembered. An unnamed weekly post is just a post. A named one becomes a small piece of intellectual property that people expect on a schedule.",
+      "Use specifics as your substitute for presence. Faceless brands lose the warmth a face provides, and the way to replace it is with detail: the actual number, the actual mistake, the actual paragraph you rewrote four times. Vagueness is what makes faceless content feel like a bot. Specificity is what makes it feel like a person who simply chose not to be on camera.",
+      "Build one owned channel so recognition compounds somewhere you control. Email is the obvious one. A reader who sees your name in an inbox every week will remember your brand far longer than someone who catches you occasionally in a feed, and no platform change can take that away from you.",
+      "Finally, be patient in a specific way: recognition arrives around the point where you're most bored of your own material. That fatigue is a signal your patterns have become consistent enough to be memorable. Change the topics all you like. Keep the signals fixed.",
+    ],
+  },
+  {
+    slug: "simple-3-part-content-system",
+    title: "The Simple 3-Part Content System I'd Use From Scratch",
+    category: "Strategy",
+    date: "July 18, 2026",
+    cover: images.contentStrategy,
+    excerpt:
+      "One anchor piece, three derivatives, one invitation. The whole content system in a shape you can actually hold every week.",
+    readingTime: "6 min read",
+    body: [
+      "If I were starting from zero tomorrow, I wouldn't build a content calendar. Calendars ask you to make decisions weeks in advance about a mood you can't predict, and they fail the first busy week. I'd build a system with three parts and repeat it until it was dull.",
+      "Part one is the anchor. One substantial piece per week — a long post, a newsletter, or an article — that says one useful thing properly. This is where the thinking happens, and it should take the majority of your content time. If the anchor is weak, everything downstream is decoration on an empty idea.",
+      "Choosing anchors is easier than people make it. Keep a running list of questions you've actually been asked, mistakes you've actually made, and processes you've actually run. Each of those is an anchor. You never need a content idea generator; you need a habit of writing down what already happened.",
+      "Part two is the derivatives. From each anchor, pull three smaller pieces: the strongest single idea as a standalone post, a practical how-to slice, and a personal or contrarian angle. Same thinking, three shapes, three audiences. This is where most people over-invest — they try to make each small piece original, which triples the work and halves the coherence.",
+      "The derivative rule that matters: never rewrite from scratch, always extract. Open the anchor, highlight a paragraph, and expand that paragraph. It takes about fifteen minutes per piece once you stop treating each one as a fresh creative act.",
+      "Part three is the invitation. Exactly one call to action per week, pointing at one destination — usually a free resource that leads to your email list. Not a different link on every post. One invitation, repeated, so that your audience learns what the next step is without having to figure it out each time.",
+      "Run this weekly and the shape looks like: Monday write the anchor, Tuesday extract the three derivatives, Wednesday through Friday publish, and one invitation woven in wherever it fits naturally. Three focused hours, not a permanently open calendar.",
+      "Review it monthly with two questions: which anchor got the most saves, and which derivative shape performed best? Then bias the next month toward those answers. That's the entire optimization loop. Everything else people add to content strategy is usually a way of avoiding the anchor.",
+    ],
+  },
+  {
+    slug: "turn-one-freebie-into-an-email-list",
+    title: "How to Turn One Freebie Into an Email List",
+    category: "Launches",
+    date: "July 8, 2026",
+    cover: images.iced1,
+    excerpt:
+      "You don't need five lead magnets. You need one useful thing, one clear promise, and three places it consistently appears.",
+    readingTime: "6 min read",
+    body: [
+      "Most people build too many freebies. Five half-promoted resources scattered across a site will always lose to one resource promoted properly, because attention compounds around repetition and nothing compounds when your traffic is split five ways.",
+      "The freebie itself should solve one problem completely rather than introduce ten partially. A one-page checklist someone finishes in ten minutes builds more trust than a forty-page guide they abandon on page six. Completion is the trust event — not download, not open. Design for the moment someone finishes and thinks, that worked.",
+      "The promise is where most freebies fail. 'Brand tips' promises nothing. 'The kit that gets your brand looking consistent in one afternoon' promises an outcome and a timeframe. Write the promise before you make the resource, and if you can't write a promise that specific, the resource idea isn't ready yet.",
+      "Your opt-in form needs to be short and honest. First name and email. Every extra field costs signups, and you cannot personalize your way out of a form that feels like an application. Say clearly what arrives, when it arrives, and what else you'll send. People are far more generous with their email when they aren't guessing what they've agreed to.",
+      "Then place it in exactly three spots and leave it alone: a dedicated landing page you can link anywhere, a contextual mention inside your most-read existing content, and a recurring reference in your regular posting rhythm. The dedicated page matters most — it gives the freebie a home that doesn't depend on any platform.",
+      "The delivery sequence is where a list becomes a relationship. Email one delivers the thing immediately, no pitch. Email two, a couple of days later, helps them actually use it and asks one question — what are you stuck on? Email three shares a relevant story or example. Only after that does anything get sold, and even then softly.",
+      "Reply rates on that second email are the metric I'd watch above all others. Replies tell you the list is alive, and the answers are the single best source of product ideas you will ever have. A list of a few hundred people who reply is worth more than thousands who never open.",
+      "Give it three months before you judge it. One freebie, promoted consistently, with a sequence that actually helps, will outperform a rotating cast of new lead magnets every time — and it's far less work to maintain.",
+    ],
+  },
+  {
+    slug: "why-your-brand-feels-inconsistent",
+    title: "Why Your Brand Feels Inconsistent (and How to Fix It)",
+    category: "Strategy",
+    date: "June 20, 2026",
+    cover: images.brandingTips,
+    excerpt:
+      "Inconsistency is almost never a design problem. It's a decisions problem — and it's fixable in an afternoon.",
+    readingTime: "6 min read",
+    body: [
+      "When someone says their brand feels inconsistent, they usually mean it looks slightly different everywhere. But the visual drift is a symptom. The cause is that no decisions were ever locked, so every new post, page, or product becomes a fresh round of choices made under time pressure and mild self-doubt.",
+      "Start with an honest audit. Put your last twenty posts, your homepage, your shop, and your freebie covers side by side on one screen. You'll see it immediately: four background tones that are nearly the same but not quite, three fonts doing the same job, a voice that's warm in one place and corporate in another. Nothing there is bad. It's just unrelated.",
+      "Fix the visual layer by shrinking your options rather than improving your taste. Two fonts total: one for headings, one for everything else. One background tone. One accent used sparingly. Three spacing values. Write them somewhere you'll actually open. Constraint is what creates consistency — not skill, and definitely not more templates.",
+      "Then fix the voice layer, which is the one most people skip. Write down five phrases your brand says and five it never says. Decide whether you use exclamation marks, whether you write in first person, whether you're playful or plain. Voice inconsistency is more jarring than visual inconsistency because readers feel it without being able to point at it.",
+      "The third layer is structural: what your brand is actually about. If your content jumps between five unrelated topics, no color palette will make it feel coherent. Pick one core problem you solve and let every piece connect back to it. Variety within a clear theme reads as depth. Variety without one reads as confusion.",
+      "Apply the rules backwards over your most visible surfaces first — homepage, freebie, top three posts, product covers. You don't need to redo everything. Consistency is judged by what people encounter most, and fixing five surfaces buys you most of the perceived improvement.",
+      "Then build a small guard against future drift: before publishing anything, check it against the rules. Right font, right tone, right accent, connected to the core problem. Thirty seconds, and it stops the slow slide that puts you right back here in four months.",
+      "The reward for locking these decisions isn't just a tidier brand. It's speed. When the choices are already made, creating gets dramatically faster, because you're only deciding what to say — never how it should look or sound.",
+    ],
+  },
+  {
+    slug: "you-need-a-finish-line",
+    title: "You Do Not Need More Ideas—You Need a Finish Line",
+    category: "Mindset",
+    date: "June 5, 2026",
+    cover: images.clarity,
+    excerpt:
+      "Idea generation is the easy part. The skill that changes your business is defining done and getting there.",
+    readingTime: "5 min read",
+    body: [
+      "Almost nobody building a creative business has an idea shortage. Open any notes app and you'll find twenty product concepts, forty content angles, and three business pivots. The bottleneck is never supply. It's the willingness to close something.",
+      "Ideas feel good because they're all potential and no evidence. Nothing has been rejected, nothing has flopped, nothing is boring yet. Finishing feels bad for the same reason — it converts a beautiful possibility into a real thing with real flaws that real people can ignore. Choosing a new idea over finishing an old one is, most of the time, choosing to stay in the comfortable part.",
+      "The fix starts with defining done before you begin. Write the finish line in concrete terms: the file exported, the page written, the images made, the link tested on a phone, purchasable by a stranger. Without a written definition, done is a feeling, and feelings can be argued with indefinitely.",
+      "Then cap the project. A week, two weeks, whatever's realistic — but a real limit. Scope expands to fill available time, and creative scope expands faster than most, because every day gives you a new idea for how the thing could be better. A deadline turns those into version-two notes instead of version-one delays.",
+      "Give new ideas a holding pen. An idea bank with three lines each: who it's for, what it fixes, why now. Writing an idea down satisfies most of the urge to act on it, and revisiting the bank two weeks later is remarkably clarifying — the ones that were genuinely good are still interesting, and the rest quietly reveal themselves as escape routes.",
+      "Finish deliberately badly the first time, if that's what it takes. A shipped version that's 80% of your standard teaches you more in one week of real feedback than another month of private refinement. You cannot learn what's wrong with a product nobody has used.",
+      "Track finishes, not starts. One number, updated monthly: how many things went fully live? It's an unglamorous metric and it's the one most correlated with an actual business. Most people who feel stuck are not lazy or uncreative. They're just measuring the wrong end of the process.",
+    ],
+  },
   {
     slug: "digital-products-that-actually-sell",
     title: "The 4 Digital Products That Actually Sell in 2026",
@@ -689,6 +943,66 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const blogPostExtras: Record<string, { takeaways: string[]; actionPlan: string[] }> = {
+  "brand-people-remember-without-showing-your-face": {
+    takeaways: [
+      "Recognition comes from repeated signals — colors, formats, and phrasing — not from a face.",
+      "A point of view is the strongest memory hook a faceless brand has.",
+      "Specific detail replaces the warmth a face would otherwise provide.",
+    ],
+    actionPlan: [
+      "Write three opinions your brand will repeat until people associate them with you.",
+      "Lock two fonts, one background tone, and one accent, then stop changing them.",
+      "Name your recurring format and publish it on the same day every week.",
+    ],
+  },
+  "simple-3-part-content-system": {
+    takeaways: [
+      "One strong anchor piece per week carries the entire content system.",
+      "Derivatives should be extracted from the anchor, never written from scratch.",
+      "A single repeated invitation converts better than a different link every post.",
+    ],
+    actionPlan: [
+      "Write one anchor piece answering a question you were actually asked.",
+      "Extract three derivative posts from it in under an hour total.",
+      "Point every piece this week at one free resource and one signup page.",
+    ],
+  },
+  "turn-one-freebie-into-an-email-list": {
+    takeaways: [
+      "One well-promoted freebie beats five scattered ones because attention compounds.",
+      "The promise should name a specific outcome and a realistic timeframe.",
+      "Replies to your second email are the clearest sign the list is alive.",
+    ],
+    actionPlan: [
+      "Rewrite your freebie promise so it names an outcome, not a topic.",
+      "Build a dedicated landing page and link it from your most-read post.",
+      "Send a three-email welcome sequence that helps before it sells.",
+    ],
+  },
+  "why-your-brand-feels-inconsistent": {
+    takeaways: [
+      "Inconsistency is a decisions problem, not a design-talent problem.",
+      "Voice drift is felt more strongly than visual drift, and it's usually ignored.",
+      "Fixing your five most-visible surfaces captures most of the improvement.",
+    ],
+    actionPlan: [
+      "Audit your last twenty posts and key pages side by side on one screen.",
+      "Lock two fonts, one background, one accent, and a five-phrase voice bank.",
+      "Run a thirty-second consistency check before anything gets published.",
+    ],
+  },
+  "you-need-a-finish-line": {
+    takeaways: [
+      "The bottleneck is almost never ideas — it's the willingness to close something.",
+      "Done must be written down concretely or it stays a negotiable feeling.",
+      "Real feedback on a shipped version beats another month of private polishing.",
+    ],
+    actionPlan: [
+      "Write the finish-line definition for your current project today.",
+      "Set a hard ship date and move every improvement idea to version two.",
+      "Track finishes per month instead of projects started.",
+    ],
+  },
   "digital-products-that-actually-sell": {
     takeaways: [
       "Small, specific products are outperforming oversized courses because buyers want a faster win.",
