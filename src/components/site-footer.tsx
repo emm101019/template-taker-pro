@@ -34,7 +34,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm opacity-90">
             <li>Pinterest</li>
             <li>Instagram</li>
-            <li>Etsy</li>
+            <li>Shop</li>
           </ul>
         </div>
       </div>

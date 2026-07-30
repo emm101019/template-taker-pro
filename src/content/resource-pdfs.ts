@@ -10,10 +10,10 @@ export type ResourcePdf = {
 };
 
 export const resourcePdfs: Record<string, ResourcePdf> = {
-  "etsy-starter-kit": {
-    subtitle: "Everything you need to open your Etsy shop with quiet confidence.",
+  "brand-starter-kit": {
+    subtitle: "Everything you need to open your shop with quiet confidence.",
     intro:
-      "This kit is the exact playbook I wish someone had handed me the week I opened my first Etsy shop. No fluff, no 'manifest your first sale' pep talk — just the setup steps, the templates, and the small pricing decisions that keep new sellers stuck for months. Work through it in one afternoon and you'll have a shop that's ready for its first listing by the end of the day.",
+      "This kit is the exact playbook I wish someone had handed me the week I opened my first shop. No fluff, no 'manifest your first sale' pep talk — just the setup steps, the templates, and the small pricing decisions that keep new sellers stuck for months. Work through it in one afternoon and you'll have a shop that's ready for its first listing by the end of the day.",
     sections: [
       {
         heading: "1. Naming your shop without over-thinking",
@@ -36,13 +36,13 @@ export const resourcePdfs: Record<string, ResourcePdf> = {
         heading: "3. The first-listing template",
         paragraphs: [
           "Title formula: [Main Keyword] | [Secondary Keyword] | [Format] | [Style Descriptor]. Example: 'Wedding Seating Chart Template | Editable Canva | Printable PDF | Minimalist'.",
-          "Description structure: one-line hook, three bullet points on what's included, three bullet points on how to use it, one paragraph on the vibe / who it's for, then FAQ and terms. Keep the hook above the fold — Etsy truncates fast on mobile.",
+          "Description structure: one-line hook, three bullet points on what's included, three bullet points on how to use it, one paragraph on the vibe / who it's for, then FAQ and terms. Keep the hook above the fold — marketplace listings truncate fast on mobile.",
         ],
         bullets: [
           "5 mockup images (cover, in-context, close-up, dimensions, before/after)",
           "1 video (Canva 10-second walkthrough is enough)",
           "13 tags, all lowercase, none duplicating your title exactly",
-          "Digital delivery via Etsy — never DM the file",
+          "Digital delivery via your shop platform — never DM the file",
         ],
       },
       {
@@ -99,7 +99,7 @@ export const resourcePdfs: Record<string, ResourcePdf> = {
       {
         heading: "Carousels — outlines that earn saves",
         bullets: [
-          "11. 5 mistakes I made in my first month on Etsy",
+          "11. 5 mistakes I made in my first month selling",
           "12. What to put on your shop banner (with visual examples)",
           "13. Pricing your first digital product without spiraling",
           "14. Anatomy of a listing that converts",
@@ -121,7 +121,7 @@ export const resourcePdfs: Record<string, ResourcePdf> = {
           "25. 'How to [Outcome] Even If You [Objection]'",
           "26. 'A Simple [Tool] Workflow for [Audience]'",
           "27. '[Number] Free [Templates/Prompts/Scripts] for [Audience]'",
-          "28. 'Read This Before You Open Your [Etsy / Shopify / Ko-fi] Shop'",
+          "28. 'Read This Before You Open Your [Shopify / Ko-fi / Gumroad] Shop'",
           "29. 'The [Small Thing] That Changed My [Big Metric]'",
           "30. 'Behind the Scenes of a [Type of Launch] Launch'",
         ],
@@ -183,7 +183,7 @@ export const resourcePdfs: Record<string, ResourcePdf> = {
           "Design the sales page. Use your existing brand — don't redesign the site.",
           "Write 3 pins with different hooks, schedule for launch day + 1.",
           "Ask 2 beta users to try it. Trade for a testimonial.",
-          "Set up the checkout / Etsy listing / Gumroad page. Test-buy it yourself.",
+          "Set up the checkout / shop listing / Gumroad page. Test-buy it yourself.",
         ],
       },
       {
@@ -258,7 +258,7 @@ export const resourcePdfs: Record<string, ResourcePdf> = {
           "16. 'Behind the scenes of a [type] launch.'",
           "17. 'Fonts, colors, and vibes for a [aesthetic] brand.'",
           "18. 'Anatomy of a listing that actually converts.'",
-          "19. 'The [number] mistakes I made on my first Etsy shop.'",
+          "19. 'The [number] mistakes I made in my first shop.'",
           "20. 'What I'd do with my first $100 in revenue.'",
           "21. 'A calm approach to Pinterest that still works.'",
           "22. 'How to write titles Pinterest actually shows.'",

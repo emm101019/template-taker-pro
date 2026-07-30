@@ -16,7 +16,7 @@ export const Route = createFileRoute("/resources/")({
       {
         name: "description",
         content:
-          "A library of free PDFs, guides, and templates for creators building digital products, from Etsy setup to Pinterest scripts.",
+          "A library of free PDFs, guides, and templates for creators building digital products, from shop setup to Pinterest scripts.",
       },
       { property: "og:title", content: "Free Resources — Blushbuild" },
       {

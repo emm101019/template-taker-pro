@@ -93,16 +93,16 @@ export const products: Product[] = [
     cta: "Buy the course",
   },
   {
-    slug: "etsy-success-guide",
-    title: "Etsy Success Guide",
-    tagline: "Positioning and listings that actually convert on Etsy",
+    slug: "brand-success-guide",
+    title: "Brand Success Guide",
+    tagline: "Positioning and listings that actually convert",
     status: "Selling",
     phase: "50% core",
     price: "$29",
     note: "Positioning notes and listing tweaks that actually convert.",
     image: images.iced6,
     pitch:
-      "The playbook I wish I had before my first Etsy shop. Positioning, keyword research, listing photos, and the pricing math that actually works for digital sellers.",
+      "The playbook I wish I had before my first shop. Positioning, keyword research, listing photos, and the pricing math that actually works for digital sellers.",
     whatYouGet: [
       "48-page PDF guide with real examples",
       "Keyword research spreadsheet",
@@ -111,7 +111,7 @@ export const products: Product[] = [
       "The messages I send buyers to get 5-star reviews",
     ],
     whoItsFor: [
-      "New Etsy sellers with 0 to 50 sales",
+      "New sellers with 0 to 50 sales",
       "Existing sellers stuck at the same monthly revenue",
       "Anyone who wants digital products to be their main income",
     ],
@@ -126,7 +126,7 @@ export const products: Product[] = [
       },
       {
         q: "Do I need existing traffic?",
-        a: "Nope. The guide covers getting your first views from Etsy search plus Pinterest.",
+        a: "Nope. The guide covers getting your first views from marketplace search plus Pinterest.",
       },
     ],
     cta: "Get the guide",
@@ -223,8 +223,8 @@ export type Resource = {
 
 export const resources: Resource[] = [
   {
-    slug: "etsy-starter-kit",
-    title: "Etsy Starter Kit",
+    slug: "brand-starter-kit",
+    title: "Pretty & Unforgettable Brand Starter Kit",
     type: "PDF",
     text: "Everything you need to open your shop with confidence.",
     cover: images.iced2,
@@ -397,7 +397,7 @@ export const diaryEntries: DiaryEntry[] = [
     excerpt:
       "The messy, non-linear process of turning a Notes-app scribble into an actual thing people paid for.",
     body: [
-      "It didn't start as a business idea. It started as a note called 'stuff I keep re-explaining to friends.' Twelve bullet points, half of them typos, mostly things I'd figured out the hard way about opening an Etsy shop.",
+      "It didn't start as a business idea. It started as a note called 'stuff I keep re-explaining to friends.' Twelve bullet points, half of them typos, mostly things I'd figured out the hard way about opening an shop.",
       "I opened Canva and turned three of those bullet points into a one-page PDF. No cover, no pricing, no funnel. Just a link I DMed to two friends. They said it was helpful. That was the entire market research.",
       "The lesson I keep coming back to: the first version of your product should embarrass you a little. If the first draft feels too polished, you waited too long.",
       "I spent the next two weeks turning that PDF into a proper mini guide. New cover, real examples, a checklist at the back. I priced it at $9. It sold 41 copies in the first month. Nothing viral — just a slow drip from Pinterest and my tiny email list.",
@@ -406,16 +406,16 @@ export const diaryEntries: DiaryEntry[] = [
     pullQuote: "The first version of your product should embarrass you a little.",
   },
   {
-    slug: "first-etsy-sale",
-    title: "From 0 To My First Etsy Sale",
+    slug: "first-brand-sale",
+    title: "From 0 To My First Sale",
     date: "May 9",
     month: "May 2026",
     cover: images.iced6,
     excerpt: "Nine days of refreshing the dashboard. What actually moved the needle.",
     body: [
       "Day one of my shop being open, I refreshed the seller dashboard 42 times. I know because Etsy shows you.",
-      "The first three days were silent. Etsy's algorithm needs a little runway with a brand new shop, and I had exactly one listing, no reviews, and a shop banner made in twelve minutes.",
-      "What actually broke the silence: I made three Pinterest pins for the same listing, each with a different hook, and scheduled them for the same evening. The next morning I woke up to my first sale — from a pin, not from Etsy search.",
+      "The first three days were silent. the marketplace algorithm needs a little runway with a brand new shop, and I had exactly one listing, no reviews, and a shop banner made in twelve minutes.",
+      "What actually broke the silence: I made three Pinterest pins for the same listing, each with a different hook, and scheduled them for the same evening. The next morning I woke up to my first sale — from a pin, not from marketplace search.",
       "It's not glamorous. There was no viral moment. Just a slow, quiet building of listings, pins, and one-star product photos that I later replaced.",
       "If I could tell past-me one thing: your first ten listings won't be your best listings. Publish them anyway. The dashboard will only start moving when there's something to move.",
     ],
@@ -475,7 +475,7 @@ export const diaryEntries: DiaryEntry[] = [
     cover: images.iced1,
     excerpt: "A tiny freebie, a slow-burn Pinterest pin, and one email that changed everything.",
     body: [
-      "I made a freebie called the Etsy Starter Kit on a whim. One page. Not even long. I gated it behind an email.",
+      "I made a freebie called the Pretty & Unforgettable Brand Starter Kit on a whim. One page. Not even long. I gated it behind an email.",
       "For three weeks nobody signed up. Then I made a very simple Pinterest pin — cream background, one serif line — and pinned it four times to four different boards. That one pin brought in 68 subscribers over two weeks.",
       "The tiny list changed how I thought about the business. Instead of shouting at strangers, I was writing to 100 specific people, and I could see their replies.",
       "The email that made it click: 'I don't know what to make next — what are you actually stuck on?' 41 people replied. The Canva Crash Course was in half those replies.",
@@ -497,9 +497,9 @@ export const diaryEntryExtras: Record<string, { lessons: string[]; nextSteps: st
       "Build a repeatable one-week validation process for every future product idea.",
     ],
   },
-  "first-etsy-sale": {
+  "first-brand-sale": {
     lessons: [
-      "A new shop needs external signals before Etsy search has enough data to help you.",
+      "A new shop needs external signals before marketplace search has enough data to help you.",
       "Pinterest can validate a listing faster than waiting for marketplace traffic alone.",
       "The first sale is less about scale and more about proving the product promise is clear.",
     ],
@@ -552,7 +552,7 @@ export const diaryEntryExtras: Record<string, { lessons: string[]; nextSteps: st
       "Replies are product research. They show the language buyers already use for their problem.",
     ],
     nextSteps: [
-      "Rewrite the Etsy Starter Kit opt-in page with the exact phrases subscribers used.",
+      "Rewrite the Pretty & Unforgettable Brand Starter Kit opt-in page with the exact phrases subscribers used.",
       "Add one question to the welcome email and tag replies by product idea.",
       "Create a monthly freebie audit so old lead magnets keep improving.",
     ],
@@ -812,8 +812,8 @@ export const progressBoard: {
     image: images.coquette5,
   },
   {
-    slug: "etsy-success-guide",
-    title: "Etsy Success Guide",
+    slug: "brand-success-guide",
+    title: "Brand Success Guide",
     stage: "live",
     percent: 100,
     updated: "This week",
@@ -905,9 +905,9 @@ export const productExtras: Record<string, ProductExtras> = {
     ],
     gallery: [images.coquette5, images.coquette2, images.brandingTips, images.clarity],
   },
-  "etsy-success-guide": {
+  "brand-success-guide": {
     description: [
-      "The Etsy Success Guide is the 48-page playbook I wish I'd had before opening my shop. Positioning, keyword research, listing photos, and the exact pricing math that works for digital sellers in 2026.",
+      "The Brand Success Guide is the 48-page playbook I wish I'd had before opening my shop. Positioning, keyword research, listing photos, and the exact pricing math that works for digital sellers in 2026.",
       "It's not a course full of theory. It's the small tactical decisions that separate a shop stuck at 3 sales a month from one doing 300 — written the way I'd walk a friend through it over coffee.",
       "Includes real listing teardowns, a keyword research spreadsheet, and the follow-up messages I send buyers to reliably get 5-star reviews.",
     ],
@@ -1001,10 +1001,10 @@ export const progressDetails: Record<string, ProgressDetail> = {
       { date: "4 weeks ago", note: "Announced V2 to the list. 68 upgrades in 48 hours." },
     ],
   },
-  "etsy-success-guide": {
+  "brand-success-guide": {
     story: [
-      "The Etsy Success Guide was the second product I ever released. It started as a 12-page PDF and has grown into a proper 48-page playbook with a keyword spreadsheet, photo templates, and a pricing calculator.",
-      "I update it every quarter as Etsy's algorithm changes. This quarter's update added the new pricing calculator and 3 fresh listing teardowns.",
+      "The Brand Success Guide was the second product I ever released. It started as a 12-page PDF and has grown into a proper 48-page playbook with a keyword spreadsheet, photo templates, and a pricing calculator.",
+      "I update it every quarter as the marketplace algorithm changes. This quarter's update added the new pricing calculator and 3 fresh listing teardowns.",
     ],
     shipped: [
       "48-page PDF live",

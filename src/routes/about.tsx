@@ -25,7 +25,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const timeline: [string, string][] = [
-  ["Fall 2024", "Opened a tiny Etsy shop with one $9 listing. Sold three copies to friends."],
+  ["Fall 2024", "Opened a tiny shop with one $9 listing. Sold three copies to friends."],
   ["Spring 2025", "First real launch: Canva Crash Course v1. Made $2,100 in the first week."],
   ["Summer 2025", "Full-time. Quit the day job. Cried a little. Kept posting."],
   ["Winter 2025", "12K followers, 4 products, first $10k month."],
