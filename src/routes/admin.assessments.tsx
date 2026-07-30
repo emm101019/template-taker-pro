@@ -18,8 +18,6 @@ export const Route = createFileRoute("/admin/assessments")({
   component: AdminAssessments,
 });
 
-const OWNER_EMAIL = "cocoberrymerry@gmail.com";
-
 const STATUSES = ["New", "Reviewing", "Followed Up", "Qualified", "Not a Fit"] as const;
 
 const LABELS: Record<string, string> = {
@@ -84,7 +82,6 @@ function AdminAssessments() {
   const [checking, setChecking] = useState(true);
   const [rows, setRows] = useState<Row[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [loading, setLoading] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
