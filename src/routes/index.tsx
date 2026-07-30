@@ -62,9 +62,12 @@ function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="border-b border-border bg-highlight">
-        <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 text-center text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">
-          New here? Get the free Etsy starter kit ✨
-        </div>
+        <Link
+          to="/starter-kit"
+          className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 text-center text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground transition hover:text-foreground sm:text-xs"
+        >
+          NEW HERE? GET YOUR FREE ETSY STARTER KIT ✨
+        </Link>
       </section>
 
       <section className="border-b border-border bg-background/95 backdrop-blur-sm">
