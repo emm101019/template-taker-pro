@@ -21,7 +21,7 @@ export function SiteHeader() {
           to="/starter-kit"
           className="mx-auto flex max-w-7xl items-center justify-center px-4 py-3 text-center text-[0.68rem] font-medium uppercase tracking-[0.22em] text-muted-foreground transition hover:text-foreground sm:text-xs"
         >
-          Get the Starter Kit — free instant access ✨
+          NEW HERE? GET YOUR FREE ETSY STARTER KIT ✨
         </Link>
       </section>
 
